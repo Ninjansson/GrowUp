@@ -10,7 +10,7 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
-        testApplicationId "androids.test"
+        testApplicationId "androids.growup"
     }
     buildTypes {
         release {
@@ -18,6 +18,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {
