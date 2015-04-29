@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SubCategory"
+            android:label="@string/title_activity_sub_category"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="MainActivity" />
+        </activity>
+        <activity
+            android:name=".Plant"
+            android:label="@string/title_activity_plant"
+            android:parentActivityName=".SubCategory" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SubCategory" />
+        </activity>
     </application>
 
 </manifest>
