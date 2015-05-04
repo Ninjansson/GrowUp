@@ -24,9 +24,6 @@ public class AboutUsActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_aboutus:
-                startActivity(new Intent(this, AboutUsActivity.class));
-                return true;
             case R.id.menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;

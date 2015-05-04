@@ -10,7 +10,7 @@ tools:context=".MainActivity">
     app:showAsAction="never" />
 
 <item android:id="@+id/menu_aboutus"
-    android:title="@string/menu_about"
+    android:title="@string/menu_aboutus"
     android:orderInCategory="1"
     app:showAsAction="never" />
 </menu>
