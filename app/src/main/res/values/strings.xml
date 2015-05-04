@@ -2,7 +2,11 @@
     <string name="app_name">GrowUp</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="menu_settings">Inställningar</string>
+    <string name="menu_about">Om oss</string>
     <string name="title_activity_sub_category">SubCategory</string>
     <string name="title_activity_plant">Plant</string>
+    <string name="title_activity_about_us">AboutUs</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>
