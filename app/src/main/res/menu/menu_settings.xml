@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <item android:id="@+id/menu_aboutus"
-        android:title="@string/menu_aboutus"
+    <item
+        android:id="@+id/menu_aboutus"
         android:orderInCategory="1"
+        android:title="@string/menu_aboutus"
         app:showAsAction="never" />
 </menu>

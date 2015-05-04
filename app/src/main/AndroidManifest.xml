@@ -35,7 +35,7 @@
                 android:value=".CategoryActivity" />
         </activity>
         <activity
-            android:name=".AboutUs"
+            android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us" >
         </activity>
         <activity
