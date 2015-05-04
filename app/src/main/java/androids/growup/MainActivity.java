@@ -76,10 +76,10 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_aboutus:
-                startActivity(new Intent("androids.growup.AboutUsActivity"));
+                startActivity(new Intent(this, AboutUsActivity.class));
                 return true;
             case R.id.menu_settings:
-                startActivity(new Intent("androids.growup.SettingsActivity"));
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

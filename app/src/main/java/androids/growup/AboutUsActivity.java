@@ -17,7 +17,7 @@ public class AboutUsActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_about, menu);
         return true;
     }
 
@@ -25,9 +25,10 @@ public class AboutUsActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_aboutus:
+                startActivity(new Intent(this, AboutUsActivity.class));
                 return true;
             case R.id.menu_settings:
-                startActivity(new Intent("androids.growup.SettingsActivity"));
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
