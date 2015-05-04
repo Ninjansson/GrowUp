@@ -13,9 +13,7 @@ public class SettingsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
