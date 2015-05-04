@@ -36,6 +36,7 @@ public class MainActivity extends ActionBarActivity {
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONAdapter(this, getLayoutInflater());
 
+<<<<<<< Updated upstream
         catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -46,6 +47,21 @@ public class MainActivity extends ActionBarActivity {
 
         catList.setAdapter(catAdapter);
         populateCategoriesList();
+=======
+        // Have the client get a JSONArray of data
+        // and define how to respond
+        client.get(QUERY_URL,
+                new JsonHttpResponseHandler() {
+
+                    @Override
+                    public void onSuccess(JSONObject jsonObject) {
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
+                    }
+                });
+>>>>>>> Stashed changes
     }
 
     private void populateCategoriesList() {
@@ -54,10 +70,18 @@ public class MainActivity extends ActionBarActivity {
         cat_client.get(QUERY_URL,
                 new JsonHttpResponseHandler() {
 
+<<<<<<< Updated upstream
                 @Override
                 public void onSuccess(JSONObject cat_object) {
                     catAdapter.updateData(cat_object.optJSONArray("categories"));
                 }
+=======
+                    @Override
+                    public void onSuccess(JSONObject cat_object) {
+                        int cat_found = cat_object.optJSONArray("categories").length();
+                        catAdapter.updateData(cat_object.optJSONArray("categories"));
+                    }
+>>>>>>> Stashed changes
 
                     @Override
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
@@ -86,8 +110,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public static boolean isNumeric(String str)
-    {
+    public static boolean isNumeric(String str) {
         NumberFormat formatter = NumberFormat.getInstance();
         ParsePosition pos = new ParsePosition(0);
         formatter.parse(str, pos);
