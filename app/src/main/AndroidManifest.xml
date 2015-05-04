@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SubCategory"
+            android:name=".CategoryActivity"
             android:label="@string/title_activity_sub_category"
             android:parentActivityName=".MainActivity" >
             <meta-data
@@ -25,12 +25,12 @@
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name=".Plant"
+            android:name=".PlantActivity"
             android:label="@string/title_activity_plant"
-            android:parentActivityName=".SubCategory" >
+            android:parentActivityName=".CategoryActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="SubCategory" />
+                android:value=".CategoryActivity" />
         </activity>
     </application>
 
