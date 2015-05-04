@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,25 +35,17 @@ public class MainActivity extends ActionBarActivity {
 
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONAdapter(this, getLayoutInflater());
+
+        catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                JSONObject object = (JSONObject) catAdapter.getItem(position);
+                showToast("ID: " + object.optInt("id"));
+            }
+        });
+
         catList.setAdapter(catAdapter);
         populateCategoriesList();
-    }
-
-    private void queryCategories() {
-        // Create a client to perform networking
-        AsyncHttpClient client = new AsyncHttpClient();
-
-        // Have the client get a JSONArray of data
-        // and define how to respond
-        client.get(QUERY_URL,
-                new JsonHttpResponseHandler() {
-
-                    @Override
-                    public void onSuccess(JSONObject jsonObject) {}
-
-                    @Override
-                    public void onFailure(int statusCode, Throwable throwable, JSONObject error) {}
-                });
     }
 
     private void populateCategoriesList() {
@@ -62,7 +56,6 @@ public class MainActivity extends ActionBarActivity {
 
                 @Override
                 public void onSuccess(JSONObject cat_object) {
-                    int cat_found = cat_object.optJSONArray("categories").length();
                     catAdapter.updateData(cat_object.optJSONArray("categories"));
                 }
 
@@ -70,10 +63,8 @@ public class MainActivity extends ActionBarActivity {
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
                         Log.d(TAG, "Failure connecting to whatever " + throwable + " " + error);
                     }
-
                 });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
