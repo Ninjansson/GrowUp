@@ -7,14 +7,14 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="521px"
-        android:layout_height="211px"
+        android:layout_width="521dp"
+        android:layout_height="211dp"
         android:id="@+id/growup_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/growuplogo_big"
-        android:layout_marginRight="20px"
-        android:layout_marginTop="20px" />
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" />
 
     <ListView
         android:id="@+id/categories"

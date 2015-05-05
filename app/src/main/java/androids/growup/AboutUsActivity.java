@@ -12,7 +12,7 @@ public class AboutUsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_aboutus);
     }
 
     @Override
@@ -24,9 +24,6 @@ public class AboutUsActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_aboutus:
-                startActivity(new Intent(this, AboutUsActivity.class));
-                return true;
             case R.id.menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;

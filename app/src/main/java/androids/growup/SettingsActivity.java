@@ -1,8 +1,8 @@
 package androids.growup;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,9 +13,7 @@ public class SettingsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -28,9 +26,7 @@ public class SettingsActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_aboutus:
-                startActivity(new Intent("androids.growup.AboutUsActivity"));
-                return true;
-            case R.id.menu_settings:
+                startActivity(new Intent(this, AboutUsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

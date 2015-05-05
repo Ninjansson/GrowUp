@@ -46,6 +46,7 @@ public class MainActivity extends ActionBarActivity {
 
         catList.setAdapter(catAdapter);
         populateCategoriesList();
+
     }
 
     private void populateCategoriesList() {
@@ -86,8 +87,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public static boolean isNumeric(String str)
-    {
+    public static boolean isNumeric(String str) {
         NumberFormat formatter = NumberFormat.getInstance();
         ParsePosition pos = new ParsePosition(0);
         formatter.parse(str, pos);
@@ -95,6 +95,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showToast(String output) {
-        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
     }
 }
