@@ -5,9 +5,9 @@
 
     <string name="menu_aboutus">Om oss</string>
 
-    <string name="title_activity_sub_category">SubCategory</string>
-
     <string name="title_activity_plant">Växter</string>
+
+    <string name="title_activity_sub_category"></string>
 
     <string name="title_activity_about_us">Om Oss</string>
 

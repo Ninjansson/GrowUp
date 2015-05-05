@@ -8,19 +8,38 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class PlantActivity extends ActionBarActivity {
+
+    private TextView plant_name, latin_name, plant_info, plant_habitat;
+    private int habitat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
+
+        plant_name = (TextView) findViewById(R.id.plant_name);
+        latin_name = (TextView) findViewById(R.id.latin_name);
+        plant_info = (TextView) findViewById(R.id.plant_info);
+        plant_habitat = (TextView) findViewById(R.id.plant_habitat);
+
+        plant_name.setText(this.getIntent().getExtras().getString("name"));
+        latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
+        plant_info.setText(this.getIntent().getExtras().getString("info"));
+        plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+    }
+
+    private String checkHabitat(int habitat) {
+        return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
     }
 
     @Override
@@ -41,7 +60,6 @@ public class PlantActivity extends ActionBarActivity {
         if (id == R.id.menu_settings) {
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }

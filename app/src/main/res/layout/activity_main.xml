@@ -7,8 +7,8 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="521dp"
-        android:layout_height="211dp"
+        android:layout_width="521px"
+        android:layout_height="211px"
         android:id="@+id/growup_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
