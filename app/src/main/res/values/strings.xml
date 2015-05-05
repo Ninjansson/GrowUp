@@ -16,4 +16,8 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="push_notiser">Push Notiser</string>
     <string name="pushnotiser">pushnotiser</string>
+    <string name="pref_push_sum">Push Notiser</string>
+    <string name="pref_push_time">Tid</string>
+    <string name="pref_push_messages_title">Push Notiser</string>
+    <string name="push_settings">PushNotiser2</string>
 </resources>
