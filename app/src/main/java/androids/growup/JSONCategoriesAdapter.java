@@ -18,7 +18,7 @@ import org.json.JSONObject;
  * Created by Kim Jansson on 2015-04-12.
  */
 
-public class JSONAdapter extends BaseAdapter {
+public class JSONCategoriesAdapter extends BaseAdapter {
     private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/";
     private static final String TAG = "GrowUpMotherFucker";
 
@@ -26,7 +26,7 @@ public class JSONAdapter extends BaseAdapter {
     LayoutInflater mInflater;
     JSONArray mJsonArray;
 
-    public JSONAdapter(Context context, LayoutInflater inflater) {
+    public JSONCategoriesAdapter(Context context, LayoutInflater inflater) {
         mContext = context;
         mInflater = inflater;
         mJsonArray = new JSONArray();
@@ -71,12 +71,9 @@ public class JSONAdapter extends BaseAdapter {
         // Construct the image URL (specific to API)
         String imageURL = IMAGE_URL_BASE + img;
 
-        Log.d(TAG, imageURL);
-
         // Use Picasso to load the image
         // Temporarily have a placeholder in case it's slow to load
         Picasso.with(mContext).load(imageURL).into(holder.img_cat_logo);
-
 
         // Grab the title and author from the JSON
         String cat_name = "";
@@ -87,7 +84,6 @@ public class JSONAdapter extends BaseAdapter {
 
         // Send these Strings to the TextViews for display
         holder.text_category.setText(cat_name);
-
 
         return convertView;
     }

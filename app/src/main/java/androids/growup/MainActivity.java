@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "GrowUpMotherFucker";
     private ListView catList;
-    private JSONAdapter catAdapter;
+    private JSONCategoriesAdapter catAdapter;
 
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
 
@@ -34,13 +34,18 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         catList = (ListView) findViewById(R.id.categories);
-        catAdapter = new JSONAdapter(this, getLayoutInflater());
+        catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
 
         catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 JSONObject object = (JSONObject) catAdapter.getItem(position);
-                showToast("ID: " + object.optInt("id"));
+                //showToast("ID: " + object.optInt("id"));
+                Intent categoryIntent = new Intent(MainActivity.this, CategoryActivity.class);
+                categoryIntent.putExtra("cat_id", object.optInt("id"));
+                categoryIntent.putExtra("cat_name", object.optString("cat_name"));
+
+                startActivity(categoryIntent);
             }
         });
 
@@ -55,10 +60,10 @@ public class MainActivity extends ActionBarActivity {
         cat_client.get(QUERY_URL,
                 new JsonHttpResponseHandler() {
 
-                @Override
-                public void onSuccess(JSONObject cat_object) {
-                    catAdapter.updateData(cat_object.optJSONArray("categories"));
-                }
+                    @Override
+                    public void onSuccess(JSONObject cat_object) {
+                        catAdapter.updateData(cat_object.optJSONArray("categories"));
+                    }
 
                     @Override
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
