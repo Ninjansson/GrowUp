@@ -60,10 +60,10 @@ public class MainActivity extends ActionBarActivity {
         cat_client.get(QUERY_URL,
                 new JsonHttpResponseHandler() {
 
-                @Override
-                public void onSuccess(JSONObject cat_object) {
-                    catAdapter.updateData(cat_object.optJSONArray("categories"));
-                }
+                    @Override
+                    public void onSuccess(JSONObject cat_object) {
+                        catAdapter.updateData(cat_object.optJSONArray("categories"));
+                    }
 
                     @Override
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {

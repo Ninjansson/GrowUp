@@ -18,7 +18,7 @@ import org.json.JSONObject;
  * Created by Kim Jansson on 2015-04-12.
  */
 
-public class JSONCategoriesAdapter extends BaseAdapter{
+public class JSONCategoriesAdapter extends BaseAdapter {
     private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/";
     private static final String TAG = "GrowUpMotherFucker";
 
