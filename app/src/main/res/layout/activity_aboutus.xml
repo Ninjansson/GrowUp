@@ -2,40 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background_about"
     tools:context="androids.growup.AboutUs">
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/growuplogo" />
+        android:background="@drawable/growuplogo" /> -->
 
     <TextView
         android:id="@+id/about_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="50dp"
-        android:text="Grow Up, en app för den upptagna stadsbon. Vi hjälper dig att olda ditt eget skafferi."
+        android:layout_marginTop="35dp"
+        android:text="@string/content_about"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="italic" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/copywrite"
+        android:textSize="@dimen/copy_font"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_centerVertical="true"
-        android:text="New Text" />
+        android:text="@string/about_copywrite"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="70dp" />
 
 </RelativeLayout>

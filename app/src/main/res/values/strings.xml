@@ -27,5 +27,8 @@
 
     <string name="push_settings">PushNotiser2</string>
 
-    <string name="about_content">Om oss</string>
+    <string name="about_copywrite">© Amelie Hellners, Kim Jansson, Lee Carlsson, Mia Gruvman</string>
+
+    <string name="content_about">Grow Up, en app för den upptagna stadsbon. Vi hjälper dig att olda ditt eget skafferi.</string>
+
 </resources>
