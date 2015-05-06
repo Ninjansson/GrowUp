@@ -113,9 +113,7 @@ public class CategoryActivity extends ActionBarActivity {
         Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
     public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
