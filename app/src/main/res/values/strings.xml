@@ -3,10 +3,7 @@
 
     <string name="menu_settings">Inställningar</string>
 
-    <string name="menu_aboutus">
-        Grow up, odla ditt eget skafferi!
-
-    </string>
+    <string name="menu_aboutus">Grow up, odla ditt eget skafferi!</string>
 
     <string name="title_activity_plant">Växter</string>
 
@@ -31,9 +28,4 @@
     <string name="push_settings">PushNotiser2</string>
 
     <string name="about_content">Om oss</string>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> Ampelie
 </resources>
