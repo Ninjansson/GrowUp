@@ -11,9 +11,9 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/notifications"
+        android:contentDescription="@string/pushnotiser"
 
-        android:contentDescription="@string/pushnotiser" />
+        android:src="@drawable/notifications" />
 
     <TextView
         android:id="@+id/pushnotiser_text"
@@ -23,8 +23,8 @@
         android:layout_toRightOf="@id/pushnotiser_bild"
         android:gravity="center"
         android:padding="5dp"
+        android:text="@string/push_notiser"
         android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:text="@string/push_notiser" />
+        android:textSize="20sp" />
 
 </RelativeLayout>

@@ -23,10 +23,16 @@ import java.text.ParsePosition;
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "GrowUpMotherFucker";
+    private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
     private ListView catList;
     private JSONCategoriesAdapter catAdapter;
 
-    private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
+    public static boolean isNumeric(String str) {
+        NumberFormat formatter = NumberFormat.getInstance();
+        ParsePosition pos = new ParsePosition(0);
+        formatter.parse(str, pos);
+        return str.length() == pos.getIndex();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,13 +96,6 @@ public class MainActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public static boolean isNumeric(String str) {
-        NumberFormat formatter = NumberFormat.getInstance();
-        ParsePosition pos = new ParsePosition(0);
-        formatter.parse(str, pos);
-        return str.length() == pos.getIndex();
     }
 
     private void showToast(String output) {

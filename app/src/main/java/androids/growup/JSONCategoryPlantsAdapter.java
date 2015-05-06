@@ -90,16 +90,16 @@ public class JSONCategoryPlantsAdapter extends BaseAdapter {
         return convertView;
     }
 
+    public void updateData(JSONArray jsonArray) {
+        // update the adapter's dataset
+        mJsonArray = jsonArray;
+        notifyDataSetChanged();
+    }
+
     // this is used so you only ever have to do
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
         public ImageView plant_img;
         public TextView plant_name;
-    }
-
-    public void updateData(JSONArray jsonArray) {
-        // update the adapter's dataset
-        mJsonArray = jsonArray;
-        notifyDataSetChanged();
     }
 }

@@ -29,19 +29,24 @@
         <activity
             android:name=".PlantActivity"
             android:label="@string/title_activity_plant"
-            android:parentActivityName=".CategoryActivity">
+            android:parentActivityName="androids.growup.CategoryActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CategoryActivity" />
+                android:value="MainActivity" />
         </activity>
+
         <activity
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity">
+
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity">
+            
+        </activity>
     </application>
 
 </manifest>
