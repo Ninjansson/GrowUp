@@ -92,6 +92,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    // Just a class for testing testing
     public static boolean isNumeric(String str) {
         NumberFormat formatter = NumberFormat.getInstance();
         ParsePosition pos = new ParsePosition(0);
