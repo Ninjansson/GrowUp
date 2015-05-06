@@ -88,16 +88,16 @@ public class JSONCategoriesAdapter extends BaseAdapter {
         return convertView;
     }
 
+    public void updateData(JSONArray jsonArray) {
+        // update the adapter's dataset
+        mJsonArray = jsonArray;
+        notifyDataSetChanged();
+    }
+
     // this is used so you only ever have to do
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
         public ImageView img_cat_logo;
         public TextView text_category;
-    }
-
-    public void updateData(JSONArray jsonArray) {
-        // update the adapter's dataset
-        mJsonArray = jsonArray;
-        notifyDataSetChanged();
     }
 }

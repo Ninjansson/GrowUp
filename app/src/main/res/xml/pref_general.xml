@@ -2,20 +2,20 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="@string/pref_push_messages_title"
-        android:key="pref_key_storage_settings">
+        android:key="pref_key_storage_settings"
+        android:title="@string/pref_push_messages_title">
 
 
         <CheckBoxPreference
+            android:defaultValue="true"
             android:key="pref_sync"
-            android:title="@string/pref_push_time"
             android:summary="@string/pref_push_sum"
-            android:defaultValue="true" />
+            android:title="@string/pref_push_time" />
 
         <PreferenceScreen
             android:key="button_voicemail_setting_key"
-            android:title="@string/push_settings"
-            android:persistent="false"></PreferenceScreen>
+            android:persistent="false"
+            android:title="@string/push_settings"></PreferenceScreen>
     </PreferenceCategory>
 
 </PreferenceScreen>

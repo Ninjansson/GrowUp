@@ -23,11 +23,10 @@ import org.json.JSONObject;
 public class CategoryActivity extends ActionBarActivity {
 
     private static final String TAG = "GrowUpMotherFucker";
-
+    private static final String QUERY_URL = "http://kimjansson.se/GrowUp/plants/cat/";
     private ListView catPlantsList;
     private JSONCategoryPlantsAdapter catPlantsAdapter;
     private int catId;
-    private static final String QUERY_URL = "http://kimjansson.se/GrowUp/plants/cat/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +109,10 @@ public class CategoryActivity extends ActionBarActivity {
         }
     }
 
+    private void showToast(String output) {
+        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -124,9 +127,5 @@ public class CategoryActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_category, container, false);
             return rootView;
         }
-    }
-
-    private void showToast(String output) {
-        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
     }
 }
