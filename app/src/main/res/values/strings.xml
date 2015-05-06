@@ -29,13 +29,7 @@
     <string name="pref_push_messages_title">Push Notiser</string>
 
     <string name="push_settings">PushNotiser2</string>
-<<<<<<< HEAD
 
     <string name="about_content">Om oss</string>
 
-
-=======
-    <string name="about_content">Om oss</string>
-
->>>>>>> origin/master
 </resources>
