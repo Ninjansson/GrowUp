@@ -9,8 +9,12 @@
     tools:context="androids.growup.AboutUs">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <TextView
         android:text="Om oss"
+=======
+    <ImageView
+>>>>>>> origin/master
 =======
     <ImageView
 >>>>>>> origin/master
