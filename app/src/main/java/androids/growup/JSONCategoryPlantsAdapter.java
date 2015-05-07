@@ -69,13 +69,13 @@ public class JSONCategoryPlantsAdapter extends BaseAdapter{
         Log.d(TAG, "Object" + jsonObject);
 
         // If so, grab the Cover ID out from the object
-        String img = jsonObject.optString("img");
+        int img = jsonObject.optInt("id");
         // Construct the image URL (specific to API)
-        String imageURL = IMAGE_URL_BASE + img;
+        String imageURL = IMAGE_URL_BASE + "plant_" + img + ".png";
 
         // Use Picasso to load the image
         // Temporarily have a placeholder in case it's slow to load
-        //Picasso.with(mContext).load(imageURL).into(holder.plant_img);
+        Picasso.with(mContext).load(imageURL).into(holder.plant_img);
 
         // Grab the title and author from the JSON
         String name = "";
