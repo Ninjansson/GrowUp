@@ -50,6 +50,7 @@ public class PlantActivity extends ActionBarActivity {
         }
     }
 
+<<<<<<< HEAD
     @Override
     protected void onStop(){
         super.onStop();
@@ -67,6 +68,9 @@ public class PlantActivity extends ActionBarActivity {
     }
 
     private String checkHabitat(int habitat) {
+=======
+    public String checkHabitat(int habitat) {
+>>>>>>> origin/Mia
         return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
     }
 
