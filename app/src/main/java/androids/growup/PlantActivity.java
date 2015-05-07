@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -24,12 +25,20 @@ public class PlantActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
 
-        String plantName = this.getIntent().getExtras().getString("name");
+        final String plantName = this.getIntent().getExtras().getString("name");
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean thisPlant = settings.getBoolean(plantName, false);
-        Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
+        final Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
         pushNotices.setChecked(thisPlant);
+
+        pushNotices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                boolean x = pushNotices.isChecked();
+                editorCommitChanges();
+                //Log.i("TEST MOTHERFUCKER", "SWITCH for plant " + plantName + " set to " + x);
+            }
+        });
 
         setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
 
@@ -50,11 +59,9 @@ public class PlantActivity extends ActionBarActivity {
         }
     }
 
-<<<<<<< HEAD
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.i("TEST MOTHERFUCKER", "In onStop - Fucking things up");
+    private void editorCommitChanges() {
+        //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
+
         // We need an Editor object to make preference changes.
         // All objects are from android.context.Context
         Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
@@ -67,10 +74,14 @@ public class PlantActivity extends ActionBarActivity {
         editor.commit();
     }
 
-    private String checkHabitat(int habitat) {
-=======
+    @Override
+    protected void onStop(){
+        super.onStop();
+        //Log.i("TEST MOTHERFUCKER", "In PlantActivity.onStop - Fucking things up");
+        editorCommitChanges();
+    }
+
     public String checkHabitat(int habitat) {
->>>>>>> origin/Mia
         return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
     }
 

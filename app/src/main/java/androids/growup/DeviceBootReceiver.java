@@ -7,12 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-/**
- * @author Nilanchala
- *         <p/>
- *         Broadcast reciever, starts when the device gets starts.
- *         Start your repeating alarm here.
- */
 public class DeviceBootReceiver extends BroadcastReceiver {
 
     @Override
@@ -23,10 +17,10 @@ public class DeviceBootReceiver extends BroadcastReceiver {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
 
             AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            int interval = 15000;
+            int interval = 60000;
             manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
 
-            Toast.makeText(context, "Alarm Set", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Alarm Set", Toast.LENGTH_SHORT).show();
         }
     }
 }
