@@ -6,13 +6,15 @@
 
     <item
         android:id="@+id/menu_settings"
-        android:orderInCategory="100"
+        android:icon="@drawable/ic_action_settings"
         android:title="@string/menu_settings"
-        app:showAsAction="never" />
+        android:orderInCategory="100"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_aboutus"
-        android:orderInCategory="1"
+        android:icon="@drawable/ic_action_about"
         android:title="@string/menu_aboutus"
-        app:showAsAction="never" />
+        android:orderInCategory="1"
+        app:showAsAction="always" />
 </menu>
