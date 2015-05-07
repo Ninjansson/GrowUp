@@ -38,7 +38,7 @@ public class PlantActivity extends ActionBarActivity {
         }
     }
 
-    private String checkHabitat(int habitat) {
+    public String checkHabitat(int habitat) {
         return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
     }
 
