@@ -61,6 +61,7 @@ public class PlantActivity extends ActionBarActivity {
 
     private void editorCommitChanges() {
         //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
+
         // We need an Editor object to make preference changes.
         // All objects are from android.context.Context
         Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
@@ -80,7 +81,7 @@ public class PlantActivity extends ActionBarActivity {
         editorCommitChanges();
     }
 
-    private String checkHabitat(int habitat) {
+    public String checkHabitat(int habitat) {
         return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
     }
 
