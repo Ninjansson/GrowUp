@@ -54,7 +54,7 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
 
                 plantIntent.putExtra("id", object.optInt("id"));
-                plantIntent.putExtra("img", object.optString("img"));
+                plantIntent.putExtra("cat_name", object.optString("cat_name"));
                 plantIntent.putExtra("name", object.optString("name"));
                 plantIntent.putExtra("latin_name", object.optString("latin_name"));
                 plantIntent.putExtra("info", object.optString("info"));

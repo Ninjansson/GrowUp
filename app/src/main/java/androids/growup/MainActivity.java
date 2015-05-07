@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
 
     private ListView catList;
     private JSONCategoriesAdapter catAdapter;
+    private PendingIntent pendingIntent;
 
     public static boolean isNumeric(String str) {
         NumberFormat formatter = NumberFormat.getInstance();
@@ -43,6 +43,12 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* START TIMER */
+        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        startTimer();
+        /* END TIMER */
+        
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
 
@@ -61,6 +67,14 @@ public class MainActivity extends ActionBarActivity {
 
         catList.setAdapter(catAdapter);
         populateCategoriesList();
+    }
+
+    private void startTimer() {
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        int interval = 60000;
+
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        //Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
     private void populateCategoriesList() {
