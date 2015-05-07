@@ -5,35 +5,35 @@
     android:background="@drawable/background_about"
     tools:context="androids.growup.AboutUs">
 
-   <!-- <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/growuplogo" /> -->
+    <!-- <ImageView
+         android:id="@+id/imageView"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         android:background="@drawable/growuplogo" /> -->
 
     <TextView
         android:id="@+id/about_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="@string/content_about"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/content_about"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="normal" />
 
     <TextView
         android:id="@+id/copywrite"
-        android:textSize="@dimen/copy_font"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignWithParentIfMissing="false"
-        android:text="@string/about_copywrite"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="70dp" />
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_marginLeft="70dp"
+        android:text="@string/about_copywrite"
+        android:textSize="@dimen/copy_font" />
 
 </RelativeLayout>

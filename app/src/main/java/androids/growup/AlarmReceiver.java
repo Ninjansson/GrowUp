@@ -21,7 +21,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         boolean apa = settings.getBoolean("oregano", false);
 
-        if(apa) {
+        if (apa) {
             Toast.makeText(ctx, "STARTAR", Toast.LENGTH_SHORT).show();
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx)

@@ -51,7 +51,7 @@ public class PlantActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
         Log.i("TEST MOTHERFUCKER", "In onStop - Fucking things up");
         // We need an Editor object to make preference changes.
