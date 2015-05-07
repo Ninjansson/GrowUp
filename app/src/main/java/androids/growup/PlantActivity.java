@@ -46,7 +46,7 @@ public class PlantActivity extends ActionBarActivity {
         plant_info = (TextView) findViewById(R.id.plant_info);
         plant_habitat = (TextView) findViewById(R.id.plant_habitat);
 
-        plant_name.setText(this.getIntent().getExtras().getString("name"));
+        plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
         latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
         plant_info.setText(this.getIntent().getExtras().getString("info"));
         plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
