@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -59,16 +58,10 @@ public class PlantActivity extends ActionBarActivity {
         }
     }
 
-<<<<<<< HEAD
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i("TEST MOTHERFUCKER", "In onStop - Fucking things up");
-=======
+
     private void editorCommitChanges() {
         //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
 
->>>>>>> origin/master
         // We need an Editor object to make preference changes.
         // All objects are from android.context.Context
         Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
