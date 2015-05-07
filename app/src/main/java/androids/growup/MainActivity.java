@@ -1,6 +1,10 @@
 package androids.growup;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,9 +25,9 @@ import java.text.ParsePosition;
 
 
 public class MainActivity extends ActionBarActivity {
-
     private static final String TAG = "GrowUpMotherFucker";
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
+
     private ListView catList;
     private JSONCategoriesAdapter catAdapter;
 
@@ -57,7 +61,6 @@ public class MainActivity extends ActionBarActivity {
 
         catList.setAdapter(catAdapter);
         populateCategoriesList();
-
     }
 
     private void populateCategoriesList() {
