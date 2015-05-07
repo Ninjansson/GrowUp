@@ -7,24 +7,39 @@
 
 
     <ImageView
-        android:id="@+id/pushnotiser_bild"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
+        android:id="@+id/settings_push_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:contentDescription="@string/pushnotiser"
-
-        android:src="@drawable/notifications" />
+        android:src="@drawable/notifications"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/pushnotiser_text"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical"
-        android:layout_toRightOf="@id/pushnotiser_bild"
         android:gravity="center"
         android:padding="5dp"
         android:text="@string/push_notiser"
         android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/settings_push_toggle"
+        android:layout_toRightOf="@+id/settings_push_toggle"
+        android:layout_toEndOf="@+id/settings_push_toggle" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New ToggleButton"
+        android:id="@+id/settings_push_toggle"
+        android:layout_alignBottom="@+id/settings_push_img"
+        android:layout_toRightOf="@+id/settings_push_img"
+        android:layout_toEndOf="@+id/settings_push_img"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px" />
+
 
 </RelativeLayout>

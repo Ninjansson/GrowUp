@@ -60,9 +60,10 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
         }
 
-        Log.i("TEST MOTHERFUCKER", "Number of plants set to true: " + nrOfPlantsToShow);
+        boolean isPushNoticesTurnedOn = settings.getBoolean("settings_toggle_push_notices", false);
+        //Log.i("TEST MOTHERFUCKER", "Number of plants set to true: " + nrOfPlantsToShow);
 
-        if(nrOfPlantsToShow > 0) {
+        if((nrOfPlantsToShow > 0) && (isPushNoticesTurnedOn == true)) {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx)
                     .setContentTitle("GrowApp")
                     .setContentText("Glöm inte dina plantor!")

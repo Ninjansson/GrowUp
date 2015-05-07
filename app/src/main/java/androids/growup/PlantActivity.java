@@ -36,7 +36,7 @@ public class PlantActivity extends ActionBarActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 boolean x = pushNotices.isChecked();
                 editorCommitChanges();
-                Log.i("TEST MOTHERFUCKER", "SWITCH for plant " + plantName + " set to " + x);
+                //Log.i("TEST MOTHERFUCKER", "SWITCH for plant " + plantName + " set to " + x);
             }
         });
 
@@ -77,7 +77,7 @@ public class PlantActivity extends ActionBarActivity {
     @Override
     protected void onStop(){
         super.onStop();
-        Log.i("TEST MOTHERFUCKER", "In PlantActivity.onStop - Fucking things up");
+        //Log.i("TEST MOTHERFUCKER", "In PlantActivity.onStop - Fucking things up");
         editorCommitChanges();
     }
 
