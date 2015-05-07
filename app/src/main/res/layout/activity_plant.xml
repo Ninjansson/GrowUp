@@ -41,12 +41,12 @@
         android:text="New Text" />
 
     <Switch
+        android:id="@+id/toggle_push"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pushnotiser"
-        android:id="@+id/toggle_push"
         android:layout_below="@+id/plant_habitat"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Pushnotiser" />
 
 </RelativeLayout>
 
