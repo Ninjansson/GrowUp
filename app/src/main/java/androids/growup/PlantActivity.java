@@ -11,14 +11,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PlantActivity extends ActionBarActivity {
 
     private static final String PREFS_NAME = "SETTINGS";
     private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty;
+    public final static String SAVE_PLANT = "androids.growup.save_plant";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,21 @@ public class PlantActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        final TextView plant = (TextView) findViewById(R.id.plant_name);
+        Button save = (Button) findViewById(R.id.button_savePlant);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String plantName = plant.getText().toString();
+                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
+                intent.putExtra(SAVE_PLANT, plantName);
+                //startActivity(intent);
+                Toast toast = Toast.makeText(getApplicationContext(), "Plantan är tillagd", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
     }
 
     public String checkDifficulty(int difficulty) {

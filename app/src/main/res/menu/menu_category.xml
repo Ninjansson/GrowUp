@@ -17,8 +17,7 @@
         android:title="@string/menu_aboutus"
         android:orderInCategory="1"
         app:showAsAction="always" />
-<<<<<<< HEAD
-=======
+
 
     <item
         android:id="@+id/menu_my_page"
@@ -26,5 +25,5 @@
         android:orderInCategory="1"
         android:title="@string/menu_minsida"
         app:showAsAction="always" />
->>>>>>> origin/master
+
 </menu>
