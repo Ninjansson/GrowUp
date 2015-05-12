@@ -18,5 +18,12 @@
         android:title="@string/menu_settings"
         app:showAsAction="always" />
 
+    <item
+    android:id="@+id/menu_my_page"
+    android:icon="@drawable/ic_action_person"
+    android:orderInCategory="1"
+    android:title="@string/menu_minsida"
+    app:showAsAction="always" />
+
 
 </menu>

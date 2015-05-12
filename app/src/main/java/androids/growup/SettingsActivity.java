@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.ToggleButton;
 
 
@@ -52,6 +50,9 @@ public class SettingsActivity extends ActionBarActivity {
         switch (item.getItemId()) {
             case R.id.menu_aboutus:
                 startActivity(new Intent(this, AboutUsActivity.class));
+                return true;
+            case R.id.menu_my_page:
+                startActivity(new Intent(this, MyPageActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

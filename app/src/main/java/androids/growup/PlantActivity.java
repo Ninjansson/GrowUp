@@ -75,7 +75,7 @@ public class PlantActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
         //Log.i("TEST MOTHERFUCKER", "In PlantActivity.onStop - Fucking things up");
         editorCommitChanges();
@@ -101,6 +101,8 @@ public class PlantActivity extends ActionBarActivity {
             case R.id.menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
+            case R.id.menu_my_page:
+                startActivity(new Intent(this, MyPageActivity.class));
             default:
                 Intent catIntent = new Intent(getApplicationContext(), CategoryActivity.class);
                 catIntent.putExtra("cat_id", this.getIntent().getExtras().getInt("cat_id"));

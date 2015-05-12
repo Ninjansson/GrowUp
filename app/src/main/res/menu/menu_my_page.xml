@@ -1,8 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context="androids.growup.MyPageActivity">
 
     <item
         android:id="@+id/menu_settings"
@@ -12,10 +11,11 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/menu_my_page"
-        android:icon="@drawable/ic_action_person"
+        android:id="@+id/menu_aboutus"
+        android:icon="@drawable/ic_action_about"
         android:orderInCategory="1"
-        android:title="@string/menu_my_page"
+        android:title="@string/menu_aboutus"
         app:showAsAction="always" />
+
 
 </menu>
