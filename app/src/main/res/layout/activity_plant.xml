@@ -18,8 +18,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="New Text"
+        android:text="Plant Name"
         android:typeface="sans"/>
+
+    <TextView
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/plant_difficulty"
+        android:layout_alignBaseline="@+id/plant_name"
+        android:layout_alignBottom="@+id/plant_name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="41dp"
+        android:layout_marginEnd="41dp"
+        android:singleLine="true"
+        android:background="#FF0000" />
 
     <TextView
         android:id="@+id/latin_name"
@@ -32,7 +45,7 @@
         android:layout_below="@+id/plant_name"
         android:layout_centerHorizontal="true"
         android:typeface="sans"
-        android:text="New Text" />
+        android:text="Plant Latin Name" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -56,6 +69,21 @@
         android:typeface="sans"
         android:text="New Text" />
 
+            <TextView
+                android:id="@+id/plant_how_to"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_info" />
+
+            <TextView
+                android:id="@+id/plant_usage"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_how_to" />
     <TextView
         android:id="@+id/plant_habitat"
         android:padding="10dp"
@@ -83,5 +111,6 @@
         android:typeface="sans"/>
         </LinearLayout>
 </ScrollView>
+
 </RelativeLayout>
 

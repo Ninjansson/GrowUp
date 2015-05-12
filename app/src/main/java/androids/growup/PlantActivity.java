@@ -2,6 +2,7 @@ package androids.growup;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 public class PlantActivity extends ActionBarActivity {
 
     private static final String PREFS_NAME = "SETTINGS";
-    private TextView plant_name, latin_name, plant_info, plant_habitat;
+    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +45,43 @@ public class PlantActivity extends ActionBarActivity {
         plant_name = (TextView) findViewById(R.id.plant_name);
         latin_name = (TextView) findViewById(R.id.latin_name);
         plant_info = (TextView) findViewById(R.id.plant_info);
+        plant_how_to = (TextView) findViewById(R.id.plant_how_to);
+        plant_usage = (TextView) findViewById(R.id.plant_usage);
         plant_habitat = (TextView) findViewById(R.id.plant_habitat);
+        plant_difficulty = (TextView) findViewById(R.id.plant_difficulty);
 
         plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
         latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
         plant_info.setText(this.getIntent().getExtras().getString("info"));
+        plant_how_to.setText(this.getIntent().getExtras().getString("how_to"));
+        plant_usage.setText(this.getIntent().getExtras().getString("usage"));
         plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
+        //plant_difficulty.setBackgroundColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty")));
+        plant_difficulty.setBackgroundColor(Color.parseColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty"))));
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+    }
+
+    private String checkDifficulty(int difficulty) {
+        String output = "";
+        switch(difficulty) {
+            case 1:
+                output = "#00FF00";
+                break;
+            case 2:
+                output = "#FFCC00";
+                break;
+            case 3:
+                output = "#FF0000";
+                break;
+            default:
+                break;
+        }
+        return output;
     }
 
 

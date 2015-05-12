@@ -61,6 +61,7 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("how_to", object.optString("how_to"));
                 plantIntent.putExtra("habitat", object.optInt("habitat"));
                 plantIntent.putExtra("plant_usage", object.optString("plant_usage"));
+                plantIntent.putExtra("difficulty", object.optInt("difficulty"));
 
                 startActivity(plantIntent);
             }
