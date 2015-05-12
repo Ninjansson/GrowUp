@@ -17,5 +17,12 @@
         android:title="@string/menu_aboutus"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/icon_home"
+        android:orderInCategory="1"
+        android:title="@string/menu_home"
+        app:showAsAction="always" />
+
 
 </menu>

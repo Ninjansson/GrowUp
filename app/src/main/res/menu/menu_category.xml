@@ -26,4 +26,13 @@
         android:title="@string/menu_minsida"
         app:showAsAction="always" />
 
+<<<<<<< HEAD
+=======
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/icon_home"
+        android:orderInCategory="1"
+        android:title="@string/menu_home"
+        app:showAsAction="always" />
+>>>>>>> 475b966a6a1c3a5661d48cceaac912497ccab748
 </menu>

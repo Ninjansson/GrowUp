@@ -110,6 +110,9 @@ public class CategoryActivity extends ActionBarActivity {
             case R.id.menu_my_page:
                 startActivity(new Intent(this, MyPageActivity.class));
                 return true;
+            case R.id.menu_home:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

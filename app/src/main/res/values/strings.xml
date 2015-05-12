@@ -35,5 +35,6 @@
     <string name="hello_User">Hello User :)!</string>
     <string name="menu_minsida">Min Sida</string>
     <string name="menu_my_page">Min Sida</string>
+    <string name="menu_home">Hem</string>
 
 </resources>
