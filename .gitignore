@@ -4,13 +4,6 @@
 /.idea/libraries
 .DS_Store
 /build
-Verify if it suits your needs and if not, read on.
-
-Previous:
-
-A late answer but none of the answers here and here was right on the money for us...
-
-So, here's our gitignore file:
 
 #built application files
 *.apk
