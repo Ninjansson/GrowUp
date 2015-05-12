@@ -18,5 +18,12 @@
         android:title="@string/menu_settings"
         app:showAsAction="always" />
 
+    <item
+    android:id="@+id/menu_minsida"
+    android:icon="@drawable/tomato"
+    android:orderInCategory="1"
+    android:title="@string/menu_minsida"
+    app:showAsAction="always" />
+
 
 </menu>
