@@ -66,7 +66,7 @@ public class PlantActivity extends ActionBarActivity {
         }
     }
 
-    private String checkDifficulty(int difficulty) {
+    public String checkDifficulty(int difficulty) {
         String output = "";
         switch(difficulty) {
             case 1:
@@ -83,7 +83,6 @@ public class PlantActivity extends ActionBarActivity {
         }
         return output;
     }
-
 
     private void editorCommitChanges() {
         //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
