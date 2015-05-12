@@ -34,7 +34,17 @@
         android:typeface="sans"
         android:text="New Text" />
 
-    <TextView
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/latin_name" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        <TextView
         android:id="@+id/plant_info"
         android:padding="5dp"
         android:textAlignment="center"
@@ -71,6 +81,7 @@
         android:textStyle="bold"
         android:padding="10dp"
         android:typeface="sans"/>
-
+        </LinearLayout>
+</ScrollView>
 </RelativeLayout>
 
