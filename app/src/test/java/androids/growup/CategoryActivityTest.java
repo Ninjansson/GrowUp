@@ -23,5 +23,6 @@ public class CategoryActivityTest extends ActivityInstrumentationTestCase2<Categ
     public void testListView() {
         ListView list = (ListView) cat.findViewById(R.id.category_plants);
         assertNotNull("Testing ListView", list);
+
     }
 }

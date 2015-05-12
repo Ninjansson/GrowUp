@@ -27,6 +27,9 @@ public class AboutUsActivity extends ActionBarActivity {
             case R.id.menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
+            case R.id.menu_my_page:
+                startActivity(new Intent(this, MyPageActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

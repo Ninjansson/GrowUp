@@ -6,9 +6,9 @@
     </style>
 
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-                <item name="colorPrimary">@color/primaryColor</item>
-                <item name="colorPrimaryDark">@color/primaryColorDark</item>
-              <!--  <item name="accentColor">@color/accentColor</item> -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <!--  <item name="accentColor">@color/accentColor</item> -->
 
     </style>
 
