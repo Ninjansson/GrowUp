@@ -24,4 +24,11 @@
         android:orderInCategory="1"
         android:title="@string/menu_minsida"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/home_light_2"
+        android:orderInCategory="1"
+        android:title="@string/menu_home"
+        app:showAsAction="always" />
 </menu>

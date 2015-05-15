@@ -62,6 +62,8 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_name", object.optString("cat_name"));
 
                 startActivity(categoryIntent);
+
+                overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });
 
