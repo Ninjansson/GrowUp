@@ -19,7 +19,7 @@ import org.json.JSONObject;
  */
 
 public class JSONCategoryPlantsAdapter extends BaseAdapter {
-    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/";
+    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/plant_icons/";
     private static final String TAG = "GrowUpMotherFucker";
 
     Context mContext;
