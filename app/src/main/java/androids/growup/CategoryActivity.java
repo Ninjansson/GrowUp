@@ -64,6 +64,8 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("difficulty", object.optInt("difficulty"));
 
                 startActivity(plantIntent);
+
+                overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });
 
