@@ -38,7 +38,10 @@ public class InspoActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_inspo:
-                startActivity(new Intent(this, AboutUsActivity.class));
+                startActivity(new Intent(this, InspoActivity.class));
+                return true;
+            case R.id.menu_my_page:
+                startActivity(new Intent(this, MyPageActivity.class));
                 return true;
             case R.id.menu_aboutus:
                 startActivity(new Intent(this, AboutUsActivity.class));
