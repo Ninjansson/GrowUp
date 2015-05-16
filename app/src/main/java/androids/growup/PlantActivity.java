@@ -1,6 +1,5 @@
 package androids.growup;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -19,13 +18,14 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 
 public class PlantActivity extends ActionBarActivity {
 
     private static final String PLANT_ICON = "http://kimjansson.se/GrowUp/imgs/plantpage/";
     private static final String PREFS_NAME = "SETTINGS";
-    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty;
+    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link;
     private ImageView plant_icon;
     public final static String SAVE_PLANT = "androids.growup.save_plant";
 
@@ -57,6 +57,7 @@ public class PlantActivity extends ActionBarActivity {
         plant_how_to = (TextView) findViewById(R.id.plant_how_to);
         plant_usage = (TextView) findViewById(R.id.plant_usage);
         plant_habitat = (TextView) findViewById(R.id.plant_habitat);
+        plant_link = (TextView) findViewById(R.id.plant_link);
         plant_difficulty = (TextView) findViewById(R.id.plant_difficulty);
 
         plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
@@ -71,7 +72,7 @@ public class PlantActivity extends ActionBarActivity {
         plant_how_to.setText(this.getIntent().getExtras().getString("how_to"));
         plant_usage.setText(this.getIntent().getExtras().getString("usage"));
         plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
-        //plant_difficulty.setBackgroundColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty")));
+        plant_link.setText(this.getIntent().getExtras().getString("plant_link"));
         plant_difficulty.setBackgroundColor(Color.parseColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty"))));
 
         if (savedInstanceState == null) {
@@ -158,6 +159,7 @@ public class PlantActivity extends ActionBarActivity {
                 return true;
             case R.id.menu_my_page:
                 startActivity(new Intent(this, MyPageActivity.class));
+                return true;
             case R.id.menu_home:
                 startActivity(new Intent(this, MainActivity.class));
                 return true;
