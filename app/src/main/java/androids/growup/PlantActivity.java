@@ -8,6 +8,8 @@ import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,8 +19,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.PopupWindow;
+import android.widget.Switch;
 import android.widget.TextView;
 
+
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,6 +40,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import com.squareup.picasso.Picasso;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 public class PlantActivity extends ActionBarActivity {
 
@@ -37,25 +63,11 @@ public class PlantActivity extends ActionBarActivity {
     public final static String SAVE_PLANT = "androids.growup.save_plant";
     private String m_Text = "";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
-
-        /*
-        final String plantName = this.getIntent().getExtras().getString("name");
-
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        boolean thisPlant = settings.getBoolean(plantName, false);
-        final Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
-        pushNotices.setChecked(thisPlant);
-
-        pushNotices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                boolean x = pushNotices.isChecked();
-                editorCommitChanges();
-            }
-        });*/
 
         setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
         plant_name = (TextView) findViewById(R.id.plant_name);
@@ -73,7 +85,7 @@ public class PlantActivity extends ActionBarActivity {
         String img = PLANT_ICON + "plant_icon_" + this.getIntent().getExtras().getInt("id") + ".png";
         Picasso.with(this).load(img).into(plant_icon);
 
-        Log.d("PLANTMOTHERFUCKER", "Img => " + img);
+        //Log.d("PLANTMOTHERFUCKER", "Img => " + img);
 
         latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
         plant_info.setText(this.getIntent().getExtras().getString("info"));
@@ -89,7 +101,6 @@ public class PlantActivity extends ActionBarActivity {
                     .commit();
         }
 
-        final TextView plant = (TextView) findViewById(R.id.plant_name);
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
 
         open_popup.setOnClickListener(new View.OnClickListener() {
@@ -115,13 +126,6 @@ public class PlantActivity extends ActionBarActivity {
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         String x = sp_name.getText().toString();
-                        //Log.d("APJÄVEL", "Texten => " + x);
-                        /*
-                        Kolla om det finns en json fil som heter MinLista.json på telefonen.
-                        Om den inte finns så skapar vi en och lägger till den här plantan i den.
-
-                        Finns den så lägger vi till plantan i den.
-                         */
                         saveToMyList();
                     }
                 })

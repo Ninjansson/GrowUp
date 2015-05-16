@@ -116,6 +116,7 @@
             android:text="Lägg till"
             android:id="@+id/button_open_popup" />
 
+
             <TextView
                 android:id="@+id/plant_link"
                 android:layout_width="wrap_content"
@@ -126,23 +127,6 @@
                 android:text="@string/Link"
                 android:textSize="15sp"
                 android:textStyle="bold"/>
-
-            <Switch
-                android:id="@+id/toggle_push"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/plant_habitat"
-                android:layout_centerHorizontal="true"
-                android:text="Pushnotiser" />
-
-
-            <Button
-                android:id="@+id/button_savePlant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/toggle_push"
-                android:layout_centerHorizontal="true"
-                android:text="Lägg till" />
         </LinearLayout>
 
     </ScrollView>

@@ -68,6 +68,7 @@ public class JSONCategoryPlantsAdapter extends BaseAdapter {
 
 //        Log.d(TAG, "Object" + jsonObject);
 
+
         // If so, grab the Cover ID out from the object
         int img = jsonObject.optInt("id");
         // Construct the image URL (specific to API)
