@@ -107,6 +107,15 @@
         android:text="Habitat"
         android:typeface="sans"/>
 
+            <TextView
+                android:id="@+id/plant_link"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_habitat"
+                android:text="Länk" />
+
     <!--<Switch
         android:id="@+id/toggle_push"
         android:textSize="18sp"
