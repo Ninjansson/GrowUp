@@ -163,6 +163,9 @@ public class PlantActivity extends ActionBarActivity {
             case R.id.menu_home:
                 startActivity(new Intent(this, MainActivity.class));
                 return true;
+            case R.id.menu_inspo:
+                startActivity(new Intent(this, InspoActivity.class));
+                return true;
             default:
                 Intent catIntent = new Intent(getApplicationContext(), CategoryActivity.class);
                 catIntent.putExtra("cat_id", this.getIntent().getExtras().getInt("cat_id"));
