@@ -36,7 +36,7 @@ public class CategoryActivity extends ActionBarActivity {
         setTitle(this.getIntent().getExtras().getString("cat_name").toUpperCase());
         catId = this.getIntent().getExtras().getInt("cat_id");
 
-        Log.d(TAG, QUERY_URL + catId);
+        //Log.d(TAG, QUERY_URL + catId);
 
         catPlantsList = (ListView) findViewById(R.id.category_plants);
         catPlantsAdapter = new JSONCategoryPlantsAdapter(this, getLayoutInflater());
