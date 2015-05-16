@@ -107,35 +107,13 @@
         android:text="Habitat"
         android:typeface="sans"/>
 
-    <!--<Switch
-        android:id="@+id/toggle_push"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/plant_habitat"
-        android:layout_centerHorizontal="true"
-        android:thumb="@drawable/icon_apple"
-        android:text="Pushnotiser"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:typeface="sans"/>-->
-
-            <Switch
-                android:id="@+id/toggle_push"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/plant_habitat"
-                android:layout_centerHorizontal="true"
-                android:text="Pushnotiser" />
-
-
-            <Button
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toggle_push"
+            android:layout_below="@+id/plant_habitat"
             android:layout_centerHorizontal="true"
             android:text="Lägg till"
-            android:id="@+id/button_savePlant" />
+            android:id="@+id/button_open_popup" />
         </LinearLayout>
 
     </ScrollView>
