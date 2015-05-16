@@ -57,6 +57,9 @@ public class SettingsActivity extends ActionBarActivity {
             case R.id.menu_home:
                 startActivity(new Intent(this, MainActivity.class));
                 return true;
+            case R.id.menu_inspo:
+                startActivity(new Intent(this, InspoActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

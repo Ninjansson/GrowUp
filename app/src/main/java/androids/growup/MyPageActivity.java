@@ -17,6 +17,7 @@ public class MyPageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -29,6 +30,8 @@ public class MyPageActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_my_page, menu);
+
+
         return true;
     }
 
@@ -43,6 +46,9 @@ public class MyPageActivity extends ActionBarActivity {
                 return true;
             case R.id.menu_home:
                 startActivity(new Intent(this, MainActivity.class));
+                return true;
+            case R.id.menu_inspo:
+                startActivity(new Intent(this, InspoActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

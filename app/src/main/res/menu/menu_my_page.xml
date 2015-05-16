@@ -15,29 +15,28 @@
         android:icon="@drawable/ic_action_person"
         android:orderInCategory="1"
         android:title="@string/menu_my_page"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_inspo"
         android:icon="@drawable/ic_action_favorite"
         android:orderInCategory="1"
         android:title="@string/tilte_inspo_text"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_aboutus"
         android:icon="@drawable/ic_action_about"
-        android:title="@string/menu_aboutus"
         android:orderInCategory="1"
-        app:showAsAction="always" />
+        android:title="@string/menu_aboutus"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_settings"
         android:icon="@drawable/ic_action_settings"
         android:orderInCategory="100"
         android:title="@string/menu_settings"
-        app:showAsAction="always" />
-
+        app:showAsAction="never" />
 
 
 </menu>
