@@ -1,7 +1,6 @@
 package androids.growup;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import org.json.JSONObject;
  */
 
 public class JSONCategoryPlantsAdapter extends BaseAdapter {
-    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/";
+    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/plant_icons/";
     private static final String TAG = "GrowUpMotherFucker";
 
     Context mContext;
@@ -66,7 +65,8 @@ public class JSONCategoryPlantsAdapter extends BaseAdapter {
         }
         JSONObject jsonObject = (JSONObject) getItem(position);
 
-        //Log.d(TAG, "Object" + jsonObject);
+
+//        Log.d(TAG, "Object" + jsonObject);
 
         // If so, grab the Cover ID out from the object
         int img = jsonObject.optInt("id");

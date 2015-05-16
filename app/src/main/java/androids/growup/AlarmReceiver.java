@@ -33,8 +33,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         SharedPreferences settings = ctx.getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
 
-
-
         /* What to show push for ... */
         for (String plant : plants) {
             boolean show = settings.getBoolean(plant, false);
@@ -47,7 +45,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         for (Map.Entry<String, Boolean> entry : notices.entrySet()) {
             String key = entry.getKey();
             Boolean value = entry.getValue();
-
 
             if (value) {
                 nrOfPlantsToShow++;

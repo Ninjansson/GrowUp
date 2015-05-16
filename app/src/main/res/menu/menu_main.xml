@@ -5,25 +5,38 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_action_home"
+        android:orderInCategory="1"
+        android:title="@string/menu_home"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_my_page"
+        android:icon="@drawable/ic_action_person"
+        android:orderInCategory="1"
+        android:title="@string/menu_my_page"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_inspo"
+        android:icon="@drawable/ic_action_favorite"
+        android:orderInCategory="1"
+        android:title="@string/tilte_inspo_text"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_aboutus"
         android:icon="@drawable/ic_action_about"
         android:orderInCategory="1"
         android:title="@string/menu_aboutus"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_settings"
         android:icon="@drawable/ic_action_settings"
         android:orderInCategory="100"
         android:title="@string/menu_settings"
-        app:showAsAction="always" />
-
-    <item
-    android:id="@+id/menu_my_page"
-    android:icon="@drawable/ic_action_person"
-    android:orderInCategory="1"
-    android:title="@string/menu_minsida"
-    app:showAsAction="always" />
-
+        app:showAsAction="never" />
 
 </menu>
