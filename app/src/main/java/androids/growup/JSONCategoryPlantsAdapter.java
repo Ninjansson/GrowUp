@@ -1,7 +1,6 @@
 package androids.growup;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +66,7 @@ public class JSONCategoryPlantsAdapter extends BaseAdapter {
         JSONObject jsonObject = (JSONObject) getItem(position);
 
         //Log.d(TAG, "Object" + jsonObject);
+
 
         // If so, grab the Cover ID out from the object
         int img = jsonObject.optInt("id");

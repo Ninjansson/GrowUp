@@ -62,6 +62,9 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("habitat", object.optInt("habitat"));
                 plantIntent.putExtra("plant_usage", object.optString("plant_usage"));
                 plantIntent.putExtra("difficulty", object.optInt("difficulty"));
+                plantIntent.putExtra("plant_link", object.optString("link"));
+
+                Log.d(TAG, "Link => " + object.optString("link"));
 
                 startActivity(plantIntent);
 
@@ -114,6 +117,9 @@ public class CategoryActivity extends ActionBarActivity {
                 return true;
             case R.id.menu_home:
                 startActivity(new Intent(this, MainActivity.class));
+                return true;
+            case R.id.menu_inspo:
+                startActivity(new Intent(this, InspoActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

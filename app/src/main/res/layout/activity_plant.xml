@@ -9,103 +9,91 @@
 
     <TextView
         android:id="@+id/plant_name"
-        android:padding="5dp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:padding="5dp"
         android:text="Plant Name"
-        android:typeface="sans"/>
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
     <ImageView
+        android:id="@+id/plant_icon"
         android:layout_width="96px"
         android:layout_height="wrap_content"
-        android:id="@+id/plant_icon"
         android:layout_below="@+id/plant_name"
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/plant_difficulty"
         android:layout_width="50px"
         android:layout_height="50px"
-        android:id="@+id/plant_difficulty"
-        android:layout_below="@+id/plant_name"
         android:layout_alignBaseline="@+id/plant_name"
         android:layout_alignBottom="@+id/plant_name"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="41dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/plant_name"
         android:layout_marginEnd="41dp"
-        android:singleLine="true"
-        android:background="#FF0000" />
+        android:layout_marginRight="41dp"
+        android:background="#FF0000"
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/latin_name"
-        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/plant_icon"
+        android:layout_centerHorizontal="true"
         android:padding="5dp"
+        android:text="Plant Latin Name"
         android:textAlignment="center"
         android:textSize="15sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:typeface="sans"
-        android:text="Plant Latin Name"
-        android:layout_below="@+id/plant_icon"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="italic"
+        android:typeface="sans" />
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_below="@+id/latin_name" >
+        android:layout_below="@+id/latin_name">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-        <TextView
-        android:id="@+id/plant_info"
-        android:padding="5dp"
-        android:textAlignment="center"
-        android:textSize="12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/latin_name"
-        android:layout_centerHorizontal="true"
-        android:typeface="sans"
-        android:text="Info" />
+            <TextView
+                android:id="@+id/plant_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/latin_name"
+                android:layout_centerHorizontal="true"
+                android:padding="5dp"
+                android:text="Info"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:typeface="sans" />
 
             <TextView
                 android:id="@+id/plant_how_to"
-                android:padding="5dp"
-                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plant_info"
-                android:text="How to" />
+                android:padding="5dp"
+                android:text="How to"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/plant_usage"
-                android:padding="5dp"
-                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plant_how_to"
-                android:text="Usage" />
-    <TextView
-        android:id="@+id/plant_habitat"
-        android:padding="10dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/plant_info"
-        android:layout_centerHorizontal="true"
-        android:text="Habitat"
-        android:typeface="sans"/>
+                android:padding="5dp"
+                android:text="Usage"
+                android:textSize="15sp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -114,6 +102,60 @@
             android:layout_centerHorizontal="true"
             android:text="Lägg till"
             android:id="@+id/button_open_popup" />
+
+            <TextView
+                android:id="@+id/plant_habitat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_info"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:text="Habitat"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/plant_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_habitat"
+                android:autoLink="web"
+                android:padding="5dp"
+                android:text="@string/Link"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <!--<Switch
+                android:id="@+id/toggle_push"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_habitat"
+                android:layout_centerHorizontal="true"
+                android:thumb="@drawable/icon_apple"
+                android:text="Pushnotiser"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:typeface="sans"/>-->
+
+            <Switch
+                android:id="@+id/toggle_push"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_habitat"
+                android:layout_centerHorizontal="true"
+                android:text="Pushnotiser" />
+
+
+            <Button
+                android:id="@+id/button_savePlant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toggle_push"
+                android:layout_centerHorizontal="true"
+                android:text="Lägg till" />
         </LinearLayout>
 
     </ScrollView>
