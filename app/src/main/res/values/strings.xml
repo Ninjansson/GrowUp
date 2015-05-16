@@ -30,11 +30,20 @@
     <string name="about_copywrite">© Amelie Hellners, Kim Jansson, Lee Carlsson, Mia Gruvman</string>
 
     <string name="content_about">Grow Up, en app för den upptagna stadsbon. Vi hjälper dig att olda ditt eget skafferi.</string>
+
     <string name="title_activity_my_page">MyPageActivity</string>
+
     <string name="hello_world">Hello world!</string>
+
     <string name="hello_User">Hello User :)!</string>
+
     <string name="menu_minsida">Min Sida</string>
+
     <string name="menu_my_page">Min Sida</string>
+
     <string name="menu_home">Hem</string>
+
+    <string name="Inspiration">inspo</string>
+    <string name="tilte_inspo_text">Inspiration</string>
 
 </resources>

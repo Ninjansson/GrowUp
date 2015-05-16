@@ -1,11 +1,13 @@
 package androids.growup;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,14 +15,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.squareup.picasso.Picasso;
 
 public class PlantActivity extends ActionBarActivity {
 
+    private static final String PLANT_ICON = "http://kimjansson.se/GrowUp/imgs/plantpage/";
     private static final String PREFS_NAME = "SETTINGS";
     private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty;
+    private ImageView plant_icon;
     public final static String SAVE_PLANT = "androids.growup.save_plant";
 
     @Override
@@ -44,8 +50,8 @@ public class PlantActivity extends ActionBarActivity {
         });
 
         setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
-
         plant_name = (TextView) findViewById(R.id.plant_name);
+        plant_icon = (ImageView) findViewById(R.id.plant_icon);
         latin_name = (TextView) findViewById(R.id.latin_name);
         plant_info = (TextView) findViewById(R.id.plant_info);
         plant_how_to = (TextView) findViewById(R.id.plant_how_to);
@@ -54,6 +60,12 @@ public class PlantActivity extends ActionBarActivity {
         plant_difficulty = (TextView) findViewById(R.id.plant_difficulty);
 
         plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
+
+        String img = PLANT_ICON + "plant_icon_" + this.getIntent().getExtras().getInt("id") + ".png";
+        Picasso.with(this).load(img).into(plant_icon);
+
+        Log.d("PLANTMOTHERFUCKER", "Img => " + img);
+
         latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
         plant_info.setText(this.getIntent().getExtras().getString("info"));
         plant_how_to.setText(this.getIntent().getExtras().getString("how_to"));

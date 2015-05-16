@@ -27,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
     private static final String TAG = "GrowUpMotherFucker";
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
 
+
+
     private ListView catList;
     private JSONCategoriesAdapter catAdapter;
     private PendingIntent pendingIntent;
@@ -48,6 +50,7 @@ public class MainActivity extends ActionBarActivity {
         pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
         startTimer();
         /* END TIMER */
+
 
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
@@ -106,6 +109,9 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_inspo:
+                startActivity(new Intent(this, InspoActivity.class));
+                return true;
             case R.id.menu_aboutus:
                 startActivity(new Intent(this, AboutUsActivity.class));
                 return true;

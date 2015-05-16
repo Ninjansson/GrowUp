@@ -7,7 +7,6 @@
     tools:context="androids.growup.PlantActivity"
     tools:ignore="MergeRootFrame">
 
-
     <TextView
         android:id="@+id/plant_name"
         android:padding="5dp"
@@ -21,10 +20,18 @@
         android:text="Plant Name"
         android:typeface="sans"/>
 
+    <ImageView
+        android:layout_width="96px"
+        android:layout_height="wrap_content"
+        android:id="@+id/plant_icon"
+        android:layout_below="@+id/plant_name"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:layout_width="50px"
         android:layout_height="50px"
         android:id="@+id/plant_difficulty"
+        android:layout_below="@+id/plant_name"
         android:layout_alignBaseline="@+id/plant_name"
         android:layout_alignBottom="@+id/plant_name"
         android:layout_alignParentRight="true"
@@ -42,10 +49,10 @@
         android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/plant_name"
-        android:layout_centerHorizontal="true"
         android:typeface="sans"
-        android:text="Plant Latin Name" />
+        android:text="Plant Latin Name"
+        android:layout_below="@+id/plant_icon"
+        android:layout_centerHorizontal="true" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -57,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
         <TextView
         android:id="@+id/plant_info"
         android:padding="5dp"
@@ -67,7 +75,7 @@
         android:layout_below="@+id/latin_name"
         android:layout_centerHorizontal="true"
         android:typeface="sans"
-        android:text="New Text" />
+        android:text="Info" />
 
             <TextView
                 android:id="@+id/plant_how_to"
@@ -75,7 +83,8 @@
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/plant_info" />
+                android:layout_below="@+id/plant_info"
+                android:text="How to" />
 
             <TextView
                 android:id="@+id/plant_usage"
@@ -83,7 +92,8 @@
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/plant_how_to" />
+                android:layout_below="@+id/plant_how_to"
+                android:text="Usage" />
     <TextView
         android:id="@+id/plant_habitat"
         android:padding="10dp"
@@ -94,10 +104,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/plant_info"
         android:layout_centerHorizontal="true"
-        android:text="New Text"
+        android:text="Habitat"
         android:typeface="sans"/>
 
-    <Switch
+    <!--<Switch
         android:id="@+id/toggle_push"
         android:textSize="18sp"
         android:layout_width="wrap_content"
@@ -108,9 +118,18 @@
         android:text="Pushnotiser"
         android:textStyle="bold"
         android:padding="10dp"
-        android:typeface="sans"/>
+        android:typeface="sans"/>-->
 
-        <Button
+            <Switch
+                android:id="@+id/toggle_push"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plant_habitat"
+                android:layout_centerHorizontal="true"
+                android:text="Pushnotiser" />
+
+
+            <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toggle_push"
