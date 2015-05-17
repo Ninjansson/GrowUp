@@ -95,6 +95,14 @@
                 android:text="Usage"
                 android:textSize="15sp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/plant_habitat"
+            android:layout_centerHorizontal="true"
+            android:text="Lägg till"
+            android:id="@+id/button_open_popup" />
+
             <TextView
                 android:id="@+id/plant_habitat"
                 android:layout_width="wrap_content"

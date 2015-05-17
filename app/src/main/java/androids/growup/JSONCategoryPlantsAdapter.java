@@ -65,7 +65,8 @@ public class JSONCategoryPlantsAdapter extends BaseAdapter {
         }
         JSONObject jsonObject = (JSONObject) getItem(position);
 
-//        Log.d(TAG, "Object" + jsonObject);
+        //Log.d(TAG, "Object" + jsonObject);
+
 
         // If so, grab the Cover ID out from the object
         int img = jsonObject.optInt("id");

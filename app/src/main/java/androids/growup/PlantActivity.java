@@ -1,53 +1,74 @@
 package androids.growup;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 public class PlantActivity extends ActionBarActivity {
 
     private static final String PLANT_ICON = "http://kimjansson.se/GrowUp/imgs/plantpage/";
     private static final String PREFS_NAME = "SETTINGS";
+    private static final String FILE_NAME = "GrowUpMinLista.xml";
     private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link;
     private ImageView plant_icon;
-    public final static String SAVE_PLANT = "androids.growup.save_plant";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
-
-        final String plantName = this.getIntent().getExtras().getString("name");
-
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        boolean thisPlant = settings.getBoolean(plantName, false);
-        final Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
-        pushNotices.setChecked(thisPlant);
-
-        pushNotices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                boolean x = pushNotices.isChecked();
-                editorCommitChanges();
-                //Log.i("TEST MOTHERFUCKER", "SWITCH for plant " + plantName + " set to " + x);
-            }
-        });
 
         setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
         plant_name = (TextView) findViewById(R.id.plant_name);
@@ -65,7 +86,7 @@ public class PlantActivity extends ActionBarActivity {
         String img = PLANT_ICON + "plant_icon_" + this.getIntent().getExtras().getInt("id") + ".png";
         Picasso.with(this).load(img).into(plant_icon);
 
-        Log.d("PLANTMOTHERFUCKER", "Img => " + img);
+        //Log.d("PLANTMOTHERFUCKER", "Img => " + img);
 
         latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
         plant_info.setText(this.getIntent().getExtras().getString("info"));
@@ -81,20 +102,77 @@ public class PlantActivity extends ActionBarActivity {
                     .commit();
         }
 
-        final TextView plant = (TextView) findViewById(R.id.plant_name);
-        Button save = (Button) findViewById(R.id.button_savePlant);
+        final Button open_popup = (Button) findViewById(R.id.button_open_popup);
 
-        save.setOnClickListener(new View.OnClickListener() {
+        open_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String plantName = plant.getText().toString();
-                Intent intent = new Intent(getApplicationContext(), MyPageActivity.class);
-                intent.putExtra(SAVE_PLANT, plantName);
-                //startActivity(intent);
-                Toast toast = Toast.makeText(getApplicationContext(), "Plantan är tillagd", Toast.LENGTH_SHORT);
-                toast.show();
+                showInputDialog();
             }
         });
+
+    }
+
+    protected void showInputDialog() {
+        final File file = new File("GrowUpLista.txt");
+        // get prompts.xml view
+        LayoutInflater layoutInflater = LayoutInflater.from(PlantActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.popup_add_plant, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlantActivity.this);
+        alertDialogBuilder.setView(promptView);
+
+        final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
+        // setup a dialog window
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        String x = sp_name.getText().toString();
+                        saveToMyList();
+                    }
+                })
+                .setNegativeButton("AVBRYT",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                checkFile(file);
+                                //dialog.cancel();
+                            }
+                        });
+
+        // create an alert dialog
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+
+    private void checkFile(File file) {
+
+    }
+
+
+    private void saveToMyList() {
+        try
+        {
+            // Creates a trace file in the primary external storage space of the
+            // current application.
+            // If the file does not exists, it is created.
+            File growUpFile = new File(this.getExternalFilesDir(null), FILE_NAME);
+            if (!growUpFile.exists()) {
+                growUpFile.createNewFile();
+            }
+            // Adds a line to the trace file
+            BufferedWriter writer = new BufferedWriter(new FileWriter(growUpFile, true ));
+            writer.write("Du kan vara en planta.");
+            writer.close();
+            // Refresh the data so it can seen when the device is plugged in a
+            // computer. You may have to unplug and replug the device to see the
+            // latest changes. This is not necessary if the user should not modify
+            // the files.
+            MediaScannerConnection.scanFile(this, new String[]{growUpFile.toString()}, null, null);
+
+        }
+        catch (IOException e)
+        {
+            Log.e("SAVEFILEFUCKER", "Unable to write to the TraceFile.txt file.");
+        }
     }
 
     public String checkDifficulty(int difficulty) {
@@ -115,6 +193,7 @@ public class PlantActivity extends ActionBarActivity {
         return output;
     }
 
+    /*
     private void editorCommitChanges() {
         //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
 
@@ -129,12 +208,12 @@ public class PlantActivity extends ActionBarActivity {
         // Commit the edits!
         editor.commit();
     }
+    */
 
     @Override
     protected void onStop() {
         super.onStop();
-        //Log.i("TEST MOTHERFUCKER", "In PlantActivity.onStop - Fucking things up");
-        editorCommitChanges();
+        //editorCommitChanges();
     }
 
     public String checkHabitat(int habitat) {
