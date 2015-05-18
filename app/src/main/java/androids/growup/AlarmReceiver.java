@@ -32,7 +32,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context ctx, Intent intent) {
-        Log.i("motherfucker", "PING!");
+        //Log.i("motherfucker", "PING!");
         SharedPreferences settings = ctx.getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
 

@@ -2,8 +2,10 @@ package androids.growup;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,30 +17,22 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.apache.http.Header;
 import org.json.JSONObject;
 
 import java.text.NumberFormat;
 import java.text.ParsePosition;
+import java.util.Arrays;
 
 
 public class MainActivity extends ActionBarActivity {
-    private static final String TAG = "GrowUpMotherFucker";
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
-
-
-
     private ListView catList;
     private JSONCategoriesAdapter catAdapter;
     private PendingIntent pendingIntent;
-
-    public static boolean isNumeric(String str) {
-        NumberFormat formatter = NumberFormat.getInstance();
-        ParsePosition pos = new ParsePosition(0);
-        formatter.parse(str, pos);
-        return str.length() == pos.getIndex();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +41,23 @@ public class MainActivity extends ActionBarActivity {
 
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
+        catList.setAdapter(catAdapter);
+        populateCategoriesList();
 
+         /* START TIMER
+        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        startTimer();
+         END TIMER */
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 JSONObject object = (JSONObject) catAdapter.getItem(position);
-                //showToast("ID: " + object.optInt("id"));
                 Intent categoryIntent = new Intent(MainActivity.this, CategoryActivity.class);
                 categoryIntent.putExtra("cat_id", object.optInt("id"));
                 categoryIntent.putExtra("cat_name", object.optString("cat_name"));
@@ -62,15 +67,6 @@ public class MainActivity extends ActionBarActivity {
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });
-
-        catList.setAdapter(catAdapter);
-        populateCategoriesList();
-
-        /* START TIMER */
-        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
-        startTimer();
-        /* END TIMER */
     }
 
     private void startTimer() {
@@ -83,20 +79,19 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void populateCategoriesList() {
-        Log.d("motherfucker", "Populating categories list!");
         AsyncHttpClient cat_client = new AsyncHttpClient();
 
         cat_client.get(QUERY_URL,
                 new JsonHttpResponseHandler() {
-
                     @Override
                     public void onSuccess(JSONObject cat_object) {
+                        Log.d("motherfucker", "SUCCESS connecting to categories");
                         catAdapter.updateData(cat_object.optJSONArray("categories"));
                     }
 
                     @Override
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
-                        Log.d(TAG, "Failure connecting to whatever " + throwable + " " + error);
+                        Log.e("motherfucker", "Failure connecting to whatever " + throwable + " " + error);
                     }
                 });
     }
