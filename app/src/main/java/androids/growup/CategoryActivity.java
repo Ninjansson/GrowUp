@@ -63,6 +63,8 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("plant_usage", object.optString("plant_usage"));
                 plantIntent.putExtra("difficulty", object.optInt("difficulty"));
                 plantIntent.putExtra("plant_link", object.optString("link"));
+                plantIntent.putExtra("harvest", object.optString("harvest"));
+                plantIntent.putExtra("good_to_know", object.optString("good_to_know"));
 
                 Log.d(TAG, "Link => " + object.optString("link"));
 
