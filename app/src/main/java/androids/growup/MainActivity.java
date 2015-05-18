@@ -45,13 +45,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* START TIMER */
-        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
-        startTimer();
-        /* END TIMER */
-
-
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
 
@@ -72,9 +65,16 @@ public class MainActivity extends ActionBarActivity {
 
         catList.setAdapter(catAdapter);
         populateCategoriesList();
+
+        /* START TIMER */
+        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        startTimer();
+        /* END TIMER */
     }
 
     private void startTimer() {
+        Log.d("motherfucker", "STARTING TIMER!");
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         int interval = 60000;
 
@@ -83,6 +83,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void populateCategoriesList() {
+        Log.d("motherfucker", "Populating categories list!");
         AsyncHttpClient cat_client = new AsyncHttpClient();
 
         cat_client.get(QUERY_URL,
@@ -124,9 +125,5 @@ public class MainActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void showToast(String output) {
-        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
     }
 }
