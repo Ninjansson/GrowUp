@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +16,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private static final String PREFS_NAME = "SETTINGS";
 
     // TODO: Do this some other way because this sucks!
+    // Loop it out from DB and populate the array
     private final String[] plants = {
             "oregano",
             "basilika",
@@ -30,6 +32,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context ctx, Intent intent) {
+        Log.i("motherfucker", "PING!");
         SharedPreferences settings = ctx.getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
 

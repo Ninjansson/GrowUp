@@ -1,15 +1,11 @@
 package androids.growup;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,15 +14,15 @@ import org.json.JSONObject;
  * Created by Kim Jansson on 2015-04-12.
  */
 
-public class JSONAdapter extends BaseAdapter {
-    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/";
+public class JSONMyPlantsAdapter extends BaseAdapter {
+    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/plant_icons/";
     private static final String TAG = "GrowUpMotherFucker";
 
     Context mContext;
     LayoutInflater mInflater;
     JSONArray mJsonArray;
 
-    public JSONAdapter(Context context, LayoutInflater inflater) {
+    public JSONMyPlantsAdapter(Context context, LayoutInflater inflater) {
         mContext = context;
         mInflater = inflater;
         mJsonArray = new JSONArray();
@@ -54,11 +50,10 @@ public class JSONAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.row_categories, null);
+            convertView = mInflater.inflate(R.layout.row_my_plants, null);
 
             holder = new ViewHolder();
-            holder.img_cat_logo = (ImageView) convertView.findViewById(R.id.img_cat_logo);
-            holder.text_category = (TextView) convertView.findViewById(R.id.text_category);
+            holder.my_plant_name = (TextView) convertView.findViewById(R.id.my_plant_name);
 
             convertView.setTag(holder);
         } else {
@@ -66,26 +61,15 @@ public class JSONAdapter extends BaseAdapter {
         }
         JSONObject jsonObject = (JSONObject) getItem(position);
 
-        // If so, grab the Cover ID out from the object
-        String img = jsonObject.optString("cat_icon");
-        // Construct the image URL (specific to API)
-        String imageURL = IMAGE_URL_BASE + img;
-
-        // Use Picasso to load the image
-        // Temporarily have a placeholder in case it's slow to load
-        Picasso.with(mContext).load(imageURL).into(holder.img_cat_logo);
-
-
         // Grab the title and author from the JSON
-        String cat_name = "";
+        String name = "";
 
-        if (jsonObject.has("cat_name")) {
-            cat_name = jsonObject.optString("cat_name");
+        if (jsonObject.has("my_name")) {
+            name = jsonObject.optString("my_name");
         }
 
         // Send these Strings to the TextViews for display
-        holder.text_category.setText(cat_name);
-
+        holder.my_plant_name.setText(name);
 
         return convertView;
     }
@@ -99,7 +83,6 @@ public class JSONAdapter extends BaseAdapter {
     // this is used so you only ever have to do
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
-        public ImageView img_cat_logo;
-        public TextView text_category;
+        public TextView my_plant_name;
     }
 }
