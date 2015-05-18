@@ -7,8 +7,10 @@ package androids.growup;
         import android.util.Log;
         import android.view.Menu;
         import android.view.MenuItem;
+        import android.view.View;
         import android.widget.ArrayAdapter;
         import android.widget.ListView;
+        import android.widget.TextView;
 
         import com.loopj.android.http.AsyncHttpClient;
         import com.loopj.android.http.JsonHttpResponseHandler;
@@ -32,13 +34,19 @@ public class MyPageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
+        TextView my_page_information = (TextView) findViewById(R.id.my_page_information);
 
         setTitle("Min sida");
         my_plants_list = (ListView) findViewById(R.id.my_plants_list);
         myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
         my_plants_list.setAdapter(myPlantsAdapter);
 
-        populateMyPlantsList();
+        if(getPlantsJSONArrayFromMyList() != null) {
+            my_page_information.setVisibility(View.GONE);
+            populateMyPlantsList();
+        } else {
+            my_page_information.setText("Du har ännu inga plantor inlagda i din lista. För att göra det gå till .... bla bla bla");
+        }
     }
 
 
@@ -46,7 +54,6 @@ public class MyPageActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_my_page, menu);
-
         return true;
     }
 
@@ -71,54 +78,23 @@ public class MyPageActivity extends ActionBarActivity {
     }
 
     private void populateMyPlantsList() {
+        Log.d("motherfucker", "LENGTH => " + getPlantsJSONArrayFromMyList().optJSONArray("myPlants"));
         JSONObject myPlants = getPlantsJSONArrayFromMyList();
         JSONArray plantArray = null;
+
         try {
             plantArray = myPlants.getJSONArray("myPlants");
-            //myPlantsAdapter.updateData(plantArray);
+            myPlantsAdapter.updateData(plantArray);
+
+            for(int i = 0; i < plantArray.length(); i ++ ) {
+                JSONObject x = plantArray.getJSONObject(i);
+            }
+
+            my_plants_list.setAdapter(myPlantsAdapter);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        myPlantsAdapter.updateData(plantArray);
-        try {
-            for(int i = 0; i < plantArray.length(); i ++ ) {
-                JSONObject x = plantArray.getJSONObject(i);
-                Log.d("motherfucker", "Name => " + x.getString("my_name"));
-            }
-  /*
-            JSONArray loopIt = (JSONArray) new JSONTokener(plantArray.toString()).nextValue();
-            Log.d("motherfucker", "ARRAY => " + loopIt);
-            String[] stringarray = new String[plantArray.length()];
-
-            for(int i = 0; i < loopIt.length(); i++) {
-                stringarray[i] = loopIt.getString(i);
-                Log.d("motherfucker", "STRING => " + loopIt.getString(i));
-            }
-*/
-            //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.row_my_plants, stringarray);
-
-            my_plants_list.setAdapter(myPlantsAdapter);
-        } catch (JSONException je) {
-            Log.e("motherfucker", "ERROR NÄR VI SKULLE LATTJA MED ARRAYEN!");
-        }
-
-        /*
-        ListView list = (ListView) findViewById(...);
-        String json = "[\"Country1\",\"Country2\",\"Country3\"]";
-        try {
-            JSONArray array = (JSONArray) new JSONTokener(json).nextValue();
-
-            String[] stringarray = new String[array.length()];
-            for (int i = 0; i < array.length(); i++) {
-                stringarray[i] = array.getString(i);
-            }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringarray);
-            list.setAdapter(adapter);
-        } catch (JSONException e) {
-            // handle JSON parsing exceptions...
-        }
-        */
     }
 
     private JSONObject getPlantsJSONArrayFromMyList() {

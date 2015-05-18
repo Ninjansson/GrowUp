@@ -44,27 +44,8 @@ public class CategoryActivity extends ActionBarActivity {
                 Intent plantIntent = new Intent(CategoryActivity.this, PlantActivity.class);
                 plantIntent.putExtra("cat_id", catId);
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
-
-<<<<<<< HEAD
-                plantIntent.putExtra("id", object.optInt("id"));
-                plantIntent.putExtra("cat_name", object.optString("cat_name"));
-                plantIntent.putExtra("name", object.optString("name"));
-                plantIntent.putExtra("latin_name", object.optString("latin_name"));
-                plantIntent.putExtra("info", object.optString("info"));
-                plantIntent.putExtra("how_to", object.optString("how_to"));
-                plantIntent.putExtra("habitat", object.optInt("habitat"));
-                plantIntent.putExtra("plant_usage", object.optString("plant_usage"));
-                plantIntent.putExtra("difficulty", object.optInt("difficulty"));
-                plantIntent.putExtra("plant_link", object.optString("link"));
-                plantIntent.putExtra("harvest", object.optString("harvest"));
-                plantIntent.putExtra("good_to_know", object.optString("good_to_know"));
-
-                Log.d(TAG, "Link => " + object.optString("link"));
-
-=======
                 plantIntent.putExtra("plant_id", object.optInt("id"));
-                plantIntent.putExtra("my_plant_name", object.optString("name"));
->>>>>>> origin/Mia
+                plantIntent.putExtra("plant_name", object.optString("name"));
                 startActivity(plantIntent);
 
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
