@@ -1,5 +1,6 @@
 package androids.growup;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -22,6 +23,7 @@ public class CategoryActivity extends ActionBarActivity {
     private ListView catPlantsList;
     private JSONCategoryPlantsAdapter catPlantsAdapter;
     private int catId;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,9 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
                 plantIntent.putExtra("plant_id", object.optInt("id"));
                 plantIntent.putExtra("plant_name", object.optString("name"));
-                startActivity(plantIntent);
 
+                dialog= ProgressDialog.show(CategoryActivity.this, "Laddar", "Vänligen vänta");
+                startActivity(plantIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });

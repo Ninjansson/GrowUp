@@ -33,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
     private ListView catList;
     private JSONCategoriesAdapter catAdapter;
     private PendingIntent pendingIntent;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +63,9 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_id", object.optInt("id"));
                 categoryIntent.putExtra("cat_name", object.optString("cat_name"));
 
-                startActivity(categoryIntent);
 
+                dialog=ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
+                startActivity(categoryIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });
