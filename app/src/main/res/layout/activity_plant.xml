@@ -11,7 +11,7 @@
         android:id="@+id/plant_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:padding="5dp"
@@ -163,7 +163,7 @@
         </LinearLayout>
 
     </ScrollView>
-=======
+
         android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:divider="@null"
@@ -176,7 +176,7 @@
         android:layout_centerHorizontal="true"
         android:text="Lägg till"
         android:id="@+id/button_open_popup" />
->>>>>>> origin/Mia
+
 
 </RelativeLayout>
 

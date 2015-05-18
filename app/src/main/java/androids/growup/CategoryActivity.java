@@ -45,7 +45,7 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("cat_id", catId);
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
 
-<<<<<<< HEAD
+
                 plantIntent.putExtra("id", object.optInt("id"));
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
                 plantIntent.putExtra("name", object.optString("name"));
@@ -61,10 +61,9 @@ public class CategoryActivity extends ActionBarActivity {
 
                 Log.d(TAG, "Link => " + object.optString("link"));
 
-=======
                 plantIntent.putExtra("plant_id", object.optInt("id"));
                 plantIntent.putExtra("my_plant_name", object.optString("name"));
->>>>>>> origin/Mia
+
                 startActivity(plantIntent);
 
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
