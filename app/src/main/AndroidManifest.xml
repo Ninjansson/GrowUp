@@ -29,29 +29,21 @@
             android:uiOptions="splitActionBarWhenNarrow"
             android:name=".CategoryActivity"
             android:label="@string/title_activity_sub_category"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="androids.growup.MainActivity" />
+
         </activity>
         <activity
             android:uiOptions="splitActionBarWhenNarrow"
             android:name=".PlantActivity"
             android:label="@string/title_activity_plant"
-            android:parentActivityName=".CategoryActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="androids.growup.CategoryActivity" />
         </activity>
         <activity
             android:uiOptions="splitActionBarWhenNarrow"
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
         </activity>
@@ -59,7 +51,6 @@
             android:uiOptions="splitActionBarWhenNarrow"
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
 

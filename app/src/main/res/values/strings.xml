@@ -11,9 +11,9 @@
 
     <string name="title_activity_about_us">Om Oss</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Inställningar</string>
 
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Inställningar</string>
 
     <string name="push_notiser">Push Notiser</string>
 
@@ -31,7 +31,7 @@
 
     <string name="content_about">Grow Up, en app för den upptagna stadsbon. Vi hjälper dig att olda ditt eget skafferi.</string>
 
-    <string name="title_activity_my_page">MyPageActivity</string>
+    <string name="title_activity_my_page">Min Sida</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -44,7 +44,9 @@
     <string name="menu_home">Hem</string>
 
     <string name="Inspiration">inspo</string>
+
     <string name="tilte_inspo_text">Inspiration</string>
+
     <string name="Link">Länk</string>
 
 </resources>

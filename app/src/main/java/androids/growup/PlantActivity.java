@@ -1,67 +1,37 @@
 package androids.growup;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsoluteLayout;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.EditText;
-import android.widget.PopupWindow;
-import android.widget.Switch;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
-
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 public class PlantActivity extends ActionBarActivity {
 
     private static final String PLANT_ICON = "http://kimjansson.se/GrowUp/imgs/plantpage/";
     private static final String PREFS_NAME = "SETTINGS";
     private static final String FILE_NAME = "GrowUpMinLista.xml";
-    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link;
+    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link, plant_good_to_know, plant_harvest;
     private ImageView plant_icon;
 
 
@@ -80,6 +50,8 @@ public class PlantActivity extends ActionBarActivity {
         plant_habitat = (TextView) findViewById(R.id.plant_habitat);
         plant_link = (TextView) findViewById(R.id.plant_link);
         plant_difficulty = (TextView) findViewById(R.id.plant_difficulty);
+        plant_good_to_know = (TextView) findViewById(R.id.plant_good_to_know);
+        plant_harvest = (TextView) findViewById(R.id.plant_harvest);
 
         plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
 
@@ -94,6 +66,8 @@ public class PlantActivity extends ActionBarActivity {
         plant_usage.setText(this.getIntent().getExtras().getString("usage"));
         plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
         plant_link.setText(this.getIntent().getExtras().getString("plant_link"));
+        plant_good_to_know.setText(this.getIntent().getExtras().getString("good_to_know"));
+        plant_harvest.setText(this.getIntent().getExtras().getString("harvest"));
         plant_difficulty.setBackgroundColor(Color.parseColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty"))));
 
         if (savedInstanceState == null) {
