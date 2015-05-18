@@ -1,13 +1,16 @@
 package androids.growup;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+/*
 <<<<<<< HEAD
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
 =======
 >>>>>>> origin/Mia
+        */
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -19,16 +22,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+/*
 <<<<<<< HEAD
 import android.widget.ImageView;
 =======
+*/
 import android.widget.ListView;
->>>>>>> origin/Mia
+//>>>>>>> origin/Mia
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
+/*
 <<<<<<< HEAD
 
 import java.io.BufferedWriter;
@@ -43,7 +50,7 @@ public class PlantActivity extends ActionBarActivity {
     private static final String FILE_NAME = "GrowUpMinLista.xml";
     private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link, plant_good_to_know, plant_harvest;
     private ImageView plant_icon;
-=======
+======= */
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +71,7 @@ public class PlantActivity extends ActionBarActivity {
     private static int PLANT_ID;
     private ListView plant_view;
     private JSONPlantAdapter plantAdapter;
->>>>>>> origin/Mia
+//>>>>>>> origin/Mia
 
 
     @Override
@@ -72,6 +79,7 @@ public class PlantActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
 
+        /*
 <<<<<<< HEAD
         setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
         plant_name = (TextView) findViewById(R.id.plant_name);
@@ -109,11 +117,12 @@ public class PlantActivity extends ActionBarActivity {
                     .commit();
         }
 =======
+*/
         PLANT_ID = this.getIntent().getExtras().getInt("plant_id");
         setTitle(this.getIntent().getExtras().getString("my_plant_name"));
 
         displayPlantContent();
->>>>>>> origin/Mia
+//>>>>>>> origin/Mia
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
 
