@@ -4,53 +4,20 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-/*
-<<<<<<< HEAD
-import android.graphics.Color;
-import android.media.MediaScannerConnection;
-=======
->>>>>>> origin/Mia
-        */
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-/*
-<<<<<<< HEAD
-import android.widget.ImageView;
-=======
-*/
 import android.widget.ListView;
-//>>>>>>> origin/Mia
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.squareup.picasso.Picasso;
-/*
-<<<<<<< HEAD
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-public class PlantActivity extends ActionBarActivity {
-
-    private static final String PLANT_ICON = "http://kimjansson.se/GrowUp/imgs/plantpage/";
-    private static final String PREFS_NAME = "SETTINGS";
-    private static final String FILE_NAME = "GrowUpMinLista.xml";
-    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link, plant_good_to_know, plant_harvest;
-    private ImageView plant_icon;
-======= */
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,61 +38,19 @@ public class PlantActivity extends ActionBarActivity {
     private static int PLANT_ID;
     private ListView plant_view;
     private JSONPlantAdapter plantAdapter;
-//>>>>>>> origin/Mia
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
 
-        /*
-<<<<<<< HEAD
-        setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
-        plant_name = (TextView) findViewById(R.id.plant_name);
-        plant_icon = (ImageView) findViewById(R.id.plant_icon);
-        latin_name = (TextView) findViewById(R.id.latin_name);
-        plant_info = (TextView) findViewById(R.id.plant_info);
-        plant_how_to = (TextView) findViewById(R.id.plant_how_to);
-        plant_usage = (TextView) findViewById(R.id.plant_usage);
-        plant_habitat = (TextView) findViewById(R.id.plant_habitat);
-        plant_link = (TextView) findViewById(R.id.plant_link);
-        plant_difficulty = (TextView) findViewById(R.id.plant_difficulty);
-        plant_good_to_know = (TextView) findViewById(R.id.plant_good_to_know);
-        plant_harvest = (TextView) findViewById(R.id.plant_harvest);
-
-        plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
-
-        String img = PLANT_ICON + "plant_icon_" + this.getIntent().getExtras().getInt("id") + ".png";
-        Picasso.with(this).load(img).into(plant_icon);
-
-        //Log.d("PLANTMOTHERFUCKER", "Img => " + img);
-
-        latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
-        plant_info.setText(this.getIntent().getExtras().getString("info"));
-        plant_how_to.setText(this.getIntent().getExtras().getString("how_to"));
-        plant_usage.setText(this.getIntent().getExtras().getString("usage"));
-        plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
-        plant_link.setText(this.getIntent().getExtras().getString("plant_link"));
-        plant_good_to_know.setText(this.getIntent().getExtras().getString("good_to_know"));
-        plant_harvest.setText(this.getIntent().getExtras().getString("harvest"));
-        plant_difficulty.setBackgroundColor(Color.parseColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty"))));
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
-=======
-*/
         PLANT_ID = this.getIntent().getExtras().getInt("plant_id");
-        setTitle(this.getIntent().getExtras().getString("my_plant_name"));
+        THIS_PLANT = this.getIntent().getExtras().getString("plant_name");
+        setTitle(THIS_PLANT);
 
         displayPlantContent();
-//>>>>>>> origin/Mia
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
-
         open_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,8 +83,6 @@ public class PlantActivity extends ActionBarActivity {
     }
 
     protected void showInputDialog() {
-        //final File file = new File("GrowUpLista.txt");
-        // get prompts.xml view
         LayoutInflater layoutInflater = LayoutInflater.from(PlantActivity.this);
         View promptView = layoutInflater.inflate(R.layout.popup_add_plant, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PlantActivity.this);
@@ -334,7 +257,6 @@ public class PlantActivity extends ActionBarActivity {
         return finalString.toString();
     }
 
-
     /*
     private void editorCommitChanges() {
         //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
@@ -393,22 +315,6 @@ public class PlantActivity extends ActionBarActivity {
                 catIntent.putExtra("cat_name", this.getIntent().getExtras().getString("cat_name"));
                 startActivityForResult(catIntent, 0);
                 return true;
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_plant, container, false);
-            return rootView;
         }
     }
 }

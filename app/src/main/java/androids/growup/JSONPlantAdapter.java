@@ -20,7 +20,7 @@ import org.json.JSONObject;
  */
 
 public class JSONPlantAdapter extends BaseAdapter {
-    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/plant_icons/";
+    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/plantpage/";
     private static final String TAG = "MotherFucker";
 
     Context mContext;
@@ -76,7 +76,7 @@ public class JSONPlantAdapter extends BaseAdapter {
         // If so, grab the Cover ID out from the object
         int img = jsonObject.optInt("id");
         // Construct the image URL (specific to API)
-        String imageURL = IMAGE_URL_BASE + "plant_" + img + ".png";
+        String imageURL = IMAGE_URL_BASE + "plant_icon_" + img + ".png";
 
         // Use Picasso to load the image
         // Temporarily have a placeholder in case it's slow to load
