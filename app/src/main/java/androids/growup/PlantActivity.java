@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -49,7 +50,7 @@ public class PlantActivity extends ActionBarActivity {
         setContentView(R.layout.activity_plant);
 
         PLANT_ID = this.getIntent().getExtras().getInt("plant_id");
-        setTitle(this.getIntent().getExtras().getString("plant_name"));
+        setTitle(this.getIntent().getExtras().getString("my_plant_name"));
 
         displayPlantContent();
 
@@ -102,8 +103,6 @@ public class PlantActivity extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         String x = sp_name.getText().toString();
                         if (x.equals("")) {
-                            Log.d("motherfucker", "Användaren skrev inte in något så vi gör det.");
-
                             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                             Date date = new Date();
 
@@ -202,6 +201,7 @@ public class PlantActivity extends ActionBarActivity {
             FileOutputStream ops = new FileOutputStream(file, false);
             ops.write(boo.toString().getBytes());
             ops.close();
+            Toast.makeText(getApplicationContext(), "Din planta är nu sparad.", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

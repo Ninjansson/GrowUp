@@ -78,8 +78,6 @@ public class JSONPlantAdapter extends BaseAdapter {
         // Construct the image URL (specific to API)
         String imageURL = IMAGE_URL_BASE + "plant_" + img + ".png";
 
-        Log.d("motherfucker", "IMG => " + imageURL);
-
         // Use Picasso to load the image
         // Temporarily have a placeholder in case it's slow to load
         Picasso.with(mContext).load(imageURL).into(holder.plant_icon);

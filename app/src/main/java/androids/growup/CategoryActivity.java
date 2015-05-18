@@ -40,27 +40,13 @@ public class CategoryActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 JSONObject object = (JSONObject) catPlantsAdapter.getItem(position);
-                //showToast("ID: " + object.optInt("id"));
+
                 Intent plantIntent = new Intent(CategoryActivity.this, PlantActivity.class);
                 plantIntent.putExtra("cat_id", catId);
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
 
                 plantIntent.putExtra("plant_id", object.optInt("id"));
-                plantIntent.putExtra("plant_name", object.optString("name"));
-                /*
-                plantIntent.putExtra("cat_name", object.optString("cat_name"));
-                plantIntent.putExtra("name", object.optString("name"));
-                plantIntent.putExtra("latin_name", object.optString("latin_name"));
-                plantIntent.putExtra("info", object.optString("info"));
-                plantIntent.putExtra("how_to", object.optString("how_to"));
-                plantIntent.putExtra("habitat", object.optInt("habitat"));
-                plantIntent.putExtra("plant_usage", object.optString("plant_usage"));
-                plantIntent.putExtra("difficulty", object.optInt("difficulty"));
-                plantIntent.putExtra("plant_link", object.optString("link"));
-                 */
-
-                //Log.d(TAG, "Link => " + object.optString("link"));
-
+                plantIntent.putExtra("my_plant_name", object.optString("name"));
                 startActivity(plantIntent);
 
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
@@ -76,12 +62,13 @@ public class CategoryActivity extends ActionBarActivity {
 
                     @Override
                     public void onSuccess(JSONObject catPlantsObject) {
+                        Log.d("motherfucker", "CATPLANTSOBJECT OPTJSONARRAY => " + catPlantsObject.optJSONArray("plants"));
                         catPlantsAdapter.updateData(catPlantsObject.optJSONArray("plants"));
                     }
 
                     @Override
                     public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
-                        Log.d(TAG, "Failure connecting to whatever " + throwable + " " + error);
+                        Log.e(TAG, "Failure connecting to whatever " + throwable + " " + error);
                     }
                 });
     }
