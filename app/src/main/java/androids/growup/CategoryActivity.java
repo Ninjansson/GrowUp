@@ -44,6 +44,8 @@ public class CategoryActivity extends ActionBarActivity {
                 Intent plantIntent = new Intent(CategoryActivity.this, PlantActivity.class);
                 plantIntent.putExtra("cat_id", catId);
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
+                plantIntent.putExtra("plant_id", object.optInt("id"));
+                plantIntent.putExtra("plant_name", object.optString("name"));
                 startActivity(plantIntent);
 
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
