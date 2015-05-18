@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Grow Up</string>
+    <string name="app_name">GROW UP</string>
 
-    <string name="menu_settings">Inställningar</string>
+    <string name="menu_settings">INSTÄLLNINGAR</string>
 
-    <string name="menu_aboutus">Om Oss</string>
+    <string name="menu_aboutus">OM OSS</string>
 
     <string name="title_activity_plant">Växter</string>
 
@@ -33,19 +33,15 @@
 
     <string name="title_activity_my_page">Min Sida</string>
 
-    <string name="hello_world">Hello world!</string>
-
-    <string name="hello_User">Hello User :)!</string>
-
     <string name="menu_minsida">Min Sida</string>
 
-    <string name="menu_my_page">Min Sida</string>
+    <string name="menu_my_page">MIN SIDA</string>
 
     <string name="menu_home">Hem</string>
 
     <string name="Inspiration">inspo</string>
 
-    <string name="tilte_inspo_text">Inspiration</string>
+    <string name="tilte_inspo_text">INSPIRATION</string>
 
     <string name="Link">Länk</string>
 
