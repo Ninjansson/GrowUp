@@ -2,18 +2,13 @@ package androids.growup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -35,9 +30,6 @@ public class CategoryActivity extends ActionBarActivity {
 
         setTitle(this.getIntent().getExtras().getString("cat_name").toUpperCase());
         catId = this.getIntent().getExtras().getInt("cat_id");
-
-        //Log.d(TAG, QUERY_URL + catId);
-
         catPlantsList = (ListView) findViewById(R.id.category_plants);
         catPlantsAdapter = new JSONCategoryPlantsAdapter(this, getLayoutInflater());
         catPlantsList.setAdapter(catPlantsAdapter);
@@ -53,7 +45,9 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("cat_id", catId);
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
 
-                plantIntent.putExtra("id", object.optInt("id"));
+                plantIntent.putExtra("plant_id", object.optInt("id"));
+                plantIntent.putExtra("plant_name", object.optString("name"));
+                /*
                 plantIntent.putExtra("cat_name", object.optString("cat_name"));
                 plantIntent.putExtra("name", object.optString("name"));
                 plantIntent.putExtra("latin_name", object.optString("latin_name"));
@@ -63,20 +57,15 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("plant_usage", object.optString("plant_usage"));
                 plantIntent.putExtra("difficulty", object.optInt("difficulty"));
                 plantIntent.putExtra("plant_link", object.optString("link"));
+                 */
 
-                Log.d(TAG, "Link => " + object.optString("link"));
+                //Log.d(TAG, "Link => " + object.optString("link"));
 
                 startActivity(plantIntent);
 
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
     }
 
     private void populateCategoryPlantsList() {
@@ -123,24 +112,6 @@ public class CategoryActivity extends ActionBarActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void showToast(String output) {
-        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
-    }
-
-
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_category, container, false);
-            return rootView;
         }
     }
 }

@@ -1,15 +1,12 @@
 package androids.growup;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,50 +15,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.EditText;
-import android.widget.PopupWindow;
-import android.widget.Switch;
+import android.widget.ListView;
 import android.widget.TextView;
 
-
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
-
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
-
-import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-
-import com.squareup.picasso.Picasso;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PlantActivity extends ActionBarActivity {
 
-    private static final String PLANT_ICON = "http://kimjansson.se/GrowUp/imgs/plantpage/";
-    private static final String PREFS_NAME = "SETTINGS";
-    private static final String FILE_NAME = "GrowUpMinLista.xml";
-    private TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_difficulty, plant_link;
-    private ImageView plant_icon;
-    public final static String SAVE_PLANT = "androids.growup.save_plant";
-    private String m_Text = "";
+    private static String THIS_PLANT;
+    private static int PLANT_ID;
+    private ListView plant_view;
+    private JSONPlantAdapter plantAdapter;
 
 
     @Override
@@ -69,37 +48,10 @@ public class PlantActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
 
-        setTitle(this.getIntent().getExtras().getString("name").toUpperCase());
-        plant_name = (TextView) findViewById(R.id.plant_name);
-        plant_icon = (ImageView) findViewById(R.id.plant_icon);
-        latin_name = (TextView) findViewById(R.id.latin_name);
-        plant_info = (TextView) findViewById(R.id.plant_info);
-        plant_how_to = (TextView) findViewById(R.id.plant_how_to);
-        plant_usage = (TextView) findViewById(R.id.plant_usage);
-        plant_habitat = (TextView) findViewById(R.id.plant_habitat);
-        plant_link = (TextView) findViewById(R.id.plant_link);
-        plant_difficulty = (TextView) findViewById(R.id.plant_difficulty);
+        PLANT_ID = this.getIntent().getExtras().getInt("plant_id");
+        setTitle(this.getIntent().getExtras().getString("plant_name"));
 
-        plant_name.setText(this.getIntent().getExtras().getString("name").toUpperCase());
-
-        String img = PLANT_ICON + "plant_icon_" + this.getIntent().getExtras().getInt("id") + ".png";
-        Picasso.with(this).load(img).into(plant_icon);
-
-        //Log.d("PLANTMOTHERFUCKER", "Img => " + img);
-
-        latin_name.setText(this.getIntent().getExtras().getString("latin_name"));
-        plant_info.setText(this.getIntent().getExtras().getString("info"));
-        plant_how_to.setText(this.getIntent().getExtras().getString("how_to"));
-        plant_usage.setText(this.getIntent().getExtras().getString("usage"));
-        plant_habitat.setText(checkHabitat(this.getIntent().getExtras().getInt("habitat")));
-        plant_link.setText(this.getIntent().getExtras().getString("plant_link"));
-        plant_difficulty.setBackgroundColor(Color.parseColor(checkDifficulty(this.getIntent().getExtras().getInt("difficulty"))));
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        displayPlantContent();
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
 
@@ -109,11 +61,33 @@ public class PlantActivity extends ActionBarActivity {
                 showInputDialog();
             }
         });
+    }
 
+    private void displayPlantContent() {
+        plant_view = (ListView) findViewById(R.id.plant_view);
+        plantAdapter = new JSONPlantAdapter(this, getLayoutInflater());
+        plant_view.setAdapter(plantAdapter);
+
+        String url = "http://kimjansson.se/GrowUp/plants/" + PLANT_ID;
+        AsyncHttpClient plantClient = new AsyncHttpClient();
+
+        plantClient.get(url,
+                new JsonHttpResponseHandler() {
+
+                    @Override
+                    public void onSuccess(JSONObject plantObject) {
+                        plantAdapter.updateData(plantObject.optJSONArray("plant"));
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
+                        Log.d("motherfucker", "Failure connecting to whatever " + throwable + " " + error);
+                    }
+                });
     }
 
     protected void showInputDialog() {
-        final File file = new File("GrowUpLista.txt");
+        //final File file = new File("GrowUpLista.txt");
         // get prompts.xml view
         LayoutInflater layoutInflater = LayoutInflater.from(PlantActivity.this);
         View promptView = layoutInflater.inflate(R.layout.popup_add_plant, null);
@@ -121,76 +95,175 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
+        sp_name.setHint("Skriv in namnet på din nya planta.");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         String x = sp_name.getText().toString();
-                        saveToMyList();
+                        if (x.equals("")) {
+                            Log.d("motherfucker", "Användaren skrev inte in något så vi gör det.");
+
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            Date date = new Date();
+
+                            x = THIS_PLANT + "[" + dateFormat.format(date) + "]";
+                        }
+                        saveToMyList(x);
                     }
                 })
                 .setNegativeButton("AVBRYT",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                checkFile(file);
-                                //dialog.cancel();
+                                //checkFile();
+                                dialog.cancel();
                             }
                         });
 
         // create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
+        alert.setTitle("Ny planta.");
+        alert.setIcon(R.drawable.icon_grow_up);
+        alert.setMessage("Fett nice att du ska så en ny planta kompis! Jag, Amelie, håller tummarna för dig! OMG! #SWAGALICIOUS");
         alert.show();
     }
 
-    private void checkFile(File file) {
+    private void checkFile() {
+        Context context = getApplicationContext();
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+        try {
+            FileInputStream inStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-    }
+            StringBuilder finalString = new StringBuilder();
+            String oneLine;
 
-
-    private void saveToMyList() {
-        try
-        {
-            // Creates a trace file in the primary external storage space of the
-            // current application.
-            // If the file does not exists, it is created.
-            File growUpFile = new File(this.getExternalFilesDir(null), FILE_NAME);
-            if (!growUpFile.exists()) {
-                growUpFile.createNewFile();
+            while((oneLine = bufferedReader.readLine()) != null) {
+                finalString.append(oneLine);
             }
-            // Adds a line to the trace file
-            BufferedWriter writer = new BufferedWriter(new FileWriter(growUpFile, true ));
-            writer.write("Du kan vara en planta.");
-            writer.close();
-            // Refresh the data so it can seen when the device is plugged in a
-            // computer. You may have to unplug and replug the device to see the
-            // latest changes. This is not necessary if the user should not modify
-            // the files.
-            MediaScannerConnection.scanFile(this, new String[]{growUpFile.toString()}, null, null);
 
-        }
-        catch (IOException e)
-        {
-            Log.e("SAVEFILEFUCKER", "Unable to write to the TraceFile.txt file.");
+            bufferedReader.close();
+            inStream.close();
+            inputStreamReader.close();
+
+            //Log.d("motherfucker", "FILE => " + finalString.toString());
+        } catch (IOException e) {
+            //Log.e("ERRORMOTHERFUCKER", "IOEXCEPTION => " + e);
         }
     }
 
-    public String checkDifficulty(int difficulty) {
-        String output = "";
-        switch(difficulty) {
-            case 1:
-                output = "#00FF00";
-                break;
-            case 2:
-                output = "#FFCC00";
-                break;
-            case 3:
-                output = "#FF0000";
-                break;
-            default:
-                break;
+    private void saveToMyList(String my_name) {
+        Context context = getApplicationContext();
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+
+        JSONObject myObject = new JSONObject();
+
+        File file = new File(filePath);
+
+        if(!file.exists()) {
+            try {
+                file.createNewFile();
+
+                JSONObject mainObject = new JSONObject();
+                JSONArray jsonArray = new JSONArray();
+                mainObject.put("myPlants", jsonArray);
+                FileOutputStream fos = new FileOutputStream(file, false);
+                fos.write(mainObject.toString().getBytes());
+                fos.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        return output;
+
+        // Create new JSON object, populate it and put it into our list
+        try {
+            long todaysDate = System.currentTimeMillis() / 1000L;
+            myObject.put("my_name", my_name);
+            myObject.put("plant", this.getIntent().getExtras().getString("name"));
+            myObject.put("plant_date", todaysDate);
+
+        } catch (JSONException je) {
+            je.printStackTrace();
+        }
+
+        JSONObject boo = getPlantsJSONArrayFromMyList();
+        try {
+            JSONArray plantArray = boo.getJSONArray("myPlants");
+            plantArray.put(myObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileOutputStream ops = new FileOutputStream(file, false);
+            ops.write(boo.toString().getBytes());
+            ops.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private JSONObject getPlantsJSONArrayFromMyList() {
+        Context context = getApplicationContext();
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+        StringBuilder finalString = new StringBuilder();
+        JSONObject mainObject = null;
+
+        try {
+            FileInputStream inStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            String oneLine;
+            while((oneLine = bufferedReader.readLine()) != null) {
+                finalString.append(oneLine);
+            }
+
+            mainObject = new JSONObject(finalString.toString());
+            bufferedReader.close();
+            inStream.close();
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return mainObject;
+    }
+
+    private String getData() {
+        Context context = getApplicationContext();
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+        StringBuilder finalString = new StringBuilder();
+
+        try {
+            FileInputStream inStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            String oneLine;
+
+            while((oneLine = bufferedReader.readLine()) != null) {
+                finalString.append(oneLine);
+            }
+
+            bufferedReader.close();
+            inStream.close();
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return finalString.toString();
+    }
+
 
     /*
     private void editorCommitChanges() {
