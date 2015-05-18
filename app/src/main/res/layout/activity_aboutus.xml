@@ -16,6 +16,8 @@
 
     <TextView
         android:id="@+id/about_headline"
+        android:fontFamily="sans-serif-light"
+        android:textSize="35sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -28,13 +30,48 @@
         android:textStyle="normal" />
 
     <TextView
+        android:id="@+id/about_content01"
+        android:fontFamily="sans-serif-thin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="95dp"
+        android:text="@string/content_about1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/about_content02"
+        android:fontFamily="sans-serif-thin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/content_about2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="normal" />
+    <TextView
         android:id="@+id/copywrite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="80sp"
         android:text="@string/about_copywrite"
         android:textSize="@dimen/copy_font" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2"
+        android:layout_above="@+id/copywrite"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
