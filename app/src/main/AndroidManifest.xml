@@ -83,15 +83,21 @@
                 android:value="MainActivity" />
         </activity>
 
+
         <activity
-            android:name=".InspoActivity"
-            android:label="@string/tilte_inspo_text"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
-        </activity>
+        android:name=".InspoActivity"
+        android:label="@string/tilte_inspo_text"
+        android:parentActivityName=".MainActivity"
+        android:screenOrientation="portrait">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="MainActivity" />
+    </activity>
+
+
+
+
+
 
     </application>
 
