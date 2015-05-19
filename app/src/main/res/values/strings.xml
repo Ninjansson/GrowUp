@@ -29,7 +29,11 @@
 
     <string name="about_copywrite">© Amelie Hellners, Kim Jansson, Lee Carlsson, Mia Gruvman</string>
 
-    <string name="content_about">Grow Up, en app för den upptagna stadsbon. Vi hjälper dig att olda ditt eget skafferi.</string>
+    <string name="content_about">Grow Up</string>
+
+    <string name="content_about1">En app för den upptagna stadsbon. Vi hjälper dig att olda ditt eget skafferi från frö till fullvuxen planta.</string>
+
+    <string name="content_about2">Vi ser till att du vet hur du ska gå till väga utan att spendera hundratals kronor i detaljhandeln, geom att ge tips på vad du redan har hemma.</string>
 
     <string name="title_activity_my_page">Min Sida</string>
 
@@ -44,5 +48,6 @@
     <string name="tilte_inspo_text">INSPIRATION</string>
 
     <string name="Link">Länk</string>
+
 
 </resources>

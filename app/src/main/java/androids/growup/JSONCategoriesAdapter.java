@@ -20,7 +20,6 @@ import org.json.JSONObject;
 
 public class JSONCategoriesAdapter extends BaseAdapter {
     private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/categories/";
-    private static final String TAG = "GrowUpMotherFucker";
 
     Context mContext;
     LayoutInflater mInflater;
@@ -44,8 +43,6 @@ public class JSONCategoriesAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        // your particular dataset uses String IDs
-        // but you have to put something in this method
         return position;
     }
 

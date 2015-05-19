@@ -1,39 +1,58 @@
 package androids.growup;
 
+        import android.content.Context;
         import android.content.Intent;
         import android.os.Bundle;
-        import android.support.v4.app.Fragment;
         import android.support.v7.app.ActionBarActivity;
-        import android.view.LayoutInflater;
+        import android.util.Log;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
-        import android.view.ViewGroup;
+        import android.widget.ArrayAdapter;
+        import android.widget.ListView;
+        import android.widget.TextView;
 
+        import com.loopj.android.http.AsyncHttpClient;
+        import com.loopj.android.http.JsonHttpResponseHandler;
+
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
+        import org.json.JSONTokener;
+
+        import java.io.BufferedReader;
+        import java.io.FileInputStream;
+        import java.io.IOException;
+        import java.io.InputStreamReader;
 
 public class MyPageActivity extends ActionBarActivity {
+
+    ListView my_plants_list;
+    private JSONMyPlantsAdapter myPlantsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
+        TextView my_page_information = (TextView) findViewById(R.id.my_page_information);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+        setTitle("Min sida");
+        my_plants_list = (ListView) findViewById(R.id.my_plants_list);
+        myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
+        my_plants_list.setAdapter(myPlantsAdapter);
+
+        if(getPlantsJSONArrayFromMyList() != null) {
+            my_page_information.setVisibility(View.GONE);
+            populateMyPlantsList();
+        } else {
+            my_page_information.setText("Du har ännu inga plantor inlagda i din lista. För att göra det gå till .... bla bla bla");
         }
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_my_page, menu);
-
-
         return true;
     }
 
@@ -57,19 +76,52 @@ public class MyPageActivity extends ActionBarActivity {
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+    private void populateMyPlantsList() {
+        Log.d("motherfucker", "LENGTH => " + getPlantsJSONArrayFromMyList().optJSONArray("myPlants"));
+        JSONObject myPlants = getPlantsJSONArrayFromMyList();
+        JSONArray plantArray = null;
 
-        public PlaceholderFragment() {
+        try {
+            plantArray = myPlants.getJSONArray("myPlants");
+            myPlantsAdapter.updateData(plantArray);
+
+            for(int i = 0; i < plantArray.length(); i ++ ) {
+                JSONObject x = plantArray.getJSONObject(i);
+            }
+
+            my_plants_list.setAdapter(myPlantsAdapter);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private JSONObject getPlantsJSONArrayFromMyList() {
+        Context context = getApplicationContext();
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+        StringBuilder finalString = new StringBuilder();
+        JSONObject mainObject = null;
+
+        try {
+            FileInputStream inStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            String oneLine;
+            while((oneLine = bufferedReader.readLine()) != null) {
+                finalString.append(oneLine);
+            }
+
+            mainObject = new JSONObject(finalString.toString());
+            bufferedReader.close();
+            inStream.close();
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_my_page, container, false);
-            return rootView;
-        }
+        return mainObject;
     }
 }
