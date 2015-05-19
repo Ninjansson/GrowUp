@@ -1,5 +1,6 @@
 package androids.growup;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -51,12 +52,14 @@ public class PlantActivity extends ActionBarActivity {
         displayPlantContent();
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
+
         open_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showInputDialog();
             }
         });
+
     }
 
     private void displayPlantContent() {

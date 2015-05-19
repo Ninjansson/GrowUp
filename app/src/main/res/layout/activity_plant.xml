@@ -16,13 +16,5 @@
         android:divider="@null"
         android:dividerHeight="0dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/plant_view"
-        android:layout_centerHorizontal="true"
-        android:text="Lägg till"
-        android:id="@+id/button_open_popup" />
-
 </RelativeLayout>
 
