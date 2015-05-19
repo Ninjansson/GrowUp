@@ -9,11 +9,11 @@
 
     <string name="title_activity_sub_category"></string>
 
-    <string name="title_activity_about_us">Om Oss</string>
+    <string name="title_activity_about_us">OM OSS</string>
 
-    <string name="action_settings">Inställningar</string>
+    <string name="action_settings">INSTÄLLNINGAR</string>
 
-    <string name="title_activity_settings">Inställningar</string>
+    <string name="title_activity_settings">INSTÄLLNINGAR</string>
 
     <string name="push_notiser">Push Notiser</string>
 
@@ -35,9 +35,9 @@
 
     <string name="content_about2">Vi ser till att du vet hur du ska gå till väga utan att spendera hundratals kronor i detaljhandeln, geom att ge tips på vad du redan har hemma.</string>
 
-    <string name="title_activity_my_page">Min Sida</string>
+    <string name="title_activity_my_page">MIN SIDA</string>
 
-    <string name="menu_minsida">Min Sida</string>
+    <string name="menu_minsida">MIN SIDA</string>
 
     <string name="menu_my_page">MIN SIDA</string>
 

@@ -1,29 +1,24 @@
 package androids.growup;
 
         import android.content.Context;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v7.app.ActionBarActivity;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListView;
-        import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
 
-        import com.loopj.android.http.AsyncHttpClient;
-        import com.loopj.android.http.JsonHttpResponseHandler;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-        import org.json.JSONTokener;
-
-        import java.io.BufferedReader;
-        import java.io.FileInputStream;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MyPageActivity extends ActionBarActivity {
 
@@ -35,8 +30,7 @@ public class MyPageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
         TextView my_page_information = (TextView) findViewById(R.id.my_page_information);
-
-        setTitle("Min sida");
+        
         my_plants_list = (ListView) findViewById(R.id.my_plants_list);
         myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
         my_plants_list.setAdapter(myPlantsAdapter);

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="androids.growup" >
+    package="androids.growup">
+
     <uses-sdk
+        android:maxSdkVersion="22"
         android:minSdkVersion="16"
-        android:targetSdkVersion="22"
-        android:maxSdkVersion="22" />
+        android:targetSdkVersion="22" />
 
     <!-- Permission to connect to the internet -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,14 +16,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,35 +33,65 @@
             </intent-filter>
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
             android:name=".CategoryActivity"
             android:label="@string/title_activity_sub_category"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
 
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
             android:name=".PlantActivity"
             android:label="@string/title_activity_plant"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:uiOptions="splitActionBarWhenNarrow"
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
+        <activity
+            android:name=".MyPageActivity"
+            android:label="@string/title_activity_my_page"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
 
-        <receiver android:name=".AlarmReceiver" >
+        <activity
+            android:name=".InspoActivity"
+            android:label="@string/tilte_inspo_text"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
+
+        <receiver android:name=".AlarmReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -67,31 +100,11 @@
         <!-- Will not be called unless the application explicitly enables it -->
         <receiver
             android:name=".DeviceBootReceiver"
-            android:enabled="false" >
+            android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name=".MyPageActivity"
-            android:label="@string/title_activity_my_page"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
-        </activity>
-
-        <activity
-            android:name=".InspoActivity"
-            android:label="@string/tilte_inspo_text"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
-        </activity>
 
     </application>
 
