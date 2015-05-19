@@ -49,7 +49,7 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("plant_id", object.optInt("id"));
                 plantIntent.putExtra("plant_name", object.optString("name"));
 
-                dialog= ProgressDialog.show(CategoryActivity.this, "Laddar", "Vänligen vänta");
+                //dialog= ProgressDialog.show(CategoryActivity.this, "Laddar", "Vänligen vänta");
                 startActivity(plantIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }

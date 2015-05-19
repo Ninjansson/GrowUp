@@ -1,6 +1,5 @@
 package androids.growup;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,9 +18,11 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -52,7 +53,6 @@ public class PlantActivity extends ActionBarActivity {
         displayPlantContent();
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
-
         open_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,7 +134,7 @@ public class PlantActivity extends ActionBarActivity {
             StringBuilder finalString = new StringBuilder();
             String oneLine;
 
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -156,7 +156,7 @@ public class PlantActivity extends ActionBarActivity {
 
         File file = new File(filePath);
 
-        if(!file.exists()) {
+        if (!file.exists()) {
             try {
                 file.createNewFile();
 
@@ -217,7 +217,7 @@ public class PlantActivity extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String oneLine;
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -246,7 +246,7 @@ public class PlantActivity extends ActionBarActivity {
 
             String oneLine;
 
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
