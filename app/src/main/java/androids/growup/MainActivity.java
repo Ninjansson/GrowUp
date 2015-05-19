@@ -43,6 +43,7 @@ public class MainActivity extends ActionBarActivity {
         catList = (ListView) findViewById(R.id.categories);
         catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
         catList.setAdapter(catAdapter);
+
         populateCategoriesList();
 
          /* START TIMER
@@ -55,6 +56,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,10 +65,11 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_id", object.optInt("id"));
                 categoryIntent.putExtra("cat_name", object.optString("cat_name"));
 
-
-                dialog=ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
+                /*
+                dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
                 startActivity(categoryIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
+                 */
             }
         });
     }
