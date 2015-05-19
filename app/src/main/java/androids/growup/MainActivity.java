@@ -5,27 +5,19 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
-import org.apache.http.Header;
 import org.json.JSONObject;
-
-import java.text.NumberFormat;
-import java.text.ParsePosition;
-import java.util.Arrays;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -64,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_name", object.optString("cat_name"));
 
 
-                dialog=ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
+                dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
                 startActivity(categoryIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
@@ -100,7 +92,8 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater()
+                .inflate(R.menu.menu_main, menu);
         return true;
     }
 
