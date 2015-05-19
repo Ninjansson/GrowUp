@@ -7,8 +7,17 @@
     tools:context="androids.growup.PlantActivity"
     tools:ignore="MergeRootFrame">
 
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Lägg till"
+        android:id="@+id/button_open_popup" />
+
     <ListView
         android:id="@+id/plant_view"
+        android:layout_below="@+id/button_open_popup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
