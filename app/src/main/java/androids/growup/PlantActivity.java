@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -115,7 +116,7 @@ public class PlantActivity extends ActionBarActivity {
         // create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
         alert.setTitle("Ny planta.");
-        alert.setIcon(R.drawable.icon_grow_up);
+        //alert.setIcon(R.drawable.icon_grow_up);
         alert.setMessage("Fett nice att du ska så en ny planta kompis! Jag, Amelie, håller tummarna för dig! OMG! #SWAGALICIOUS");
         alert.show();
     }
@@ -148,9 +149,7 @@ public class PlantActivity extends ActionBarActivity {
     private void saveToMyList(String my_name) {
         Context context = getApplicationContext();
         String filePath = context.getFilesDir().getPath().toString() + "/mylist";
-
         JSONObject myObject = new JSONObject();
-
         File file = new File(filePath);
 
         if(!file.exists()) {
@@ -177,6 +176,7 @@ public class PlantActivity extends ActionBarActivity {
             myObject.put("my_name", my_name);
             myObject.put("plant", this.getIntent().getExtras().getString("name"));
             myObject.put("plant_date", todaysDate);
+            myObject.put("plant_id", PLANT_ID);
 
         } catch (JSONException je) {
             je.printStackTrace();
