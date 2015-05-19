@@ -1,6 +1,10 @@
 package androids.growup;
 
+<<<<<<< HEAD
         import android.content.Context;
+=======
+import android.content.Context;
+>>>>>>> master
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+<<<<<<< HEAD
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +20,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+=======
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+>>>>>>> master
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -39,8 +52,20 @@ public class MyPageActivity extends ActionBarActivity {
             my_page_information.setVisibility(View.GONE);
             populateMyPlantsList();
         } else {
-            my_page_information.setText("Du har ännu inga plantor inlagda i din lista. För att göra det gå till .... bla bla bla");
+            my_page_information.setText("Du har ännu inga plantor inlagda i din lista.");
         }
+
+        my_plants_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView plant_id = (TextView) view.findViewById(R.id.plant_id_tw);
+
+                Intent plantIntent = new Intent(MyPageActivity.this, PlantActivity.class);
+                plantIntent.putExtra("plant_id", Integer.parseInt(plant_id.getText().toString()));
+
+                startActivity(plantIntent);
+            }
+        });
     }
 
     @Override
@@ -82,7 +107,6 @@ public class MyPageActivity extends ActionBarActivity {
             for(int i = 0; i < plantArray.length(); i ++ ) {
                 JSONObject x = plantArray.getJSONObject(i);
             }
-
             my_plants_list.setAdapter(myPlantsAdapter);
 
         } catch (JSONException e) {
@@ -115,7 +139,6 @@ public class MyPageActivity extends ActionBarActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return mainObject;
     }
 }

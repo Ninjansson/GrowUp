@@ -54,6 +54,7 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
 
             holder = new ViewHolder();
             holder.my_plant_name = (TextView) convertView.findViewById(R.id.my_plant_name);
+            holder.plant_id_tw = (TextView) convertView.findViewById(R.id.plant_id_tw);
 
             convertView.setTag(holder);
         } else {
@@ -65,11 +66,11 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
         String name = "";
 
         if (jsonObject.has("my_name")) {
-            name = jsonObject.optString("my_name");
+            name = jsonObject.optString("my_name") + " id => " + jsonObject.optInt("plant_id");
         }
-
         // Send these Strings to the TextViews for display
         holder.my_plant_name.setText(name);
+        holder.plant_id_tw.setText(String.valueOf(jsonObject.optInt("plant_id")));
 
         return convertView;
     }
@@ -83,6 +84,6 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
     // this is used so you only ever have to do
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
-        public TextView my_plant_name;
+        public TextView my_plant_name, plant_id_tw;
     }
 }
