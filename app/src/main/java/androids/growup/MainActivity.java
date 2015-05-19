@@ -1,68 +1,79 @@
 package androids.growup;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONObject;
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
+    private ArrayList<Category> listCategories;
     private ListView catList;
-    private JSONCategoriesAdapter catAdapter;
-    private PendingIntent pendingIntent;
-    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        listCategories = new ArrayList<>();
+        Category kryddor = new Category(1, R.drawable.icon_tomato, "Kryddor");
+        Category fruktobar = new Category(2, R.drawable.icon_apple, "Frukter & bär");
+        Category gronsaker = new Category(3, R.drawable.icon_carrot, "Grönsaker");
+        Category atbarablommor = new Category(4, R.drawable.icon_apple, "Ätbara blommor");
+
+        listCategories.add(kryddor);
+        listCategories.add(fruktobar);
+        listCategories.add(gronsaker);
+        listCategories.add(atbarablommor);
+
         catList = (ListView) findViewById(R.id.categories);
-        catAdapter = new JSONCategoriesAdapter(this, getLayoutInflater());
-        catList.setAdapter(catAdapter);
-        populateCategoriesList();
+
+        ListCategoriesAdapter adapter = new ListCategoriesAdapter(this, listCategories);
+        catList.setAdapter(adapter);
+
+        catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Category category = listCategories.get(position);
+                int cat_id = category.getCat_id();
+                String cat_name = category.getCat_name();
+                Intent categoryIntent = new Intent(MainActivity.this, CategoryActivity.class);
+                categoryIntent.putExtra("cat_id", cat_id);
+                categoryIntent.putExtra("cat_name", cat_name);
+
+                startActivity(categoryIntent);
+
+                /*
+                dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
+                startActivity(categoryIntent);
+                overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
+                 */
+            }
+        });
 
          /* START TIMER
         Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
         startTimer();
          END TIMER */
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                JSONObject object = (JSONObject) catAdapter.getItem(position);
-                Intent categoryIntent = new Intent(MainActivity.this, CategoryActivity.class);
-                categoryIntent.putExtra("cat_id", object.optInt("id"));
-                categoryIntent.putExtra("cat_name", object.optString("cat_name"));
 
-
-                dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
-                startActivity(categoryIntent);
-                overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
-            }
-        });
     }
 
+    /*
     private void startTimer() {
         Log.d("motherfucker", "STARTING TIMER!");
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -72,23 +83,7 @@ public class MainActivity extends ActionBarActivity {
         //Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
-    private void populateCategoriesList() {
-        AsyncHttpClient cat_client = new AsyncHttpClient();
-
-        cat_client.get(QUERY_URL,
-                new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(JSONObject cat_object) {
-                        Log.d("motherfucker", "SUCCESS connecting to categories");
-                        catAdapter.updateData(cat_object.optJSONArray("categories"));
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
-                        Log.e("motherfucker", "Failure connecting to whatever " + throwable + " " + error);
-                    }
-                });
-    }
+*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
