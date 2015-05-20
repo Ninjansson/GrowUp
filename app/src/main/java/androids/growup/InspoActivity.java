@@ -1,10 +1,10 @@
 package androids.growup;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,31 +14,25 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InspoActivity extends Activity
-{
+public class InspoActivity extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_inspo);
+        setContentView(R.layout.activity_inspo);
 
         GridView gridView = (GridView)findViewById(R.id.gridview);
         gridView.setAdapter(new MyAdapter(this));
 
-        
+
     }
 
     private class MyAdapter extends BaseAdapter {
@@ -107,7 +101,7 @@ public class InspoActivity extends Activity
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.menu_my_page, menu);
+            getMenuInflater().inflate(R.menu.menu_inspo, menu);
             return true;
         }
 
@@ -123,8 +117,8 @@ public class InspoActivity extends Activity
                 case R.id.menu_home:
                     startActivity(new Intent(this, MainActivity.class));
                     return true;
-                case R.id.menu_inspo:
-                    startActivity(new Intent(this, InspoActivity.class));
+                case R.id.menu_my_page:
+                    startActivity(new Intent(this, MyPageActivity.class));
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);
