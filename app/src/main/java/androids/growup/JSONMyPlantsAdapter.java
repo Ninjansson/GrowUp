@@ -10,6 +10,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 /**
  * Created by Kim Jansson on 2015-04-12.
  */
@@ -66,11 +67,12 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
         String name = "";
 
         if (jsonObject.has("my_name")) {
-            name = jsonObject.optString("my_name") + " id => " + jsonObject.optInt("plant_id");
+            name = jsonObject.optString("my_name");
         }
         // Send these Strings to the TextViews for display
         holder.my_plant_name.setText(name);
         holder.plant_id_tw.setText(String.valueOf(jsonObject.optInt("plant_id")));
+        holder.plant_id_tw.setVisibility(View.INVISIBLE);
 
         return convertView;
     }
