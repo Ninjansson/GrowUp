@@ -1,10 +1,10 @@
 package androids.growup;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,31 +14,25 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InspoActivity extends Activity
-{
+public class InspoActivity extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_inspo);
+        setContentView(R.layout.activity_inspo);
 
         GridView gridView = (GridView)findViewById(R.id.gridview);
         gridView.setAdapter(new MyAdapter(this));
 
-        
+
     }
 
     private class MyAdapter extends BaseAdapter {
@@ -48,11 +42,24 @@ public class InspoActivity extends Activity
         public MyAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-            items.add(new Item("Image 1", R.drawable.inspo_1));
-            items.add(new Item("Image 2", R.drawable.inspo_1));
-            items.add(new Item("Image 3", R.drawable.inspo_1));
-            items.add(new Item("Image 4", R.drawable.inspo_1));
-            items.add(new Item("Image 5", R.drawable.inspo_1));
+            items.add(new Item("Plantera på höjden med pall", R.drawable.inspo01));
+            items.add(new Item("Plantera vertilakt med krukor", R.drawable.inspo02));
+            items.add(new Item("Plantera i skofickor", R.drawable.inspo03));
+            items.add(new Item("Olda i zinkhinkar", R.drawable.inspo04));
+            items.add(new Item("Fäst lådor på spaljé", R.drawable.inspo05));
+            items.add(new Item("Upp och ned tomater", R.drawable.inspo06));
+            items.add(new Item("Gro ny ingefära", R.drawable.inspo07));
+            items.add(new Item("Så ditt eget avocadoträd", R.drawable.inspo08));
+            items.add(new Item("Använd din annanasskrutt", R.drawable.inspo09));
+            items.add(new Item("Örtmix i konservburkar", R.drawable.inspo10));
+            items.add(new Item("Förkultivera i äggskal", R.drawable.inspo11));
+            items.add(new Item("Gör drivhus av dina äggkartonger", R.drawable.inspo12));
+            items.add(new Item("Gro om din lök", R.drawable.inspo13));
+            items.add(new Item("Förnya morotsblasten", R.drawable.inspo14))
+            ;items.add(new Item("Så tar du jordgubbsfrön", R.drawable.inspo15));
+            items.add(new Item("Örthylla på vägg", R.drawable.inspo16));
+
+
         }
 
 
@@ -107,7 +114,7 @@ public class InspoActivity extends Activity
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.menu_my_page, menu);
+            getMenuInflater().inflate(R.menu.menu_inspo, menu);
             return true;
         }
 
@@ -123,8 +130,8 @@ public class InspoActivity extends Activity
                 case R.id.menu_home:
                     startActivity(new Intent(this, MainActivity.class));
                     return true;
-                case R.id.menu_inspo:
-                    startActivity(new Intent(this, InspoActivity.class));
+                case R.id.menu_my_page:
+                    startActivity(new Intent(this, MyPageActivity.class));
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);
