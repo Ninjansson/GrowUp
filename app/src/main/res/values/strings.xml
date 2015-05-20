@@ -49,5 +49,19 @@
 
     <string name="Link">Länk</string>
 
+    <string name="PlantBild">Image</string>
+
+    <string name="latin_name">Latinskt namn</string>
+
+    <string name="plant_info_txt">Plant info Txt </string>
+
+    <string name="plant_how_to">Hur planterar du</string>
+
+    <string name="usage">Använding</string>
+
+    <string name="habitat">Ute eller Inne</string>
+
+    <string name="plant_name">Namn</string>
+
 
 </resources>

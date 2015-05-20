@@ -1,10 +1,7 @@
 package androids.growup;
 
-<<<<<<< HEAD
-        import android.content.Context;
-=======
+
 import android.content.Context;
->>>>>>> master
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,22 +9,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-<<<<<<< HEAD
-import android.widget.ListView;
-import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-=======
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
->>>>>>> master
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -43,12 +32,12 @@ public class MyPageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
         TextView my_page_information = (TextView) findViewById(R.id.my_page_information);
-        
+
         my_plants_list = (ListView) findViewById(R.id.my_plants_list);
         myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
         my_plants_list.setAdapter(myPlantsAdapter);
 
-        if(getPlantsJSONArrayFromMyList() != null) {
+        if (getPlantsJSONArrayFromMyList() != null) {
             my_page_information.setVisibility(View.GONE);
             populateMyPlantsList();
         } else {
@@ -104,7 +93,7 @@ public class MyPageActivity extends ActionBarActivity {
             plantArray = myPlants.getJSONArray("myPlants");
             myPlantsAdapter.updateData(plantArray);
 
-            for(int i = 0; i < plantArray.length(); i ++ ) {
+            for (int i = 0; i < plantArray.length(); i++) {
                 JSONObject x = plantArray.getJSONObject(i);
             }
             my_plants_list.setAdapter(myPlantsAdapter);
@@ -126,7 +115,7 @@ public class MyPageActivity extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String oneLine;
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
