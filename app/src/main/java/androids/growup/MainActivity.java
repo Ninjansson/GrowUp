@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -39,6 +40,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyListHelperClass help = new MyListHelperClass(getApplicationContext());
+        //Log.d("motherfucker", "Does the MyList exist? => " + help.doesMyListExist());
 
         listCategories = new ArrayList<>();
         Category kryddor = new Category(1, R.drawable.icon_tomato, "Kryddor");
@@ -76,32 +80,7 @@ public class MainActivity extends ActionBarActivity {
                  */
             }
         });
-
-         /* START TIMER
-        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
-        startTimer();
-         END TIMER */
-
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    /*
-    private void startTimer() {
-        Log.d("motherfucker", "STARTING TIMER!");
-        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        int interval = 60000;
-
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
-        //Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
-    }
-
-*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -19,11 +19,9 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -60,7 +58,6 @@ public class PlantActivity extends ActionBarActivity {
                 showInputDialog();
             }
         });
-
     }
 
     private void displayPlantContent() {
@@ -93,7 +90,7 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in namnet pÃ¥ din nya planta.");
+        sp_name.setHint("Skriv in namnet på din nya planta.");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
@@ -120,7 +117,7 @@ public class PlantActivity extends ActionBarActivity {
         AlertDialog alert = alertDialogBuilder.create();
         alert.setTitle("Ny planta.");
         //alert.setIcon(R.drawable.icon_grow_up);
-        alert.setMessage("Fett nice att du ska sÃ¥ en ny planta kompis! Jag, Amelie, hÃ¥ller tummarna fÃ¶r dig! OMG! #SWAGALICIOUS");
+        alert.setMessage("Fett nice att du ska så en ny planta kompis! Jag, Amelie, håller tummarna för dig! OMG! #SWAGALICIOUS");
         alert.show();
     }
 
@@ -135,7 +132,7 @@ public class PlantActivity extends ActionBarActivity {
             StringBuilder finalString = new StringBuilder();
             String oneLine;
 
-            while ((oneLine = bufferedReader.readLine()) != null) {
+            while((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -155,7 +152,7 @@ public class PlantActivity extends ActionBarActivity {
         JSONObject myObject = new JSONObject();
         File file = new File(filePath);
 
-        if (!file.exists()) {
+        if(!file.exists()) {
             try {
                 file.createNewFile();
 
@@ -197,7 +194,7 @@ public class PlantActivity extends ActionBarActivity {
             FileOutputStream ops = new FileOutputStream(file, false);
             ops.write(boo.toString().getBytes());
             ops.close();
-            Toast.makeText(getApplicationContext(), "Din planta Ã¤r nu sparad.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Din planta är nu sparad.", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -217,7 +214,7 @@ public class PlantActivity extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String oneLine;
-            while ((oneLine = bufferedReader.readLine()) != null) {
+            while((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -246,7 +243,7 @@ public class PlantActivity extends ActionBarActivity {
 
             String oneLine;
 
-            while ((oneLine = bufferedReader.readLine()) != null) {
+            while((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
