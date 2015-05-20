@@ -34,6 +34,7 @@ public class MainActivity extends ActionBarActivity {
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
     private ArrayList<Category> listCategories;
     private ListView catList;
+    PendingIntent pendingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,31 +78,27 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-         /* START TIMER
+         /* START TIMER*/
         Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
         startTimer();
-         END TIMER */
+         /**END TIMER */
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    /*
     private void startTimer() {
         Log.d("motherfucker", "STARTING TIMER!");
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        int interval = 60000;
+        int interval = 10000;
 
         manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
         //Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
-*/
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
