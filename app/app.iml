@@ -12,6 +12,7 @@
         <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
         <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
         <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+<<<<<<< HEAD
         <option name="SOURCE_GEN_TASK_NAME" value="generateDebugSources" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19,8 +20,10 @@
         <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleDebugUnitTest" />
         <option name="COMPILE_JAVA_TEST_TASK_NAME" value="compileDebugUnitTestSources" />
 =======
+=======
+>>>>>>> master
         <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleDebugAndroidTest" />
-        <option name="COMPILE_JAVA_TEST_TASK_NAME" value="compileDebugAndroidTestSources" />
+        <option name="SOURCE_GEN_TASK_NAME" value="generateDebugSources" />
         <option name="TEST_SOURCE_GEN_TASK_NAME" value="generateDebugAndroidTestSources" />
 >>>>>>> master
 =======
@@ -111,3 +114,4 @@
     <orderEntry type="library" exported="" name="support-annotations-22.0.0" level="project" />
   </component>
 </module>
+

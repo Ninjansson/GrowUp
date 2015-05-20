@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.2.1" />
 =======
 >>>>>>> master
@@ -16,6 +17,8 @@
 =======
 >>>>>>> master
         <option name="gradleJvm" value="1.8" />
+=======
+>>>>>>> master
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -26,3 +29,4 @@
     </option>
   </component>
 </project>
+

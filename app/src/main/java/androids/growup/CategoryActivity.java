@@ -49,13 +49,26 @@ public class CategoryActivity extends ActionBarActivity {
                 plantIntent.putExtra("plant_id", object.optInt("id"));
                 plantIntent.putExtra("plant_name", object.optString("name"));
 
-                //dialog= ProgressDialog.show(CategoryActivity.this, "Laddar", "Vänligen vänta");
+                dialog= ProgressDialog.show(CategoryActivity.this, "Laddar", "Vänligen vänta");
+                dialogThread thread = new dialogThread();
+                thread.start();
                 startActivity(plantIntent);
-                overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
+               // overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
             }
         });
     }
+    private class dialogThread extends Thread{
+        public void run(){
+            try{
+                Thread.sleep(700);
+                dialog.cancel();
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
 
+    }
+    
     private void populateCategoryPlantsList() {
         AsyncHttpClient cat_client = new AsyncHttpClient();
 

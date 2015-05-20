@@ -82,7 +82,9 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
 
+
         <activity
+<<<<<<< HEAD
             android:name=".InspoActivity"
             android:label="@string/tilte_inspo_text"
             android:screenOrientation="portrait">
@@ -90,6 +92,21 @@
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
         </activity>
+=======
+        android:name=".InspoActivity"
+        android:label="@string/tilte_inspo_text"
+        android:parentActivityName=".MainActivity"
+        android:screenOrientation="portrait">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="MainActivity" />
+    </activity>
+
+
+
+
+
+>>>>>>> master
 
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
