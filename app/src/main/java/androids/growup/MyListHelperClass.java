@@ -118,7 +118,7 @@ class MyListHelperClass extends ActionBarActivity {
             FileOutputStream ops = new FileOutputStream(this.file, false);
             ops.write(thisPlant.toString().getBytes());
             ops.close();
-            Toast.makeText(context, "Din planta är nu sparad.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Din planta Ã¤r nu sparad.", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -49,11 +49,11 @@ public class SettingsActivity extends ActionBarActivity {
 
             String[] items = new String[]
                     {
-                            "Välj ett intervall",
+                            "VÃ¤lj ett intervall",
                             "Aldrig (1s)",
                             "Varje dag (3s)",
                             "Varannan dag (6s)",
-                            "En gång i veckan (10s)"
+                            "En gÃ¥ng i veckan (10s)"
                     };
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);

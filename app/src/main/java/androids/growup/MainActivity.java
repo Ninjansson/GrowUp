@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity {
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
     private ArrayList<Category> listCategories;
     private ListView catList;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,15 +72,29 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_id", cat_id);
                 categoryIntent.putExtra("cat_name", cat_name);
 
-                startActivity(categoryIntent);
+               // startActivity(categoryIntent);
 
-                /*
+
                 dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
+                dialogThread thread = new dialogThread();
+                thread.start();
                 startActivity(categoryIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
-                 */
+
             }
         });
+    }
+
+    private class dialogThread extends Thread{
+        public void run(){
+            try{
+                Thread.sleep(1000);
+                dialog.cancel();
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override

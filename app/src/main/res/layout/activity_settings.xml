@@ -22,6 +22,7 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/push_notiser"
+            android:fontFamily="sans-serif-thin"
             android:textColor="#000000"
             android:textSize="18sp" />
 
@@ -37,29 +38,35 @@
     <RelativeLayout
         android:id="@+id/layout_02"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:padding="5dp">
 
         <TextView
             android:id="@+id/pushwhen_text"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_alignBottom="@+id/settings_push_when"
             android:layout_gravity="center_vertical"
-            android:layout_toEndOf="@+id/settings_push_when"
-            android:layout_toRightOf="@+id/settings_push_when"
             android:gravity="center"
             android:padding="5dp"
             android:text="Hur ofta vill du ha pushnotiser?"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-thin"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Spinner
             android:id="@+id/settings_push_when"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            android:layout_below="@+id/pushwhen_text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--
         <ToggleButton

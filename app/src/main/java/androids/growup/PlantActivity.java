@@ -90,7 +90,7 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in namnet på din nya planta.");
+        sp_name.setHint("Skriv in namnet pÃ¥ din nya planta.");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
@@ -117,7 +117,7 @@ public class PlantActivity extends ActionBarActivity {
         AlertDialog alert = alertDialogBuilder.create();
         alert.setTitle("Ny planta.");
         //alert.setIcon(R.drawable.icon_grow_up);
-        alert.setMessage("Fett nice att du ska så en ny planta kompis! Jag, Amelie, håller tummarna för dig! OMG! #SWAGALICIOUS");
+        alert.setMessage("Fett nice att du ska sÃ¥ en ny planta kompis! Jag, Amelie, hÃ¥ller tummarna fÃ¶r dig! OMG! #SWAGALICIOUS");
         alert.show();
     }
 
@@ -194,7 +194,7 @@ public class PlantActivity extends ActionBarActivity {
             FileOutputStream ops = new FileOutputStream(file, false);
             ops.write(boo.toString().getBytes());
             ops.close();
-            Toast.makeText(getApplicationContext(), "Din planta är nu sparad.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Din planta Ã¤r nu sparad.", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
