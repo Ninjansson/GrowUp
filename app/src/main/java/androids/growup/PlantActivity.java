@@ -176,6 +176,7 @@ public class PlantActivity extends ActionBarActivity {
         // Create new JSON object, populate it and put it into our list
         try {
             long todaysDate = System.currentTimeMillis() / 1000L;
+            myObject.put("id", todaysDate);
             myObject.put("my_name", my_name);
             myObject.put("plant", this.getIntent().getExtras().getString("name"));
             myObject.put("plant_date", todaysDate);

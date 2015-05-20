@@ -18,9 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="20dp"
+        android:textAlignment="center"
         android:divider="@android:color/transparent"
-        android:dividerHeight="9sp"
-        />
+        android:dividerHeight="9sp" />
 
 </RelativeLayout>
 
