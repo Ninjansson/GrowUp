@@ -64,7 +64,7 @@ public class CategoryActivity extends ActionBarActivity {
 
                     @Override
                     public void onSuccess(JSONObject catPlantsObject) {
-                        Log.d("motherfucker", "CATPLANTSOBJECT OPTJSONARRAY => " + catPlantsObject.optJSONArray("plants"));
+                        //Log.d("motherfucker", "CATPLANTSOBJECT OPTJSONARRAY => " + catPlantsObject.optJSONArray("plants"));
                         catPlantsAdapter.updateData(catPlantsObject.optJSONArray("plants"));
                     }
 

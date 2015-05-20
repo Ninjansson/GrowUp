@@ -83,7 +83,7 @@ public class MyPageActivity extends ActionBarActivity {
     }
 
     private void populateMyPlantsList() {
-        Log.d("motherfucker", "LENGTH => " + getPlantsJSONArrayFromMyList().optJSONArray("myPlants"));
+        Log.d("motherfucker", "LENGTH => " + getPlantsJSONArrayFromMyList().optJSONArray("myPlants").length());
         JSONObject myPlants = getPlantsJSONArrayFromMyList();
         JSONArray plantArray = null;
 
@@ -101,7 +101,7 @@ public class MyPageActivity extends ActionBarActivity {
         }
     }
 
-    private JSONObject getPlantsJSONArrayFromMyList() {
+    public JSONObject getPlantsJSONArrayFromMyList() {
         Context context = getApplicationContext();
         String filePath = context.getFilesDir().getPath().toString() + "/mylist";
         StringBuilder finalString = new StringBuilder();
