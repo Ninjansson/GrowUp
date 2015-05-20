@@ -1,6 +1,9 @@
 package androids.growup;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +15,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+<<<<<<< HEAD
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+=======
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+>>>>>>> master
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
