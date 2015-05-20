@@ -9,15 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-import java.text.NumberFormat;
-import java.text.ParsePosition;
-import java.util.ArrayList;
-
-import java.util.Arrays;
->>>>>>> master
 
 
 public class MainActivity extends ActionBarActivity {

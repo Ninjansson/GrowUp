@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,6 +66,7 @@ public class JSONPlantAdapter extends BaseAdapter {
             holder.plant_habitat = (TextView)convertView.findViewById(R.id.plant_habitat);
             holder.plant_link = (TextView)convertView.findViewById(R.id.plant_link);
             holder.plant_difficulty = (TextView)convertView.findViewById(R.id.plant_difficulty);
+
 
             convertView.setTag(holder);
         } else {
