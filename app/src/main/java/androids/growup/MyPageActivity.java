@@ -1,5 +1,6 @@
 package androids.growup;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -31,12 +33,11 @@ public class MyPageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_my_page);
         TextView my_page_information = (TextView) findViewById(R.id.my_page_information);
 
-        setTitle("Min sida");
         my_plants_list = (ListView) findViewById(R.id.my_plants_list);
         myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
         my_plants_list.setAdapter(myPlantsAdapter);
 
-        if(getPlantsJSONArrayFromMyList() != null) {
+        if (getPlantsJSONArrayFromMyList() != null) {
             my_page_information.setVisibility(View.GONE);
             populateMyPlantsList();
         } else {
@@ -92,7 +93,7 @@ public class MyPageActivity extends ActionBarActivity {
             plantArray = myPlants.getJSONArray("myPlants");
             myPlantsAdapter.updateData(plantArray);
 
-            for(int i = 0; i < plantArray.length(); i ++ ) {
+            for (int i = 0; i < plantArray.length(); i++) {
                 JSONObject x = plantArray.getJSONObject(i);
             }
             my_plants_list.setAdapter(myPlantsAdapter);
@@ -114,7 +115,7 @@ public class MyPageActivity extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String oneLine;
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 

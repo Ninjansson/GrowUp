@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context="androids.growup.PlantActivity"
     tools:ignore="MergeRootFrame">
 
@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Lägg till"
+        android:text="Lägg till i Mina sidor"
         android:id="@+id/button_open_popup" />
 
     <ListView
         android:id="@+id/plant_view"
         android:layout_below="@+id/button_open_popup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:divider="@null"

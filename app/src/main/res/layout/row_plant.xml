@@ -24,7 +24,6 @@
         android:layout_toRightOf="@+id/plant_img"
         android:gravity="center_vertical"
         android:textAllCaps="true"
-        android:textSize="20dp"
         android:textStyle="bold" />
 
 </RelativeLayout>

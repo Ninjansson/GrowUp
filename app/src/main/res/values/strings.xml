@@ -1,19 +1,19 @@
 <resources>
-    <string name="app_name">Grow Up</string>
+    <string name="app_name">GROW UP</string>
 
-    <string name="menu_settings">Inställningar</string>
+    <string name="menu_settings">INSTÄLLNINGAR</string>
 
-    <string name="menu_aboutus">Om Oss</string>
+    <string name="menu_aboutus">OM OSS</string>
 
     <string name="title_activity_plant">Växter</string>
 
     <string name="title_activity_sub_category"></string>
 
-    <string name="title_activity_about_us">Om Oss</string>
+    <string name="title_activity_about_us">OM OSS</string>
 
-    <string name="action_settings">Inställningar</string>
+    <string name="action_settings">INSTÄLLNINGAR</string>
 
-    <string name="title_activity_settings">Inställningar</string>
+    <string name="title_activity_settings">INSTÄLLNINGAR</string>
 
     <string name="push_notiser">Push Notiser</string>
 
@@ -35,23 +35,47 @@
 
     <string name="content_about2">Vi ser till att du vet hur du ska gå till väga utan att spendera hundratals kronor i detaljhandeln, geom att ge tips på vad du redan har hemma.</string>
 
-    <string name="title_activity_my_page">Min Sida</string>
+    <string name="title_activity_my_page">MIN SIDA</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="menu_minsida">MIN SIDA</string>
 
-    <string name="hello_User">Hello User :)!</string>
-
-    <string name="menu_minsida">Min Sida</string>
-
-    <string name="menu_my_page">Min Sida</string>
+    <string name="menu_my_page">MIN SIDA</string>
 
     <string name="menu_home">Hem</string>
 
     <string name="Inspiration">inspo</string>
 
-    <string name="tilte_inspo_text">Inspiration</string>
+    <string name="tilte_inspo_text">INSPIRATION</string>
 
     <string name="Link">Länk</string>
+
+    <string name="PlantBild">Image</string>
+
+    <string name="latin_name">Latinskt namn</string>
+
+    <string name="plant_info_txt">Plant info Txt </string>
+
+    <string name="plant_how_to">Hur planterar du</string>
+
+    <string name="usage">Använding</string>
+
+    <string name="habitat">Ute eller Inne</string>
+
+    <string name="plant_name">Namn</string>
+
+    <string name="rubrik_difficulty">Svårighetsgrad</string>
+
+    <string name="rubrik_info">Fakta</string>
+
+    <string name="rubrik_how_to">Plantering</string>
+
+    <string name="rubrik_usage">Användning</string>
+
+    <string name="rubrik_good_to_know">Bra att veta</string>
+
+    <string name="rubrik_harvest">Skörd</string>
+
+    <string name="rubrik_link">Vill du veta mer?</string>
 
 
 </resources>
