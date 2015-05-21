@@ -1,12 +1,7 @@
 package androids.growup;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-<<<<<<< HEAD
-=======
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
->>>>>>> master
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -59,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_id", cat_id);
                 categoryIntent.putExtra("cat_name", cat_name);
 
-               // startActivity(categoryIntent);
+                // startActivity(categoryIntent);
 
 
                 dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
@@ -72,12 +67,12 @@ public class MainActivity extends ActionBarActivity {
         });
     }
 
-    private class dialogThread extends Thread{
-        public void run(){
-            try{
+    private class dialogThread extends Thread {
+        public void run() {
+            try {
                 Thread.sleep(1000);
                 dialog.cancel();
-            }catch(InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }

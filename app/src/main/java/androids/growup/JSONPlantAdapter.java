@@ -132,11 +132,6 @@ public class JSONPlantAdapter extends BaseAdapter {
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
         public ImageView plant_icon;
-<<<<<<< HEAD
-        public TextView plant_name, latin_name, plant_how_to, plant_usage, plant_habitat, plant_link, plant_difficulty;
-=======
         public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_good_to_know, plant_harverst, plant_link, plant_difficulty;
-
->>>>>>> master
     }
 }
