@@ -61,9 +61,12 @@ public class JSONPlantAdapter extends BaseAdapter {
             holder.plant_icon = (ImageView) convertView.findViewById(R.id.plant_icon);
             holder.plant_name = (TextView) convertView.findViewById(R.id.plant_name);
             holder.latin_name = (TextView)convertView.findViewById(R.id.latin_name);
+            holder.plant_info = (TextView)convertView.findViewById(R.id.plant_info);
             holder.plant_how_to = (TextView)convertView.findViewById(R.id.plant_how_to);
             holder.plant_usage = (TextView)convertView.findViewById(R.id.plant_usage);
-            holder.plant_habitat = (TextView)convertView.findViewById(R.id.plant_habitat);
+            holder.plant_good_to_know = (TextView)convertView.findViewById(R.id.plant_good_to_know);
+            holder.plant_harverst = (TextView)convertView.findViewById(R.id.plant_harverst);
+            //holder.plant_habitat = (TextView)convertView.findViewById(R.id.plant_habitat);
             holder.plant_link = (TextView)convertView.findViewById(R.id.plant_link);
             holder.plant_difficulty = (TextView)convertView.findViewById(R.id.plant_difficulty);
 
@@ -86,16 +89,18 @@ public class JSONPlantAdapter extends BaseAdapter {
         // Send these Strings to the TextViews for display
         try {
             holder.plant_name.setText(jsonObject.optString("name"));
-            holder.latin_name.setText(jsonObject.getString("latin_name"));
-            holder.plant_how_to.setText(jsonObject.getString("how_to"));
-            holder.plant_usage.setText(jsonObject.getString("plant_usage"));
-            holder.plant_habitat.setText(jsonObject.getString("habitat"));
-            holder.plant_link.setText(jsonObject.getString("link"));
+            holder.latin_name.setText(jsonObject.optString("latin_name"));
+            holder.plant_info.setText(jsonObject.optString("plant_info"));
+            holder.plant_how_to.setText(jsonObject.optString("how_to"));
+            holder.plant_usage.setText(jsonObject.optString("plant_usage"));
+            holder.plant_good_to_know.setText(jsonObject.optString("good_to_know"));
+            holder.plant_harverst.setText(jsonObject.optString("harverst"));
+            //holder.plant_habitat.setText(jsonObject.getString("habitat"));
+            holder.plant_link.setText(jsonObject.optString("link"));
             holder.plant_difficulty.setText(checkDifficulty(jsonObject.getInt("difficulty")));
         } catch (JSONException e) {
             Log.d(TAG, "ALLT GICK ÅT HELVETE!!!");
         }
-
         return convertView;
     }
 
@@ -117,7 +122,6 @@ public class JSONPlantAdapter extends BaseAdapter {
         return output;
     }
 
-
     public void updateData(JSONArray jsonArray) {
         // update the adapter's dataset
         mJsonArray = jsonArray;
@@ -128,6 +132,11 @@ public class JSONPlantAdapter extends BaseAdapter {
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
         public ImageView plant_icon;
+<<<<<<< HEAD
         public TextView plant_name, latin_name, plant_how_to, plant_usage, plant_habitat, plant_link, plant_difficulty;
+=======
+        public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_good_to_know, plant_harverst, plant_link, plant_difficulty;
+
+>>>>>>> master
     }
 }

@@ -1,6 +1,12 @@
 package androids.growup;
 
 import android.content.Intent;
+<<<<<<< HEAD
+=======
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.support.v7.app.ActionBarActivity;
+>>>>>>> master
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -16,11 +22,15 @@ public class MainActivity extends ActionBarActivity {
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
     private ArrayList<Category> listCategories;
     private ListView catList;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyListHelperClass help = new MyListHelperClass(getApplicationContext());
+        //Log.d("motherfucker", "Does the MyList exist? => " + help.doesMyListExist());
 
         listCategories = new ArrayList<>();
         Category kryddor = new Category(1, R.drawable.icon_tomato, "Kryddor");
@@ -49,41 +59,30 @@ public class MainActivity extends ActionBarActivity {
                 categoryIntent.putExtra("cat_id", cat_id);
                 categoryIntent.putExtra("cat_name", cat_name);
 
-                startActivity(categoryIntent);
+               // startActivity(categoryIntent);
 
-                /*
+
                 dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
+                dialogThread thread = new dialogThread();
+                thread.start();
                 startActivity(categoryIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
-                 */
+
             }
         });
-
-         /* START TIMER
-        Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
-        startTimer();
-         END TIMER */
-
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private class dialogThread extends Thread{
+        public void run(){
+            try{
+                Thread.sleep(1000);
+                dialog.cancel();
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
 
     }
-
-    /*
-    private void startTimer() {
-        Log.d("motherfucker", "STARTING TIMER!");
-        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        int interval = 60000;
-
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
-        //Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
-    }
-
-*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

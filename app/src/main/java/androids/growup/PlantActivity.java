@@ -19,11 +19,9 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -60,7 +58,6 @@ public class PlantActivity extends ActionBarActivity {
                 showInputDialog();
             }
         });
-
     }
 
     private void displayPlantContent() {
@@ -135,7 +132,7 @@ public class PlantActivity extends ActionBarActivity {
             StringBuilder finalString = new StringBuilder();
             String oneLine;
 
-            while ((oneLine = bufferedReader.readLine()) != null) {
+            while((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -155,7 +152,7 @@ public class PlantActivity extends ActionBarActivity {
         JSONObject myObject = new JSONObject();
         File file = new File(filePath);
 
-        if (!file.exists()) {
+        if(!file.exists()) {
             try {
                 file.createNewFile();
 
@@ -217,7 +214,7 @@ public class PlantActivity extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String oneLine;
-            while ((oneLine = bufferedReader.readLine()) != null) {
+            while((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -246,7 +243,7 @@ public class PlantActivity extends ActionBarActivity {
 
             String oneLine;
 
-            while ((oneLine = bufferedReader.readLine()) != null) {
+            while((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 

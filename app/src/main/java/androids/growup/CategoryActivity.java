@@ -60,7 +60,7 @@ public class CategoryActivity extends ActionBarActivity {
     private class dialogThread extends Thread{
         public void run(){
             try{
-                Thread.sleep(700);
+                Thread.sleep(1000);
                 dialog.cancel();
             }catch(InterruptedException e){
                 e.printStackTrace();
@@ -77,7 +77,7 @@ public class CategoryActivity extends ActionBarActivity {
 
                     @Override
                     public void onSuccess(JSONObject catPlantsObject) {
-                        Log.d("motherfucker", "CATPLANTSOBJECT OPTJSONARRAY => " + catPlantsObject.optJSONArray("plants"));
+                        //Log.d("motherfucker", "CATPLANTSOBJECT OPTJSONARRAY => " + catPlantsObject.optJSONArray("plants"));
                         catPlantsAdapter.updateData(catPlantsObject.optJSONArray("plants"));
                     }
 
