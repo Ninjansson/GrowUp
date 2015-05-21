@@ -25,7 +25,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentTitle("GrowApp")
                 .setContentText("Glöm inte dina plantor!")
                 .setSmallIcon(R.drawable.tomato)
-                .setTicker("Notification!")
+                .setTicker("GrowUp påminnelse!")
                 .setContentIntent(pendingIntent);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
