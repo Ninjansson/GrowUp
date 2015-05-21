@@ -129,6 +129,5 @@ public class JSONPlantAdapter extends BaseAdapter {
     private static class ViewHolder {
         public ImageView plant_icon;
         public TextView plant_name, latin_name, plant_how_to, plant_usage, plant_habitat, plant_link, plant_difficulty;
-
     }
 }
