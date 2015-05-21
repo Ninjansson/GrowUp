@@ -10,6 +10,10 @@
         android:id="@+id/my_page_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="18dp"
         />
 
     <ListView
@@ -17,10 +21,10 @@
         android:layout_below="@+id/my_page_information"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:textAlignment="center"
         android:divider="@android:color/transparent"
-        android:dividerHeight="9sp" />
+        android:dividerHeight="5sp" />
 
 </RelativeLayout>
 

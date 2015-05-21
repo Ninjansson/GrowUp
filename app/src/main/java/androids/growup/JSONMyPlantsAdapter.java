@@ -1,7 +1,6 @@
 package androids.growup;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 
 /**
@@ -51,9 +51,8 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        int plantan = 0;
 
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.row_my_plants, null);
@@ -83,11 +82,13 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
         holder.button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("motherfucker", "PLANT ID => " + jsonObject.optInt("plant_id"));
-                Toast.makeText(mContext, "Plantan är raderad.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Plantan på position " + position + " är nu borttagen.", Toast.LENGTH_SHORT).show();
+                //Log.i("motherfucker", "PLANT ID => " + jsonObject.optInt("plant_id"));
+                //Log.i("motherfucker", "POSITION => " + position);
+                //Log.i("motherfucker", "ARRAY.LENGTH => " + getCount());
+
             }
         });
-
         return convertView;
     }
 
