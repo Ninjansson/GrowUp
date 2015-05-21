@@ -49,11 +49,13 @@ public class SettingsActivity extends ActionBarActivity {
 
             String[] items = new String[]
                     {
-                            "Välj ett intervall",
-                            "Aldrig (1s)",
-                            "Varje dag (3s)",
-                            "Varannan dag (6s)",
-                            "En gång i veckan (10s)"
+                            "Aldrig",
+                            "Varje dag",
+                            "Varannan dag",
+                            "En gång i veckan",
+                            "Varje sekund",
+                            "Var 5e sekund",
+                            "Var 10e sekund"
                     };
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
@@ -70,6 +72,12 @@ public class SettingsActivity extends ActionBarActivity {
 
                     editor.putInt("settings_push_when", position);
                     editor.commit();
+                     /* START TIMER*/
+                    Intent alarmIntent = new Intent(SettingsActivity.this, AlarmReceiver.class);
+                    pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, alarmIntent, 0);
+                    toggleAlarm();
+                    /**END TIMER */
+
                 }
 
                 @Override
@@ -116,48 +124,60 @@ public class SettingsActivity extends ActionBarActivity {
         }
     }
 
+    private int checkMillis(int alarmWhen) {
+        Log.i("motherfucker", "CHANGING MILLISECONDS TO");
+        int millis = 0;
+        int everyDay = 86400000;
+        switch (alarmWhen) {
+            case 1:
+                millis = everyDay;
+                break;
+            case 2:
+                millis = everyDay * 2;
+                break;
+            case 3:
+                millis = everyDay * 7;
+                break;
+            case 4:
+                millis = 1000;
+                break;
+            case 5:
+                millis = 5000;
+                break;
+            case 6:
+                millis = 10000;
+                break;
+            default:
+                break;
+        }
+
+        return millis;
+    }
+
     private void toggleAlarm() {
         SharedPreferences settings = getSharedPreferences("SETTINGS", 0);
         boolean isItOn = settings.getBoolean("settings_toggle_push_notices", false);
-        if (isItOn) {
+        int alarmWhen = settings.getInt("settings_push_when", 1);
+
+        if ((isItOn) && (alarmWhen != 0)) {
             Log.i("motherfucker", "It's on like Donkey Kong!");
 
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            int when_to_push = settings.getInt("settings_push_when", 1);
-            //int interval = 86400000;
-            int interval = 30000;
+            int interval = checkMillis(alarmWhen);
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
+            // TODO: Uncomment these and the app will fire 17:00:00 every day it's supposed to.
             //calendar.set(Calendar.HOUR_OF_DAY, 17);
-            //calendar.set(Calendar.MINUTE, 30);
-            calendar.set(Calendar.SECOND, 30);
+            //calendar.set(Calendar.MINUTE, 00);
+            calendar.set(Calendar.SECOND, 00);
 
             //manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
             manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
         } else {
-            Log.i("motherfucker", "It's not on!");
+            Log.i("motherfucker", "It's off like Dino Zoff!!");
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             manager.cancel(pendingIntent);
-        }
-    }
-
-    public void checkWhenToSendPushNotices(int when) {
-        switch (when) {
-            case 0:
-                AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                manager.cancel(pendingIntent);
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            default:
-                break;
         }
     }
 
