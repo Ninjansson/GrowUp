@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -90,19 +89,21 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in namnet på din nya planta.");
+        sp_name.setHint("Skriv in valfritt namn på din nya planta.       ");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        String x = sp_name.getText().toString();
-                        if (x.equals("")) {
-                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                            Date date = new Date();
+                        String input = sp_name.getText().toString();
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        Date date = new Date();
 
-                            x = THIS_PLANT + "[" + dateFormat.format(date) + "]";
+                        if (input.equals("")) {
+                            input = THIS_PLANT + " | " + dateFormat.format(date);
+                        } else {
+                            input = sp_name.getText().toString();
                         }
-                        saveToMyList(x);
+                        saveToMyList(input);
                     }
                 })
                 .setNegativeButton("AVBRYT",
@@ -115,9 +116,8 @@ public class PlantActivity extends ActionBarActivity {
 
         // create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
-        alert.setTitle("Ny planta.");
-        //alert.setIcon(R.drawable.icon_grow_up);
-        alert.setMessage("Fett nice att du ska så en ny planta kompis! Jag, Amelie, håller tummarna för dig! OMG! #SWAGALICIOUS");
+        alert.setTitle("Ny planta");
+        alert.setIcon(R.mipmap.ic_launcher);
         alert.show();
     }
 
@@ -173,6 +173,7 @@ public class PlantActivity extends ActionBarActivity {
         // Create new JSON object, populate it and put it into our list
         try {
             long todaysDate = System.currentTimeMillis() / 1000L;
+            myObject.put("id", todaysDate);
             myObject.put("my_name", my_name);
             myObject.put("plant", this.getIntent().getExtras().getString("name"));
             myObject.put("plant_date", todaysDate);

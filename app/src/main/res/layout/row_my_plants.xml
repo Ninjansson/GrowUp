@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/my_plant_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:textAllCaps="true"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:textAlignment="center"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:paddingLeft="10dp"
+        android:layout_centerVertical="true" />
 
     <TextView
         android:id="@+id/plant_id_tw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/my_plant_name"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Radera"
+        android:focusable="false"
+        android:id="@+id/button_delete"
+        android:layout_alignRight="@+id/my_plants_list"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
