@@ -1,7 +1,6 @@
 package androids.growup;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -69,7 +67,7 @@ public class JSONPlantAdapter extends BaseAdapter {
             holder.plant_harvest = (TextView)convertView.findViewById(R.id.plant_harvest);
             //holder.plant_habitat = (TextView)convertView.findViewById(R.id.plant_habitat);
             holder.plant_link = (TextView)convertView.findViewById(R.id.plant_link);
-            holder.plant_difficulty = (TextView)convertView.findViewById(R.id.plant_difficulty);
+            //holder.plant_difficulty = (TextView)convertView.findViewById(R.id.plant_difficulty);
 
 
             convertView.setTag(holder);
@@ -90,7 +88,9 @@ public class JSONPlantAdapter extends BaseAdapter {
         Picasso.with(mContext).load(image2URL).into(holder.diff_icon);
 
         // Send these Strings to the TextViews for display
+        /*
         try {
+         */
             holder.plant_name.setText(jsonObject.optString("name"));
             holder.latin_name.setText(jsonObject.optString("latin_name"));
             holder.plant_info.setText(jsonObject.optString("info"));
@@ -100,14 +100,14 @@ public class JSONPlantAdapter extends BaseAdapter {
             holder.plant_harvest.setText(jsonObject.optString("harvest"));
             //holder.plant_habitat.setText(jsonObject.getString("habitat"));
             holder.plant_link.setText(jsonObject.optString("link"));
-            holder.plant_difficulty.setText(checkDifficulty(jsonObject.getInt("difficulty")));
+            /*holder.plant_difficulty.setText(checkDifficulty(jsonObject.getInt("difficulty")));
         } catch (JSONException e) {
             Log.d(TAG, "ALLT GICK ÅT HELVETE!!!");
-        }
+        }*/
         return convertView;
     }
 
-    public String checkDifficulty(int difficulty) {
+    /*public String checkDifficulty(int difficulty) {
         String output = "";
         switch(difficulty) {
             case 1:
@@ -123,7 +123,7 @@ public class JSONPlantAdapter extends BaseAdapter {
                 break;
         }
         return output;
-    }
+    }*/
 
     public void updateData(JSONArray jsonArray) {
         // update the adapter's dataset
