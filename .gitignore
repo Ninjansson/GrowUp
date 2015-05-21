@@ -43,3 +43,4 @@ build/
 build/
 >>>>>>> origin/master
 app/src/main/res/layout/activity_inspo.xml
+app/src/main/java/androids/growup/MainActivity.java
