@@ -63,5 +63,19 @@
 
     <string name="plant_name">Namn</string>
 
+    <string name="rubrik_difficulty">Svårighetsgrad</string>
+
+    <string name="rubrik_info">Fakta</string>
+
+    <string name="rubrik_how_to">Plantering</string>
+
+    <string name="rubrik_usage">Användning</string>
+
+    <string name="rubrik_good_to_know">Bra att veta</string>
+
+    <string name="rubrik_harvest">Skörd</string>
+
+    <string name="rubrik_link">Vill du veta mer?</string>
+
 
 </resources>

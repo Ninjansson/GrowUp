@@ -59,13 +59,14 @@ public class JSONPlantAdapter extends BaseAdapter {
 
             holder = new ViewHolder();
             holder.plant_icon = (ImageView) convertView.findViewById(R.id.plant_icon);
+            holder.diff_icon = (ImageView) convertView.findViewById(R.id.diff_icon);
             holder.plant_name = (TextView) convertView.findViewById(R.id.plant_name);
             holder.latin_name = (TextView)convertView.findViewById(R.id.latin_name);
             holder.plant_info = (TextView)convertView.findViewById(R.id.plant_info);
             holder.plant_how_to = (TextView)convertView.findViewById(R.id.plant_how_to);
             holder.plant_usage = (TextView)convertView.findViewById(R.id.plant_usage);
             holder.plant_good_to_know = (TextView)convertView.findViewById(R.id.plant_good_to_know);
-            holder.plant_harverst = (TextView)convertView.findViewById(R.id.plant_harverst);
+            holder.plant_harvest = (TextView)convertView.findViewById(R.id.plant_harvest);
             //holder.plant_habitat = (TextView)convertView.findViewById(R.id.plant_habitat);
             holder.plant_link = (TextView)convertView.findViewById(R.id.plant_link);
             holder.plant_difficulty = (TextView)convertView.findViewById(R.id.plant_difficulty);
@@ -81,20 +82,22 @@ public class JSONPlantAdapter extends BaseAdapter {
         int img = jsonObject.optInt("id");
         // Construct the image URL (specific to API)
         String imageURL = IMAGE_URL_BASE + "plant_icon_" + img + ".png";
+        String image2URL = IMAGE_URL_BASE + "ic_" + img + ".png";
 
         // Use Picasso to load the image
         // Temporarily have a placeholder in case it's slow to load
         Picasso.with(mContext).load(imageURL).into(holder.plant_icon);
+        Picasso.with(mContext).load(image2URL).into(holder.diff_icon);
 
         // Send these Strings to the TextViews for display
         try {
             holder.plant_name.setText(jsonObject.optString("name"));
             holder.latin_name.setText(jsonObject.optString("latin_name"));
-            holder.plant_info.setText(jsonObject.optString("plant_info"));
+            holder.plant_info.setText(jsonObject.optString("info"));
             holder.plant_how_to.setText(jsonObject.optString("how_to"));
             holder.plant_usage.setText(jsonObject.optString("plant_usage"));
             holder.plant_good_to_know.setText(jsonObject.optString("good_to_know"));
-            holder.plant_harverst.setText(jsonObject.optString("harverst"));
+            holder.plant_harvest.setText(jsonObject.optString("harvest"));
             //holder.plant_habitat.setText(jsonObject.getString("habitat"));
             holder.plant_link.setText(jsonObject.optString("link"));
             holder.plant_difficulty.setText(checkDifficulty(jsonObject.getInt("difficulty")));
@@ -131,7 +134,8 @@ public class JSONPlantAdapter extends BaseAdapter {
     // this is used so you only ever have to do
 // inflation and finding by ID once ever per View
     private static class ViewHolder {
-        public ImageView plant_icon;
-        public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat, plant_good_to_know, plant_harverst, plant_link, plant_difficulty;
+        public ImageView plant_icon, diff_icon;
+        public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_habitat,
+                plant_good_to_know, plant_harvest, plant_link, plant_difficulty;
     }
 }
