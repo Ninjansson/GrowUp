@@ -1,11 +1,9 @@
 package androids.growup;
 
 import android.os.Bundle;
-import android.test.suitebuilder.annotation.SmallTest;
+import android.view.Menu;
 
 import junit.framework.TestCase;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class PlantActivityTests extends TestCase {
 
@@ -27,9 +25,4 @@ public class PlantActivityTests extends TestCase {
         assertEquals("Ute och Inne", plantActivity.checkHabitat(2));
     }
 
-    public void testCheckDifficulty() throws Exception {
-        assertEquals("#00FF00", plantActivity.checkDifficulty(1));
-        assertEquals("#FFCC00", plantActivity.checkDifficulty(2));
-        assertEquals("#FF0000", plantActivity.checkDifficulty(3));
-    }
 }
