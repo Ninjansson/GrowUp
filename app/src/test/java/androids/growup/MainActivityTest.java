@@ -14,7 +14,8 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     }
 
     public void testImageView(){
-        assertEquals("TImageView", );
+  //      assertEquals("icon_apple", R.id.plant_link, R.drawable.icon_apple);
+
     }
 
     }
