@@ -36,6 +36,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'
     compile 'com.parse.bolts:bolts-android:1.+'
-    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
-
+    compile fileTree(include: 'Parse-*.jar', dir: 'libs')
+    compile files('libs/gson-2.3.1.jar')
 }

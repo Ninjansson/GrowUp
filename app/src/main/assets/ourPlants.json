@@ -1,0 +1,141 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "cat_name": "kryddor",
+      "plants": [
+        {
+          "id": 1,
+          "cat_name": "kryddor",
+          "name": "Oregano",
+          "latin_name": "Origanum vulgare",
+          "info": "Oregano kallas även för Kungsmynta fast det inte är någon mynta. Oregano passar alldeles utmärkt att plantera i kruka. Den blir ca 40 cm hög och får små lila blommor i juli-augusti. Torktålig växt som vill stå soligt och inte vattnas så ofta.",
+          "how_to": "Odlas så grunt som möjligt i fuktig jord i mitten av mars till april, helst i minidrivhus. Håll fuktigt och låt stå soligt. Plantera om när de växt till sig ca 1 cm.",
+          "habitat": 0,
+          "plant_usage": "Används färsk eller torkad. Torka hela kvistar (innan blomning). Även blommorna kan användas. Ett tips är att lägga kvistar i din matlagningsolja och krydda den på så vis.",
+          "difficulty": 1,
+          "link": "http://en.wikipedia.org/wiki/Oregano",
+          "good_to_know": "När den blommar så drar den lätt till sig humlor. Om den planteras i kruka, se till att krukan är dränerad. Vill du har mer? Dela bara på plantan och få med rötterna och plantera om. Du kan klippa ned busken bäst du vill, men låt den vara på sensommaren och framåt då den är mer känslig för nedklippn",
+          "harvest": "Skördas 6-12 veckor efter plantering."
+        },
+        {
+          "id": 2,
+          "cat_name": "kryddor",
+          "name": "Basilika",
+          "latin_name": "Ocimum basilicum",
+          "info": "En av de mest populära örter att plantera.Härstammar ifrån Indien. Vill stå varmt, vindskyddat och soligt men inte i direkt solgass eller på fönsterbrädan i skydd av en tunn gardin. Om du har balkong ställ inte ut förens det är frostfria nätter.",
+          "how_to": "Odlas i minidrivhus i slutet av mars till maj. 4-6 frön i varje cell. För att sedan planteras om i knippen om ca 10 plantor (inte en och en) i större kruka. ",
+          "habitat": 2,
+          "plant_usage": "Basilikan är alltid bäst som färsk. I de flesta kryddböcker står det att den inte kan torkas med bra resultat, men vi har provat det och tycker att det fungerar alldeles utmärkt. Vill du inte prova torkmetoden kan vi rekommendera att prova med att djupfrysa bladen. Det är alltid roligt att ha lite basilika kvar till vintern!",
+          "difficulty": 2,
+          "link": "http://sv.wikipedia.org/wiki/Basilika_%28krydda%29",
+          "good_to_know": "Det finns olika sorters basilika med exempelvis smak av anis, citron & kanel. Var noga med vattning då den inte tål att torkas ut.",
+          "harvest": "Skördas 6-18 veckor efter plantering."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cat_name": "frukt & bär",
+      "plants": [
+        {
+          "id": 3,
+          "cat_name": "frukt & bär",
+          "name": "Physalis (gyllenbär)",
+          "latin_name": "Peruviana ",
+          "info": "Gyllenbär är en dekorativ 1årig buskliknande växt med C­vitaminrika, guldgula bär som bildas i lyktliknande höljen. Gyllenbär går till skillnad från kapkrusbär utmärkt att odla även hos oss i norden ­ både på friland eller i kruka.",
+          "how_to": "Odlas i dränerad kruka. Förkultivera i minidrivhus i mars-april för att sedan ställa ut på balkongen i juni. Kan behöva bindas upp när den blir större. ",
+          "habitat": 2,
+          "plant_usage": "Använd bären som dekoration på tårtor som garnering, gör marmelad eller ät som de är.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Kapkrusb%C3%A4r",
+          "good_to_know": "Lätt odlat och kul att plantera då den växer så det knakar. Vattna hellre sällan än ofta. Bären är rika på C-vitamin.",
+          "harvest": "Efter 3-4 månader kan du börja skörda dina första bär. Ger stora mängde av bär på sensommaren."
+        },
+        {
+          "id": 4,
+          "cat_name": "frukt & bär",
+          "name": "Jordgubbar",
+          "latin_name": "Fragaria x ananassa",
+          "info": "Sorten Temptation är lämplig för balkong, då den passar bra att hängas upp eller planteras på vertikalen tack vare den ”hängande” plantan. Finns fler sorter, se bara så att de är lämpliga för ampel.",
+          "how_to": "Förkultivera i minidrivhus så tidigt som mitten av februari till april. Lägg bara fröna på fuktig jord utan att trycka ned dem i jorden. Låt gro mörkt, inte varmare än 18 grader. När plantan har 4-5 blad planteras den om. 1 planta per kruka. ",
+          "habitat": 1,
+          "plant_usage": "Ät som den är. Eller varför inte pröva att gröpa ur och fylla med färskost och smula över Digestive?",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Jordgubbe",
+          "good_to_know": "Efter 2 säsonger avtar skörden, så nya plantor rekommenderas. Luftig odlingsplats minskar risken för mögelangrepp. Låt stå soligt men skyddat och var uppmärksam på vattning samt ge extra näring 1-2ggr/månaden.",
+          "harvest": "Allt eftersom bären blir röda, från sensommaren redan första året."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "cat_name": "grönsaker",
+      "plants": [
+        {
+          "id": 5,
+          "cat_name": "grönsaker",
+          "name": "Morot",
+          "latin_name": "Daucus carota ssp. sativus",
+          "info": "Moroten härstammar från medelhavsländerna och har odlats sen 1000-talet. Kom inte till norden förens 1700-talet. Det finns 3 former av morot cylindriska, runda och de vanliga koniska.",
+          "how_to": "Morotsfrön kan ta upp till 2-3 veckor att gro, så för att hjälpa dem på traven kan man blötlägga fröna i 24h innan plantering. Så i en stor kruka eller hink med dränering. Fröna ska planteras med 4cm avstånd på 1cm djup. Kan ställas ut så fort nätterna är frostfria.",
+          "habitat": 2,
+          "plant_usage": "Snögubbenäsa. Morötter kan ätas antingen hela, tärnade, rivna eller pressas till morotsjuice i sin råa form. ",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Morot",
+          "good_to_know": "Inte särskilt näringskrävande, så inget behov av näringstillskott. Välj lämpligast mindre sort för odling i hink på balkong.",
+          "harvest": "De tidiga sorterna kan skördas efter behov. De sena sorterna är avsedda att skördas in på hösten."
+        },
+        {
+          "id": 6,
+          "cat_name": "grönsaker",
+          "name": "Rädisa",
+          "latin_name": "Raphanus sativus v. sativus",
+          "info": "Utseende och ursprung. Rädisan är nära släkt med rättikan och har precis som denna odlats länge i Asien och i Medelhavsländerna. Rädisan är lättodlad och växer snabbt.",
+          "how_to": "Planteras i maj-augusti. Så fröna grunt med 2-3 cm mellanrum. Plantera helst ute när det är +5 grader för bästa resultat.",
+          "habitat": 1,
+          "plant_usage": "Rädisan har inga större krav på odlingsjorden, men en halvskuggig något fuktig växtplats är det lämpligaste.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/R%C3%A4disa",
+          "good_to_know": "Rädisan har inga större krav på odlingsjorden, men en halvskuggig något fuktig växtplats är det lämpligaste. Rädisor innehåller näringsämnen som natrium, vitamin C och kostfiber.",
+          "harvest": "Kan skördas efter 3-4 veckor. Gör man inte det är det risk att rädisan blir för träig."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "cat_name": "ätbara blommor",
+      "plants": [
+        {
+          "id": 7,
+          "cat_name": "ätbara blommor",
+          "name": "Smörgåskrasse",
+          "latin_name": "Lepidium sativum",
+          "info": "Smörgåskrasse är en örtväxt som tillhör släktet krassingar. Den blir ca 50cm hög. Det finns slätbladiga och krusbladiga, blommorna är små och vita.",
+          "how_to": "Året runt, sprid bara ut fröna på en bit hushållspapper som ligger på ett fat och vattna. För att behålla fukten kan du täcka över med plast.",
+          "habitat": 2,
+          "plant_usage": "Klipp krasse på smörgås eller i sallad.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Sm%C3%B6rg%C3%A5skrasse",
+          "good_to_know": "Smörgåskrasse som egentligen heter vattenkrasse är mycket mildare än sin släkting kryddkrasse.",
+          "harvest": "Allt eftersom krassen växt upp. Brukar ta c 5-10 dagar beroende på värmeförhållande. "
+        },
+        {
+          "id": 8,
+          "cat_name": "ätbara blommor",
+          "cat_icon": "edibleflowers.png",
+          "name": "Ringblomma",
+          "latin_name": "Calendula officinalis (compositae)",
+          "info": "En Vädertålig ört, som föredrar soliga platser. Passar lika bra på balkongen som i rabatten. Den blir ca 30 cm hög. Vanligtvis gul, men man kan även hitta en rosa sort i butik.",
+          "how_to": "Så från frö i april och framåt. Frösådda plantor liknar inte alltid moderplantan. Täck bara fröna lätt med jord. Sår du dem ganska glest ca 15-30 cm så får du finast och mest täta blommor. Man kan så i omgångar och därigenom ha blommor till långt in på hösten.",
+          "habitat": 2,
+          "plant_usage": "Ätbar blomma som kan användas som dekoration i sallad eller i iskuber.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Ringblomma",
+          "good_to_know": "Passar bra ihop med grönsaker då den håller borta skadedjur.",
+          "harvest": "Blommar från juli till september. Det tar ca sex veckor från det att du sått fröet till blomning."
+        }
+      ]
+    }
+  ]
+}
