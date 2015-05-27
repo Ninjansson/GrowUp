@@ -107,24 +107,6 @@ public class JSONPlantAdapter extends BaseAdapter {
         return convertView;
     }
 
-    /*public String checkDifficulty(int difficulty) {
-        String output = "";
-        switch(difficulty) {
-            case 1:
-                output = "#00FF00";
-                break;
-            case 2:
-                output = "#FFCC00";
-                break;
-            case 3:
-                output = "#FF0000";
-                break;
-            default:
-                break;
-        }
-        return output;
-    }*/
-
     public void updateData(JSONArray jsonArray) {
         // update the adapter's dataset
         mJsonArray = jsonArray;

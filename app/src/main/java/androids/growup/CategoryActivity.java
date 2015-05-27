@@ -1,29 +1,22 @@
 package androids.growup;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
-import org.json.JSONObject;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CategoryActivity extends ActionBarActivity {
-
-    private static final String TAG = "GrowUpMotherFucker";
-    private static final String QUERY_URL = "http://kimjansson.se/GrowUp/plants/cat/";
-    private ListView catPlantsList;
-    private JSONCategoryPlantsAdapter catPlantsAdapter;
-    private int catId;
-    private ProgressDialog dialog;
+    private ArrayList<Plant> listPlants;
+    private ListView plantsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,62 +24,45 @@ public class CategoryActivity extends ActionBarActivity {
         setContentView(R.layout.activity_category);
 
         setTitle(this.getIntent().getExtras().getString("cat_name").toUpperCase());
-        catId = this.getIntent().getExtras().getInt("cat_id");
-        catPlantsList = (ListView) findViewById(R.id.category_plants);
-        catPlantsAdapter = new JSONCategoryPlantsAdapter(this, getLayoutInflater());
-        catPlantsList.setAdapter(catPlantsAdapter);
 
-        populateCategoryPlantsList();
+        Adapter adapter = new Adapter();
+        Adapter.JSONHelpers categories = adapter.new JSONHelpers(getAssets());
+        List<Category> cats = categories.getAll();
 
-        catPlantsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                JSONObject object = (JSONObject) catPlantsAdapter.getItem(position);
+        plantsList = (ListView) findViewById(R.id.category_plants);
+        listPlants = new ArrayList<>();
 
-                Intent plantIntent = new Intent(CategoryActivity.this, PlantActivity.class);
-                plantIntent.putExtra("cat_id", catId);
-                plantIntent.putExtra("cat_name", object.optString("cat_name"));
-                plantIntent.putExtra("plant_id", object.optInt("id"));
-                plantIntent.putExtra("plant_name", object.optString("name"));
-
-                dialog= ProgressDialog.show(CategoryActivity.this, "Laddar", "Vänligen vänta");
-                dialogThread thread = new dialogThread();
-                thread.start();
-                startActivity(plantIntent);
-               // overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
-            }
-        });
-    }
-    private class dialogThread extends Thread{
-        public void run(){
-            try{
-                Thread.sleep(1000);
-                dialog.cancel();
-            }catch(InterruptedException e){
-                e.printStackTrace();
+        for (Category category : cats) {
+            if (category.cat_id == this.getIntent().getExtras().getInt("cat_id")) {
+                for (Plant plant : category.plants) {
+                    listPlants.add(plant);
+                }
             }
         }
 
+        Adapter.PlantsAdapter plantsAdapter = adapter.new PlantsAdapter(this, listPlants);
+        plantsList.setAdapter(plantsAdapter);
+
+        plantsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Plant plant = listPlants.get(position);
+                int plant_id = plant.plant_id;
+                String plant_name = plant.name;
+
+                Intent plantIntent = new Intent(CategoryActivity.this, PlantActivity.class);
+                plantIntent.putExtra("plant_id", plant_id);
+                plantIntent.putExtra("plant_name", plant_name);
+                plantIntent.putExtra("plant", plant);
+
+                startActivity(plantIntent);
+
+                overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
+            }
+        });
     }
-    
-    private void populateCategoryPlantsList() {
-        AsyncHttpClient cat_client = new AsyncHttpClient();
 
-        cat_client.get(QUERY_URL + catId,
-                new JsonHttpResponseHandler() {
-
-                    @Override
-                    public void onSuccess(JSONObject catPlantsObject) {
-                        //Log.d("motherfucker", "CATPLANTSOBJECT OPTJSONARRAY => " + catPlantsObject.optJSONArray("plants"));
-                        catPlantsAdapter.updateData(catPlantsObject.optJSONArray("plants"));
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
-                        Log.e(TAG, "Failure connecting to whatever " + throwable + " " + error);
-                    }
-                });
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
