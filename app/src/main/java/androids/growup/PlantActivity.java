@@ -11,17 +11,21 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,25 +35,48 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PlantActivity extends ActionBarActivity {
 
     private static String THIS_PLANT;
     private static int PLANT_ID;
-    private ListView plant_view;
-    private JSONPlantAdapter plantAdapter;
+    public ImageView plant_icon, diff_icon;
+    public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_good_to_know,
+            plant_harvest, plant_link, plant_difficulty;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
 
-        PLANT_ID = this.getIntent().getExtras().getInt("plant_id");
-        THIS_PLANT = this.getIntent().getExtras().getString("plant_name");
-        setTitle(THIS_PLANT);
+        Plant plant = (Plant) this.getIntent().getExtras().getSerializable("plant");
+        setTitle(plant.name);
+        THIS_PLANT = plant.name;
+        PLANT_ID = plant.plant_id;
 
-        displayPlantContent();
+        plant_name = (TextView) findViewById(R.id.plant_name);
+        latin_name = (TextView) findViewById(R.id.latin_name);
+        plant_info = (TextView) findViewById(R.id.plant_info);
+        plant_how_to = (TextView) findViewById(R.id.plant_how_to);
+        plant_usage = (TextView) findViewById(R.id.plant_usage);
+        plant_good_to_know = (TextView) findViewById(R.id.plant_good_to_know);
+        plant_harvest = (TextView) findViewById(R.id.plant_harvest);
+        plant_link = (TextView) findViewById(R.id.plant_link);
+        //plant_difficulty = (TextView) findViewById(R.id.plant_name);
+
+        plant_name.setText(plant.name);
+        latin_name.setText(plant.latin_name);
+        plant_info.setText(plant.info);
+        plant_how_to.setText(plant.how_to);
+        plant_usage.setText(plant.plant_usage);
+        plant_good_to_know.setText(plant.good_to_know);
+        plant_harvest.setText(plant.harvest);
+        plant_link.setText(plant.link);
+       // plant_difficulty.setText(plant.difficulty);
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
         open_popup.setOnClickListener(new View.OnClickListener() {
@@ -60,29 +87,6 @@ public class PlantActivity extends ActionBarActivity {
         });
     }
 
-    private void displayPlantContent() {
-        plant_view = (ListView) findViewById(R.id.plant_view);
-        plantAdapter = new JSONPlantAdapter(this, getLayoutInflater());
-        plant_view.setAdapter(plantAdapter);
-
-        String url = "http://kimjansson.se/GrowUp/plants/" + PLANT_ID;
-        AsyncHttpClient plantClient = new AsyncHttpClient();
-
-        plantClient.get(url,
-                new JsonHttpResponseHandler() {
-
-                    @Override
-                    public void onSuccess(JSONObject plantObject) {
-                        plantAdapter.updateData(plantObject.optJSONArray("plant"));
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Throwable throwable, JSONObject error) {
-                        Log.d("motherfucker", "Failure connecting to whatever " + throwable + " " + error);
-                    }
-                });
-    }
-
     protected void showInputDialog() {
         LayoutInflater layoutInflater = LayoutInflater.from(PlantActivity.this);
         View promptView = layoutInflater.inflate(R.layout.popup_add_plant, null);
@@ -90,19 +94,21 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in namnet på din nya planta.");
+        sp_name.setHint("Skriv in valfritt namn på din nya planta.       ");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        String x = sp_name.getText().toString();
-                        if (x.equals("")) {
-                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                            Date date = new Date();
+                        String input = sp_name.getText().toString();
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        Date date = new Date();
 
-                            x = THIS_PLANT + "[" + dateFormat.format(date) + "]";
+                        if (input.equals("")) {
+                            input = THIS_PLANT + " | " + dateFormat.format(date);
+                        } else {
+                            input = sp_name.getText().toString();
                         }
-                        saveToMyList(x);
+                        saveToMyList(input);
                     }
                 })
                 .setNegativeButton("AVBRYT",
@@ -115,35 +121,9 @@ public class PlantActivity extends ActionBarActivity {
 
         // create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
-        alert.setTitle("Ny planta.");
-        //alert.setIcon(R.drawable.icon_grow_up);
-        alert.setMessage("Fett nice att du ska så en ny planta kompis! Jag, Amelie, håller tummarna för dig! OMG! #SWAGALICIOUS");
+        alert.setTitle("Ny planta");
+        alert.setIcon(R.mipmap.ic_launcher);
         alert.show();
-    }
-
-    private void checkFile() {
-        Context context = getApplicationContext();
-        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
-        try {
-            FileInputStream inStream = new FileInputStream(filePath);
-            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            StringBuilder finalString = new StringBuilder();
-            String oneLine;
-
-            while((oneLine = bufferedReader.readLine()) != null) {
-                finalString.append(oneLine);
-            }
-
-            bufferedReader.close();
-            inStream.close();
-            inputStreamReader.close();
-
-            //Log.d("motherfucker", "FILE => " + finalString.toString());
-        } catch (IOException e) {
-            //Log.e("ERRORMOTHERFUCKER", "IOEXCEPTION => " + e);
-        }
     }
 
     private void saveToMyList(String my_name) {
@@ -152,7 +132,7 @@ public class PlantActivity extends ActionBarActivity {
         JSONObject myObject = new JSONObject();
         File file = new File(filePath);
 
-        if(!file.exists()) {
+        if (!file.exists()) {
             try {
                 file.createNewFile();
 
@@ -173,6 +153,7 @@ public class PlantActivity extends ActionBarActivity {
         // Create new JSON object, populate it and put it into our list
         try {
             long todaysDate = System.currentTimeMillis() / 1000L;
+            myObject.put("id", todaysDate);
             myObject.put("my_name", my_name);
             myObject.put("plant", this.getIntent().getExtras().getString("name"));
             myObject.put("plant_date", todaysDate);
@@ -214,7 +195,7 @@ public class PlantActivity extends ActionBarActivity {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             String oneLine;
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 
@@ -243,7 +224,7 @@ public class PlantActivity extends ActionBarActivity {
 
             String oneLine;
 
-            while((oneLine = bufferedReader.readLine()) != null) {
+            while ((oneLine = bufferedReader.readLine()) != null) {
                 finalString.append(oneLine);
             }
 

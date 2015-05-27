@@ -22,6 +22,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
 public class MyPageActivity extends ActionBarActivity {
 
     ListView my_plants_list;
@@ -51,7 +52,6 @@ public class MyPageActivity extends ActionBarActivity {
 
                 Intent plantIntent = new Intent(MyPageActivity.this, PlantActivity.class);
                 plantIntent.putExtra("plant_id", Integer.parseInt(plant_id.getText().toString()));
-
                 startActivity(plantIntent);
             }
         });

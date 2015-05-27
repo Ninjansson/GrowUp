@@ -1,0 +1,148 @@
+// å = \u00E5
+// ä = \u00E4
+// ö = \u00F6
+{
+  "categories": [
+    {
+      "id": 1,
+      "cat_name": "kryddor",
+      "cat_img": "icon_carrot",
+      "plants": [
+        {
+          "id": 1,
+          "cat_name": "kryddor",
+          "name": "Oregano",
+          "plant_img": "icon_carrot",
+          "latin_name": "Origanum vulgare",
+          "info": "Oregano kallas \u00E4ven f\u00F6r Kungsmynta fast det inte \u00E4r n\u00E5gon mynta. Oregano passar alldeles utm\u00E4rkt att plantera i kruka. Den blir ca 40 cm h\u00F6g och f\u00E5r sm\u00E5 lila blommor i juli-augusti. Torkt\u00E5lig v\u00E4xt som vill st\u00E5 soligt och inte vattnas s\u00E5 ofta.",
+          "how_to": "Odlas s\u00E5 grunt som m\u00F6jligt i fuktig jord i mitten av mars till april, helst i minidrivhus. H\u00E5ll fuktigt och l\u00E5t st\u00E5 soligt. Plantera om n\u00E4r de v\u00E4xt till sig ca 1 cm.",
+          "plant_usage": "Anv\u00E4nds f\u00E4rsk eller torkad. Torka hela kvistar (innan blomning). \u00E4ven blommorna kan anv\u00E4ndas. Ett tips \u00E4r att l\u00E4gga kvistar i din matlagningsolja och krydda den p\u00E5 s\u00E5 vis.",
+          "difficulty": 1,
+          "link": "http://en.wikipedia.org/wiki/Oregano",
+          "good_to_know": "N\u00E4r den blommar s\u00E5 drar den l\u00E4tt till sig humlor. Om den planteras i kruka, se till att krukan \u00E4r dr\u00E4nerad. Vill du har mer? Dela bara p\u00E5 plantan och f\u00E5 med r\u00F6tterna och plantera om. Du kan klippa ned busken b\u00E4st du vill, men l\u00E5t den vara p\u00E5 sensommaren och fram\u00E5t d\u00E5 den \u00E4r mer k\u00E4nslig f\u00F6r nedklippn",
+          "harvest": "Sk\u00F6rdas 6-12 veckor efter plantering."
+        },
+        {
+          "id": 2,
+          "cat_name": "kryddor",
+          "name": "Basilika",
+          "plant_img": "icon_carrot",
+          "latin_name": "Ocimum basilicum",
+          "info": "En av de mest popul\u00E4ra \u00F6rter att plantera.H\u00E4rstammar ifr\u00E5n Indien. Vill st\u00E5 varmt, vindskyddat och soligt men inte i direkt solgass eller p\u00E5 f\u00F6nsterbr\u00E4dan i skydd av en tunn gardin. Om du har balkong st\u00E4ll inte ut f\u00F6rens det \u00E4r frostfria n\u00E4tter.",
+          "how_to": "Odlas i minidrivhus i slutet av mars till maj. 4-6 fr\u00F6n i varje cell. F\u00F6r att sedan planteras om i knippen om ca 10 plantor (inte en och en) i st\u00F6rre kruka. ",
+          "plant_usage": "Basilikan \u00E4r alltid b\u00E4st som f\u00E4rsk. I de flesta kryddb\u00F6cker st\u00E5r det att den inte kan torkas med bra resultat, men vi har provat det och tycker att det fungerar alldeles utm\u00E4rkt. Vill du inte prova torkmetoden kan vi rekommendera att prova med att djupfrysa bladen. Det \u00E4r alltid roligt att ha lite basilika kvar till vintern!",
+          "difficulty": 2,
+          "link": "http://sv.wikipedia.org/wiki/Basilika_%28krydda%29",
+          "good_to_know": "Det finns olika sorters basilika med exempelvis smak av anis, citron & kanel. Var noga med vattning d\u00E5 den inte t\u00E5l att torkas ut.",
+          "harvest": "Sk\u00F6rdas 6-18 veckor efter plantering."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cat_name": "frukt & b\u00E4r",
+      "cat_img": "icon_apple",
+      "plants": [
+        {
+          "id": 3,
+          "cat_name": "frukt & b\u00E4r",
+          "name": "Physalis (gyllenb\u00E4r)",
+          "plant_img": "icon_carrot",
+          "latin_name": "Peruviana ",
+          "info": "Gyllenb\u00E4r \u00E4r en dekorativ 1\u00E5rig buskliknande v\u00E4xt med C­vitaminrika, guldgula b\u00E4r som bildas i lyktliknande h\u00F6ljen. Gyllenb\u00E4r g\u00E5r till skillnad fr\u00E5n kapkrusb\u00E4r utm\u00E4rkt att odla \u00E4ven hos oss i norden ­ b\u00E5de p\u00E5 friland eller i kruka.",
+          "how_to": "Odlas i dr\u00E4nerad kruka. F\u00F6rkultivera i minidrivhus i mars-april f\u00F6r att sedan st\u00E4lla ut p\u00E5 balkongen i juni. Kan beh\u00F6va bindas upp n\u00E4r den blir st\u00F6rre. ",
+          "plant_usage": "Anv\u00E4nd b\u00E4ren som dekoration p\u00E5 t\u00E5rtor som garnering, g\u00F6r marmelad eller \u00E4t som de \u00E4r.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Kapkrusb%C3%A4r",
+          "good_to_know": "L\u00E4tt odlat och kul att plantera d\u00E5 den v\u00E4xer s\u00E5 det knakar. Vattna hellre s\u00E4llan \u00E4n ofta. B\u00E4ren \u00E4r rika p\u00E5 C-vitamin.",
+          "harvest": "Efter 3-4 m\u00E5nader kan du b\u00F6rja sk\u00F6rda dina f\u00F6rsta b\u00E4r. Ger stora m\u00E4ngde av b\u00E4r p\u00E5 sensommaren."
+        },
+        {
+          "id": 4,
+          "cat_name": "frukt & b\u00E4r",
+          "name": "Jordgubbar",
+          "plant_img": "icon_carrot",
+          "latin_name": "Fragaria x ananassa",
+          "info": "Sorten Temptation \u00E4r l\u00E4mplig f\u00F6r balkong, d\u00E5 den passar bra att h\u00E4ngas upp eller planteras p\u00E5 vertikalen tack vare den ”h\u00E4ngande” plantan. Finns fler sorter, se bara s\u00E5 att de \u00E4r l\u00E4mpliga f\u00F6r ampel.",
+          "how_to": "F\u00F6rkultivera i minidrivhus s\u00E5 tidigt som mitten av februari till april. L\u00E4gg bara fr\u00F6na p\u00E5 fuktig jord utan att trycka ned dem i jorden. L\u00E5t gro m\u00F6rkt, inte varmare \u00E4n 18 grader. N\u00E4r plantan har 4-5 blad planteras den om. 1 planta per kruka. ",
+          "plant_usage": "\u00E4t som den \u00E4r. Eller varf\u00F6r inte pr\u00F6va att gr\u00F6pa ur och fylla med f\u00E4rskost och smula \u00F6ver Digestive?",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Jordgubbe",
+          "good_to_know": "Efter 2 s\u00E4songer avtar sk\u00F6rden, s\u00E5 nya plantor rekommenderas. Luftig odlingsplats minskar risken f\u00F6r m\u00F6gelangrepp. L\u00E5t st\u00E5 soligt men skyddat och var uppm\u00E4rksam p\u00E5 vattning samt ge extra n\u00E4ring 1-2ggr/m\u00E5naden.",
+          "harvest": "Allt eftersom b\u00E4ren blir r\u00F6da, fr\u00E5n sensommaren redan f\u00F6rsta \u00E5ret."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "cat_name": "gr\u00F6nsaker",
+      "cat_img": "icon_tomato",
+      "plants": [
+        {
+          "id": 5,
+          "cat_name": "gr\u00F6nsaker",
+          "name": "Morot",
+          "plant_img": "icon_carrot",
+          "latin_name": "Daucus carota ssp. sativus",
+          "info": "Moroten h\u00E4rstammar fr\u00E5n medelhavsl\u00E4nderna och har odlats sen 1000-talet. Kom inte till norden f\u00F6rens 1700-talet. Det finns 3 former av morot cylindriska, runda och de vanliga koniska.",
+          "how_to": "Morotsfr\u00F6n kan ta upp till 2-3 veckor att gro, s\u00E5 f\u00F6r att hj\u00E4lpa dem p\u00E5 traven kan man bl\u00F6tl\u00E4gga fr\u00F6na i 24h innan plantering. S\u00E5 i en stor kruka eller hink med dr\u00E4nering. Fr\u00F6na ska planteras med 4cm avst\u00E5nd p\u00E5 1cm djup. Kan st\u00E4llas ut s\u00E5 fort n\u00E4tterna \u00E4r frostfria.",
+          "plant_usage": "Sn\u00F6gubben\u00E4sa. Mor\u00F6tter kan \u00E4tas antingen hela, t\u00E4rnade, rivna eller pressas till morotsjuice i sin r\u00E5a form. ",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Morot",
+          "good_to_know": "Inte s\u00E4rskilt n\u00E4ringskr\u00E4vande, s\u00E5 inget behov av n\u00E4ringstillskott. V\u00E4lj l\u00E4mpligast mindre sort f\u00F6r odling i hink p\u00E5 balkong.",
+          "harvest": "De tidiga sorterna kan sk\u00F6rdas efter behov. De sena sorterna \u00E4r avsedda att sk\u00F6rdas in p\u00E5 h\u00F6sten."
+        },
+        {
+          "id": 6,
+          "cat_name": "gr\u00F6nsaker",
+          "name": "R\u00E4disa",
+          "plant_img": "icon_carrot",
+          "latin_name": "Raphanus sativus v. sativus",
+          "info": "Utseende och ursprung. R\u00E4disan \u00E4r n\u00E4ra sl\u00E4kt med r\u00E4ttikan och har precis som denna odlats l\u00E4nge i Asien och i Medelhavsl\u00E4nderna. R\u00E4disan \u00E4r l\u00E4ttodlad och v\u00E4xer snabbt.",
+          "how_to": "Planteras i maj-augusti. S\u00E5 fr\u00F6na grunt med 2-3 cm mellanrum. Plantera helst ute n\u00E4r det \u00E4r +5 grader f\u00F6r b\u00E4sta resultat.",
+          "plant_usage": "R\u00E4disan har inga st\u00F6rre krav p\u00E5 odlingsjorden, men en halvskuggig n\u00E5got fuktig v\u00E4xtplats \u00E4r det l\u00E4mpligaste.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/R%C3%A4disa",
+          "good_to_know": "R\u00E4disan har inga st\u00F6rre krav p\u00E5 odlingsjorden, men en halvskuggig n\u00E5got fuktig v\u00E4xtplats \u00E4r det l\u00E4mpligaste. R\u00E4disor inneh\u00E5ller n\u00E4rings\u00E4mnen som natrium, vitamin C och kostfiber.",
+          "harvest": "Kan sk\u00F6rdas efter 3-4 veckor. G\u00F6r man inte det \u00E4r det risk att r\u00E4disan blir f\u00F6r tr\u00E4ig."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "cat_name": "\u00E4tbara blommor",
+      "cat_img": "icon_home",
+      "plants": [
+        {
+          "id": 7,
+          "cat_name": "\u00E4tbara blommor",
+          "name": "Sm\u00F6rg\u00E5skrasse",
+          "plant_img": "icon_carrot",
+          "latin_name": "Lepidium sativum",
+          "info": "Sm\u00F6rg\u00E5skrasse \u00E4r en \u00F6rtv\u00E4xt som tillh\u00F6r sl\u00E4ktet krassingar. Den blir ca 50cm h\u00F6g. Det finns sl\u00E4tbladiga och krusbladiga, blommorna \u00E4r sm\u00E5 och vita.",
+          "how_to": "\u00E5ret runt, sprid bara ut fr\u00F6na p\u00E5 en bit hush\u00E5llspapper som ligger p\u00E5 ett fat och vattna. F\u00F6r att beh\u00E5lla fukten kan du t\u00E4cka \u00F6ver med plast.",
+          "plant_usage": "Klipp krasse p\u00E5 sm\u00F6rg\u00E5s eller i sallad.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Sm%C3%B6rg%C3%A5skrasse",
+          "good_to_know": "Sm\u00F6rg\u00E5skrasse som egentligen heter vattenkrasse \u00E4r mycket mildare \u00E4n sin sl\u00E4kting kryddkrasse.",
+          "harvest": "Allt eftersom krassen v\u00E4xt upp. Brukar ta c 5-10 dagar beroende p\u00E5 v\u00E4rmef\u00F6rh\u00E5llande. "
+        },
+        {
+          "id": 8,
+          "cat_name": "\u00E4tbara blommor",
+          "cat_icon": "edibleflowers.png",
+          "name": "Ringblomma",
+          "plant_img": "icon_carrot",
+          "latin_name": "Calendula officinalis (compositae)",
+          "info": "En V\u00E4dert\u00E5lig \u00F6rt, som f\u00F6redrar soliga platser. Passar lika bra p\u00E5 balkongen som i rabatten. Den blir ca 30 cm h\u00F6g. Vanligtvis gul, men man kan \u00E4ven hitta en rosa sort i butik.",
+          "how_to": "S\u00E5 fr\u00E5n fr\u00F6 i april och fram\u00E5t. Fr\u00F6s\u00E5dda plantor liknar inte alltid moderplantan. T\u00E4ck bara fr\u00F6na l\u00E4tt med jord. S\u00E5r du dem ganska glest ca 15-30 cm s\u00E5 f\u00E5r du finast och mest t\u00E4ta blommor. Man kan s\u00E5 i omg\u00E5ngar och d\u00E4rigenom ha blommor till l\u00E5ngt in p\u00E5 h\u00F6sten.",
+          "plant_usage": "\u00E4tbar blomma som kan anv\u00E4ndas som dekoration i sallad eller i iskuber.",
+          "difficulty": 1,
+          "link": "http://sv.wikipedia.org/wiki/Ringblomma",
+          "good_to_know": "Passar bra ihop med gr\u00F6nsaker d\u00E5 den h\u00E5ller borta skadedjur.",
+          "harvest": "Blommar fr\u00E5n juli till september. Det tar ca sex veckor fr\u00E5n det att du s\u00E5tt fr\u00F6et till blomning."
+        }
+      ]
+    }
+  ]
+}
