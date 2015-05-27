@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 
 /**
  * Created by kim.jansson on 2015-05-20.
- */
+
 class MyListHelperClass extends ActionBarActivity {
 
     Context context;
@@ -126,3 +126,4 @@ class MyListHelperClass extends ActionBarActivity {
         }
     }
 }
+*/

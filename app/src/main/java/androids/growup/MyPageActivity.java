@@ -85,9 +85,8 @@ public class MyPageActivity extends ActionBarActivity {
     }
 
     private void populateMyPlantsList() {
-        Log.d("motherfucker", "LENGTH => " + getPlantsJSONArrayFromMyList().optJSONArray("myPlants").length());
         JSONObject myPlants = getPlantsJSONArrayFromMyList();
-        JSONArray plantArray = null;
+        JSONArray plantArray;
 
         try {
             plantArray = myPlants.getJSONArray("myPlants");

@@ -15,63 +15,67 @@
         android:layout_alignParentTop="true"
  />
 
-    <TextView
-        android:id="@+id/plant_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_open_popup"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:layout_gravity="center_horizontal" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
 
-    <ImageView
-        android:id="@+id/plant_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp" />
+        <ImageView
+            android:id="@+id/plant_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/button_open_popup"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <TextView
-        android:id="@+id/latin_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:textSize="15sp"
-        android:textStyle="italic"
-        android:layout_gravity="center_horizontal"
-        android:typeface="sans" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/rubrik_difficulty"
-        android:layout_weight="0.5"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:id="@+id/textView"
-        android:layout_below="@+id/diff_icon"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/plant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                android:layout_gravity="center_horizontal"
+                android:text="Plant Name"
+                android:gravity="center_horizontal"
+                android:layout_alignTop="@+id/plant_icon"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:id="@+id/diff_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/button_open_popup"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/latin_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                android:text="Latin Name"
+                android:layout_below="@+id/plant_icon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
 
-    <!--  <TextView
-        android:id="@+id/plant_difficulty"
-        android:layout_weight="0.5"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="#ffb8251a"/> -->
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/linearLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -79,9 +83,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/textView"
-            android:layout_toRightOf="@+id/plant_name"
-            android:layout_toEndOf="@+id/plant_name">
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:id="@+id/diff_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rubrik_difficulty"
+                android:layout_weight="0.5"
+                android:textStyle="bold"
+                android:paddingLeft="5dp"
+                android:id="@+id/textView"
+                android:layout_below="@+id/diff_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -187,6 +211,13 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!--  <TextView
+        android:id="@+id/plant_difficulty"
+        android:layout_weight="0.5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="#ffb8251a"/> -->
 
 </RelativeLayout>
 

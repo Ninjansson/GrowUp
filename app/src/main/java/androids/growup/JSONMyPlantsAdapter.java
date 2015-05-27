@@ -1,17 +1,28 @@
 package androids.growup;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 /**
@@ -51,7 +62,7 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         ViewHolder holder;
 
         if (convertView == null) {
@@ -80,16 +91,75 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
         holder.plant_id_tw.setText(String.valueOf(jsonObject.optInt("plant_id")));
         holder.plant_id_tw.setVisibility(View.INVISIBLE);
         holder.button_delete.setOnClickListener(new View.OnClickListener() {
+
+            @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Plantan på position " + position + " är nu borttagen.", Toast.LENGTH_SHORT).show();
-                //Log.i("motherfucker", "PLANT ID => " + jsonObject.optInt("plant_id"));
-                //Log.i("motherfucker", "POSITION => " + position);
-                //Log.i("motherfucker", "ARRAY.LENGTH => " + getCount());
+                JSONObject myList = getPlantsJSONArrayFromMyList();
+                JSONArray plantArray = null;
+                try {
+                    plantArray = myList.getJSONArray("myPlants");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                plantArray.remove(position);
 
+
+                Context context = mContext;
+                String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+                File file = new File(filePath);
+
+                if (file.exists()) {
+                    file.delete();
+                    try {
+                        file.createNewFile();
+
+                        JSONObject mainObject = new JSONObject();
+                        mainObject.put("myPlants", plantArray);
+                        FileOutputStream fos = new FileOutputStream(file, false);
+                        fos.write(mainObject.toString().getBytes());
+                        fos.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    v.setVisibility(View.GONE);
+                }
             }
         });
+
         return convertView;
+    }
+
+    private JSONObject getPlantsJSONArrayFromMyList() {
+        Context context = mContext;
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+        StringBuilder finalString = new StringBuilder();
+        JSONObject mainObject = null;
+
+        try {
+            FileInputStream inStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            String oneLine;
+            while ((oneLine = bufferedReader.readLine()) != null) {
+                finalString.append(oneLine);
+            }
+
+            mainObject = new JSONObject(finalString.toString());
+            bufferedReader.close();
+            inStream.close();
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return mainObject;
     }
 
     public void updateData(JSONArray jsonArray) {

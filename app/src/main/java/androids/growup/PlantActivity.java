@@ -66,7 +66,7 @@ public class PlantActivity extends ActionBarActivity {
         plant_good_to_know = (TextView) findViewById(R.id.plant_good_to_know);
         plant_harvest = (TextView) findViewById(R.id.plant_harvest);
         plant_link = (TextView) findViewById(R.id.plant_link);
-        //plant_difficulty = (TextView) findViewById(R.id.plant_name);
+        diff_icon = (ImageView) findViewById(R.id.diff_icon);
 
         plant_name.setText(plant.name);
         latin_name.setText(plant.latin_name);
@@ -76,7 +76,8 @@ public class PlantActivity extends ActionBarActivity {
         plant_good_to_know.setText(plant.good_to_know);
         plant_harvest.setText(plant.harvest);
         plant_link.setText(plant.link);
-       // plant_difficulty.setText(plant.difficulty);
+
+        diff_icon.setImageResource(difficultyIcon(plant.difficulty));
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
         open_popup.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +86,23 @@ public class PlantActivity extends ActionBarActivity {
                 showInputDialog();
             }
         });
+    }
+    public int difficultyIcon(int difficulty) {
+        int img = 0;
+        switch(difficulty) {
+            case 1:
+                img = getResources().getIdentifier("ic_easy", "drawable", getPackageName());
+                 break;
+            case 2:
+                img = getResources().getIdentifier("ic_medium", "drawable", getPackageName());
+                break;
+            case 3:
+                img = getResources().getIdentifier("ic_hard", "drawable", getPackageName());
+                break;
+            default:
+                break;
+        }
+        return img;
     }
 
     protected void showInputDialog() {
@@ -261,9 +279,6 @@ public class PlantActivity extends ActionBarActivity {
         //editorCommitChanges();
     }
 
-    public String checkHabitat(int habitat) {
-        return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
