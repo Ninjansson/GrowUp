@@ -1,6 +1,5 @@
 package androids.growup;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,15 +9,15 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
     private ArrayList<Category> listCategories;
     private ListView catList;
-    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
             Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if(menuKeyField != null) {
+            if (menuKeyField != null) {
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
@@ -36,59 +35,36 @@ public class MainActivity extends ActionBarActivity {
             // Ignore
         }
 
-        MyListHelperClass help = new MyListHelperClass(getApplicationContext());
-        //Log.d("motherfucker", "Does the MyList exist? => " + help.doesMyListExist());
-
-        listCategories = new ArrayList<>();
-        Category kryddor = new Category(1, R.drawable.icon_tomato, "Kryddor");
-        Category fruktobar = new Category(2, R.drawable.icon_apple, "Frukter & bär");
-        Category gronsaker = new Category(3, R.drawable.icon_carrot, "Grönsaker");
-        Category atbarablommor = new Category(4, R.drawable.icon_apple, "Ätbara blommor");
-
-        listCategories.add(kryddor);
-        listCategories.add(fruktobar);
-        listCategories.add(gronsaker);
-        listCategories.add(atbarablommor);
+        Adapter adapter = new Adapter();
+        Adapter.JSONHelpers categories = adapter.new JSONHelpers(getAssets());
+        List<Category> cats = categories.getAll();
 
         catList = (ListView) findViewById(R.id.categories);
+        listCategories = new ArrayList<>();
 
-        ListCategoriesAdapter adapter = new ListCategoriesAdapter(this, listCategories);
-        catList.setAdapter(adapter);
+        for (Category category : cats) {
+            listCategories.add(category);
+        }
+
+        Adapter.CategoriesAdapter catAdapter = adapter.new CategoriesAdapter(this, listCategories);
+        catList.setAdapter(catAdapter);
 
         catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Category category = listCategories.get(position);
-                int cat_id = category.getCat_id();
-                String cat_name = category.getCat_name();
+                int cat_id = category.cat_id;
+                String cat_name = category.cat_name;
+
                 Intent categoryIntent = new Intent(MainActivity.this, CategoryActivity.class);
                 categoryIntent.putExtra("cat_id", cat_id);
                 categoryIntent.putExtra("cat_name", cat_name);
 
-                // startActivity(categoryIntent);
-
-
-                dialog = ProgressDialog.show(MainActivity.this, "Laddar", "Vänligen vänta");
-                dialogThread thread = new dialogThread();
-                thread.start();
                 startActivity(categoryIntent);
                 overridePendingTransition(R.animator.animation_1, R.animator.animation_2);
-
             }
         });
-    }
-
-    private class dialogThread extends Thread {
-        public void run() {
-            try {
-                Thread.sleep(1000);
-                dialog.cancel();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
     }
 
     @Override
