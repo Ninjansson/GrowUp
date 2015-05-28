@@ -16,6 +16,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/sp_name"
             android:padding="20dp"
+            android:maxLength="20"
+
              />
 
     </LinearLayout>

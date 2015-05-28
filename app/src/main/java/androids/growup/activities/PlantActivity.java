@@ -122,7 +122,7 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in valfritt namn på din nya planta.       ");
+        sp_name.setHint("Skriv in valfritt namn på din nya planta (max 20 tecken).");
 
         // Setup a dialog window
         alertDialogBuilder.setCancelable(false)
