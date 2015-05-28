@@ -8,8 +8,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "1.1"
-        testApplicationId "androids.growup"
+        versionName "1.4"
+        testApplicationId "androids.growup.test"
     }
     buildTypes {
         release {
@@ -28,14 +28,21 @@ repositories {
     mavenCentral()
 }
 
+apply plugin: 'org.robolectric'
+
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.loopj.android:android-async-http:1.4.4'
-    compile 'com.squareup.picasso:picasso:2.1.1'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.9.5'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile fileTree(include: 'Parse-*.jar', dir: 'libs')
     compile files('libs/gson-2.3.1.jar')
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+    testCompile "org.mockito:mockito-core:1.+"
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.easytesting:fest:1.0.16'
+    testCompile 'com.squareup:fest-android:1.0.8'
+    testCompile('org.robolectric:robolectric:3.0-rc2') {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
 }

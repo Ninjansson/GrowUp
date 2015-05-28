@@ -1,4 +1,4 @@
-package androids.growup;
+package androids.growup.gson;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,12 +1,16 @@
-package androids.growup;
+package androids.growup.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import androids.growup.MainActivity;
+import androids.growup.R;
 
-
+/**
+ * Handles the "Om Oss" page.
+ */
 public class AboutUsActivity extends ActionBarActivity {
 
     @Override

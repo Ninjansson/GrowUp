@@ -3,7 +3,12 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context="androids.growup.CategoryActivity"
+=======
+    android:background="@drawable/background_about"
+    tools:context="androids.growup.activities.CategoryActivity"
+>>>>>>> master
     tools:ignore="MergeRootFrame">
 
     <ListView

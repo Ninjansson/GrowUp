@@ -5,6 +5,8 @@ import android.view.Menu;
 
 import junit.framework.TestCase;
 
+import androids.growup.activities.PlantActivity;
+
 public class PlantActivityTests extends TestCase {
 
     PlantActivity plantActivity = new PlantActivity();
