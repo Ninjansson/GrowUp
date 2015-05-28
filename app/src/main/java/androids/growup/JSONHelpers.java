@@ -13,8 +13,9 @@ import androids.growup.gson.Category;
 /**
  * Handles all output from our json file.
  * Well, it should anyway...
- * TODO: Make sure it does you ignorant bitch!
  */
+
+
 public class JSONHelpers {
 
     public AssetManager manager;
