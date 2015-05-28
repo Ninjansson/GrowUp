@@ -1,9 +1,9 @@
 package androids.growup;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     private static final String QUERY_URL = "http://kimjansson.se/GrowUp/categories/all";
     private ArrayList<Category> listCategories;
     private ListView catList;
