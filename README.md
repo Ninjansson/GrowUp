@@ -5,9 +5,9 @@ No more dead plants - download growUp today and become a pro in a minute!
 <h2>What does it do?</h2>
 
 1. Give you information about eatable plants
-2. You can save a plant to "Your page"
-3. Be remebered of when to water your plants
-4. Customize how often you want to be rembered to take care of your plants (Once a day, twice a day, once a week etc)
+2. You can save one or more plants to "Your page"
+3. You can be remebered of when to water your plants
+4. You can customize how often you want to be rembered to take care of your plants (Once a day, twice a day, once a week etc)
 
 <h2>Building With Gradle</h2>
 
