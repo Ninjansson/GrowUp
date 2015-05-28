@@ -14,6 +14,7 @@
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:maxLength="20"
             android:id="@+id/sp_name"
             android:padding="20dp"
              />
