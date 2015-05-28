@@ -14,6 +14,13 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import androids.growup.activities.AboutUsActivity;
+import androids.growup.activities.CategoryActivity;
+import androids.growup.activities.InspoActivity;
+import androids.growup.activities.MyPageActivity;
+import androids.growup.activities.SettingsActivity;
+import androids.growup.gson.Category;
+
 
 public class MainActivity extends ActionBarActivity {
     private ArrayList<Category> listCategories;
@@ -35,8 +42,8 @@ public class MainActivity extends ActionBarActivity {
             // Ignore
         }
 
-        Adapter adapter = new Adapter();
-        Adapter.JSONHelpers categories = adapter.new JSONHelpers(getAssets());
+        Adapters adapters = new Adapters();
+        JSONHelpers categories = new JSONHelpers(getAssets());
         List<Category> cats = categories.getAll();
 
         catList = (ListView) findViewById(R.id.categories);
@@ -46,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
             listCategories.add(category);
         }
 
-        Adapter.CategoriesAdapter catAdapter = adapter.new CategoriesAdapter(this, listCategories);
+        Adapters.CategoriesAdapter catAdapter = adapters.new CategoriesAdapter(this, listCategories);
         catList.setAdapter(catAdapter);
 
         catList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
