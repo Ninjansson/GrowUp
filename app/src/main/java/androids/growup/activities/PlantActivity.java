@@ -15,11 +15,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,6 +33,9 @@ import androids.growup.MainActivity;
 import androids.growup.R;
 import androids.growup.gson.Plant;
 
+/**
+ * Handles every individual plant page.
+ */
 public class PlantActivity extends ActionBarActivity {
 
     private static String THIS_PLANT;
@@ -43,14 +44,15 @@ public class PlantActivity extends ActionBarActivity {
     public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_good_to_know,
             plant_harvest, plant_link;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant);
 
+        // Gets the Plant object sent as an extra from CategoryActivity.java
         Plant plant = (Plant) this.getIntent().getExtras().getSerializable("plant");
         setTitle(plant.name);
+
         THIS_PLANT = plant.name;
         PLANT_ID = plant.plant_id;
 
@@ -74,6 +76,7 @@ public class PlantActivity extends ActionBarActivity {
         plant_harvest.setText(plant.harvest);
         plant_link.setText(plant.link);
 
+        // Sets the difficulty icon
         diff_icon.setImageResource(difficultyIcon(plant.difficulty));
 
         //int icon = getResources().getIdentifier("plant_page_oregano", "drawable", getPackageName());
@@ -88,7 +91,11 @@ public class PlantActivity extends ActionBarActivity {
         });
     }
 
-
+    /**
+     * Returns the correct int depending on the input.
+     * @param difficulty int
+     * @return The corrent format of the image we want to use.
+     */
     public int difficultyIcon(int difficulty) {
         int img = 0;
         switch(difficulty) {
@@ -107,6 +114,7 @@ public class PlantActivity extends ActionBarActivity {
         return img;
     }
 
+    // Shows an input dialog when we choose "Lägg till planta" under an individual plants page.
     protected void showInputDialog() {
         LayoutInflater layoutInflater = LayoutInflater.from(PlantActivity.this);
         View promptView = layoutInflater.inflate(R.layout.popup_add_plant, null);
@@ -115,7 +123,8 @@ public class PlantActivity extends ActionBarActivity {
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
         sp_name.setHint("Skriv in valfritt namn på din nya planta.       ");
-        // setup a dialog window
+
+        // Setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -123,6 +132,7 @@ public class PlantActivity extends ActionBarActivity {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                         Date date = new Date();
 
+                        // If input is empty we create a name based on the plants name plus date.
                         if (input.equals("")) {
                             input = THIS_PLANT + " | " + dateFormat.format(date);
                         } else {
@@ -134,24 +144,28 @@ public class PlantActivity extends ActionBarActivity {
                 .setNegativeButton("AVBRYT",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //checkFile();
                                 dialog.cancel();
                             }
                         });
 
-        // create an alert dialog
+        // Create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
         alert.setTitle("Ny planta");
         alert.setIcon(R.mipmap.ic_launcher);
         alert.show();
     }
 
+    /**
+     * Saves a plant to the file named myList
+     * @param my_name Name of plant to save. Either user input or default name.
+     */
     private void saveToMyList(String my_name) {
         Context context = getApplicationContext();
         String filePath = context.getFilesDir().getPath().toString() + "/mylist";
         JSONObject myObject = new JSONObject();
         File file = new File(filePath);
 
+        // Check if file exists. Not really needed but we keep it anyway. Why? Because SCREW YOU thats why!
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -183,9 +197,11 @@ public class PlantActivity extends ActionBarActivity {
             je.printStackTrace();
         }
 
-        JSONObject boo = getMainObjectFromMyList();
+        // Retrieves the main JSON object from our list.
+        JSONObject mainObject = getMainObjectFromMyList();
         try {
-            JSONArray plantArray = boo.getJSONArray("myPlants");
+            // Retrieves the myPlants array.
+            JSONArray plantArray = mainObject.getJSONArray("myPlants");
             plantArray.put(myObject);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -193,7 +209,7 @@ public class PlantActivity extends ActionBarActivity {
 
         try {
             FileOutputStream ops = new FileOutputStream(file, false);
-            ops.write(boo.toString().getBytes());
+            ops.write(mainObject.toString().getBytes());
             ops.close();
             Toast.makeText(getApplicationContext(), "Din planta är nu sparad.", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
@@ -230,18 +246,6 @@ public class PlantActivity extends ActionBarActivity {
         }
 
         return mainObject;
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //editorCommitChanges();
     }
 
     @Override

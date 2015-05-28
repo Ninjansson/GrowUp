@@ -8,10 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import androids.growup.Adapters;
 import androids.growup.JSONHelpers;
 import androids.growup.MainActivity;
@@ -19,7 +17,9 @@ import androids.growup.R;
 import androids.growup.gson.Category;
 import androids.growup.gson.Plant;
 
-
+/**
+ * Handles every individual category page.
+ */
 public class CategoryActivity extends ActionBarActivity {
     private ArrayList<Plant> listPlants;
     private ListView plantsList;
@@ -29,11 +29,13 @@ public class CategoryActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+        // Set title to this category name
         setTitle(this.getIntent().getExtras().getString("cat_name").toUpperCase());
 
         Adapters adapters = new Adapters();
         JSONHelpers categories = new JSONHelpers(getAssets());
-        List<Category> cats = categories.getAll();
+
+        List<Category> cats = categories.getAllCategories();
 
         plantsList = (ListView) findViewById(R.id.category_plants);
         listPlants = new ArrayList<>();
@@ -58,6 +60,7 @@ public class CategoryActivity extends ActionBarActivity {
                 String plant_name = plant.name;
 
                 Intent plantIntent = new Intent(CategoryActivity.this, PlantActivity.class);
+                // Sends parameters to PlantActivity.java
                 plantIntent.putExtra("plant_id", plant_id);
                 plantIntent.putExtra("plant_name", plant_name);
                 plantIntent.putExtra("plant", plant);
