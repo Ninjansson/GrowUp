@@ -289,10 +289,6 @@ public class Adapters {
         public InspirationAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
             items.add(new Item("Plantera p� h�jden med pall", R.drawable.inspo01));
             items.add(new Item("Plantera vertikalt med krukor", R.drawable.inspo02));
             items.add(new Item("Plantera i skofickor", R.drawable.inspo03));
