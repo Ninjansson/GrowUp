@@ -24,7 +24,9 @@ Then, Gradle will do everything for you.
 [Download APK](https://github.com/Ninjansson/GrowUp/wiki)
 
 <h2>API Reference</h2>
-1. Roboletica for Unit testing 
+1. ^^^^^^^^^^^^^^
+
+
 
 <h2>Code contributions are welcome!</h2>
 
@@ -39,4 +41,20 @@ Before adding new features, please contact the GrowUp mailing list: growUp@gmail
 
 <h2>Contact</h2>
 For more information please contact us via growup@gmail.com
+
+<h2>icense</h2>
+
+Copyright [AppGrowUp] [Amelie Hellners, Lee Carlsson, Kim Jansson, Mia Gruvman]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
