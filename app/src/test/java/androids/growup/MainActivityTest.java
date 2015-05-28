@@ -20,6 +20,9 @@ import static org.fest.assertions.api.ANDROID.assertThat;
 import static org.robolectric.Shadows.shadowOf;
 
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
     public void testImageView(){
   //      assertEquals("icon_apple", R.id.plant_link, R.drawable.icon_apple);
 
@@ -27,6 +30,7 @@ import static org.robolectric.Shadows.shadowOf;
 =======
 >>>>>>> master
 
+>>>>>>> Ampelie
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, emulateSdk = 21, manifest = "../app/AndroidManifest.xml")
 public class MainActivityTest {
