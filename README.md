@@ -23,6 +23,9 @@ Then, Gradle will do everything for you.
 <h2>Downloading the APK directly to your phone</h2>
 [Download APK](https://github.com/Ninjansson/GrowUp/wiki)
 
+<h2>API Reference</h2>
+1. Roboletica for Unit testing 
+
 <h2>Code contributions are welcome!</h2>
 
 Any contributions, large or small, major features, bug fixes, additional language translations, unit/integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
