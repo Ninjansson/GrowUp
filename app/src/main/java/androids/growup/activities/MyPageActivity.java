@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,16 +21,18 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import androids.growup.JSONMyPlantsAdapter;
+import androids.growup.Adapters;
 import androids.growup.MainActivity;
 import androids.growup.R;
 
-
+/**
+ * Handles the page "Min Sida"
+ */
 public class MyPageActivity extends ActionBarActivity {
 
     ListView my_plants_list;
-    private JSONMyPlantsAdapter myPlantsAdapter;
+    Adapters adapter;
+    private Adapters.MyPlantsAdapter myPlantsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,11 @@ public class MyPageActivity extends ActionBarActivity {
         TextView my_page_information = (TextView) findViewById(R.id.my_page_information);
 
         my_plants_list = (ListView) findViewById(R.id.my_plants_list);
-        myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
+        adapter = new Adapters();
+        /*
+        Adapters.PlantsAdapter plantsAdapter = adapters.new PlantsAdapter(this, listPlants);
+        plantsList.setAdapter(plantsAdapter);*/
+        myPlantsAdapter = adapter.new MyPlantsAdapter(this, getLayoutInflater());
         my_plants_list.setAdapter(myPlantsAdapter);
 
         // Check if we have any items in our list
@@ -66,17 +73,6 @@ public class MyPageActivity extends ActionBarActivity {
                 startActivity(plantIntent);
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (my_plants_list.getCount() != 0) {
-
-        } else {
-            //Log.d("motherfucker", "PICK => " + my_plants_list.getCount() + " NAY!");
-        }
-
     }
 
     @Override
@@ -124,6 +120,7 @@ public class MyPageActivity extends ActionBarActivity {
         }
     }
 
+    // Gets main object from our mylist file
     public JSONObject getJSONObjectFromMyList() {
         Context context = getApplicationContext();
         String filePath = context.getFilesDir().getPath().toString() + "/mylist";
