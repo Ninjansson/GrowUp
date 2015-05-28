@@ -8,8 +8,8 @@ Displays a file picker to the user to select where to save files
 Shows you how to write file content
 Shows you how to set file metadata including title and MIME type
 
-<h2>Building</h2>
-<h2>With Gradle</h2>
+
+<h2>Building With Gradle</h2>
 
 The easiest way to build is to install Android Studio v1.2+. Once installed, then you can import the project into Android Studio:
 
@@ -42,7 +42,7 @@ Before adding new features, please contact the GrowUp mailing list: growUp@gmail
 <h2>Contact</h2>
 For more information please contact us via growup@gmail.com
 
-<h2>icense</h2>
+<h2>License</h2>
 
 Copyright [AppGrowUp] [Amelie Hellners, Lee Carlsson, Kim Jansson, Mia Gruvman]
 
