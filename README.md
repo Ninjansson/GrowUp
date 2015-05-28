@@ -1,21 +1,23 @@
 <h1># GrowUp</h1>
-Our Android app is for people who are living in the city, teenagers and newbiees in planting between the age 15-30 who want to start growing their own pentry. The app will provide information about plants and will make sure through notifications that you remember to take care of your plants when you need to. No more dead plants - download growUp today and become a pro in a minute! 
+Our Android app, GrowUp, is for people who are living in the city, teenagers and newbiees in planting between the age 15-30 who want to start growing their own pentry. The app will provide information about plants and will make sure through notifications that the user remember to take care of their plants when you need to. 
+No more dead plants - download growUp today and become a pro in a minute! 
+
 <h2>What does it do?</h2>
 
-1.Give you information about eatable plants
+1. Give you information about eatable plants
 2. You can save a plant to "Your page"
-3. Be remebered of when to water your plant
-4. Decide how often you want to be rembered to take care of your plants (Once a day, twice a day, once a week etc)
+3. Be remebered of when to water your plants
+4. Customize how often you want to be rembered to take care of your plants (Once a day, twice a day, once a week etc)
 
 <h2>Building With Gradle</h2>
 
-The easiest way to build is to install Android Studio v1.2+. Once installed, then you can import the project into Android Studio:
+The easiest way to build is to install Android Studio v 1.2+. Once installed, then you can import the project into Android Studio:
 
 1. Open File
 2. Import Project
 3. Select build.gradle under the project directory
 4. Click OK
-5. 
+
 Then, Gradle will do everything for you.
 
 <h2>Downloading the APK directly to your phone</h2>
