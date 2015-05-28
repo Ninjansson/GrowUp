@@ -289,24 +289,7 @@ public class Adapters {
         public InspirationAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-<<<<<<< HEAD
-            items.add(new Item("Plantera på höjden med pall", R.drawable.inspo01));
-            items.add(new Item("Plantera vertikalt med krukor", R.drawable.inspo02));
-            items.add(new Item("Plantera i skofickor", R.drawable.inspo03));
-            items.add(new Item("Olda i zinkhinkar", R.drawable.inspo04));
-            items.add(new Item("Fäst lådor på spaljé", R.drawable.inspo05));
-            items.add(new Item("Upp och ned tomater", R.drawable.inspo06));
-            items.add(new Item("Gro ny ingefära", R.drawable.inspo07));
-            items.add(new Item("Så ditt eget avocadoträd", R.drawable.inspo08));
-            items.add(new Item("Använd din annanasskrutt", R.drawable.inspo09));
-            items.add(new Item("Örtmix i konservburkar", R.drawable.inspo10));
-            items.add(new Item("Förkultivera i äggskal", R.drawable.inspo11));
-            items.add(new Item("Gör drivhus av dina äggkartonger", R.drawable.inspo12));
-            items.add(new Item("Gro om din lök", R.drawable.inspo13));
-            items.add(new Item("Förnya morotsblasten", R.drawable.inspo14))
-            ;items.add(new Item("Så tar du jordgubbsfrön", R.drawable.inspo15));
-            items.add(new Item("Örthylla på vägg", R.drawable.inspo16));
-=======
+
             items.add(new Item("Plantera p� h�jden med pall", R.drawable.inspo01));
             items.add(new Item("Plantera vertikalt med krukor", R.drawable.inspo02));
             items.add(new Item("Plantera i skofickor", R.drawable.inspo03));
@@ -323,7 +306,6 @@ public class Adapters {
             items.add(new Item("F�rnya morotsblasten", R.drawable.inspo14))
             ;items.add(new Item("S� tar du jordgubbsfr�n", R.drawable.inspo15));
             items.add(new Item("�rthylla p� v�gg", R.drawable.inspo16));
->>>>>>> Ampelie
         }
 
         @Override
