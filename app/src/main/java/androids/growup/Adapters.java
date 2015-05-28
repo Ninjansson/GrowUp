@@ -289,22 +289,22 @@ public class Adapters {
         public InspirationAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-            items.add(new Item("Plantera på höjden med pall", R.drawable.inspo01));
+            items.add(new Item("Plantera pï¿½ hï¿½jden med pall", R.drawable.inspo01));
             items.add(new Item("Plantera vertikalt med krukor", R.drawable.inspo02));
             items.add(new Item("Plantera i skofickor", R.drawable.inspo03));
-            items.add(new Item("Olda i zinkhinkar", R.drawable.inspo04));
-            items.add(new Item("Fäst lådor på spaljé", R.drawable.inspo05));
+            items.add(new Item("Odla i zinkhinkar", R.drawable.inspo04));
+            items.add(new Item("Fï¿½st lï¿½dor pï¿½ spaljï¿½", R.drawable.inspo05));
             items.add(new Item("Upp och ned tomater", R.drawable.inspo06));
-            items.add(new Item("Gro ny ingefära", R.drawable.inspo07));
-            items.add(new Item("Så ditt eget avocadoträd", R.drawable.inspo08));
-            items.add(new Item("Använd din annanasskrutt", R.drawable.inspo09));
-            items.add(new Item("Örtmix i konservburkar", R.drawable.inspo10));
-            items.add(new Item("Förkultivera i äggskal", R.drawable.inspo11));
-            items.add(new Item("Gör drivhus av dina äggkartonger", R.drawable.inspo12));
-            items.add(new Item("Gro om din lök", R.drawable.inspo13));
-            items.add(new Item("Förnya morotsblasten", R.drawable.inspo14))
-            ;items.add(new Item("Så tar du jordgubbsfrön", R.drawable.inspo15));
-            items.add(new Item("Örthylla på vägg", R.drawable.inspo16));
+            items.add(new Item("Gro ny ingefï¿½ra", R.drawable.inspo07));
+            items.add(new Item("Sï¿½ ditt eget avocadotrï¿½d", R.drawable.inspo08));
+            items.add(new Item("Anvï¿½nd din annanasskrutt", R.drawable.inspo09));
+            items.add(new Item("ï¿½rtmix i konservburkar", R.drawable.inspo10));
+            items.add(new Item("Fï¿½rkultivera i ï¿½ggskal", R.drawable.inspo11));
+            items.add(new Item("Gï¿½r drivhus av dina ï¿½ggkartonger", R.drawable.inspo12));
+            items.add(new Item("Gro om din lï¿½k", R.drawable.inspo13));
+            items.add(new Item("Fï¿½rnya morotsblasten", R.drawable.inspo14))
+            ;items.add(new Item("Sï¿½ tar du jordgubbsfrï¿½n", R.drawable.inspo15));
+            items.add(new Item("ï¿½rthylla pï¿½ vï¿½gg", R.drawable.inspo16));
         }
 
         @Override

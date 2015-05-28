@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,10 +25,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Calendar;
 
-import androids.growup.notifications.AlarmReceiver;
 import androids.growup.MainActivity;
 import androids.growup.R;
+import androids.growup.notifications.AlarmReceiver;
 
+/**
+ *Copyright [AppGrowUp] [Amelie Hellners, Lee Carlsson, Kim Jansson, Mia Gruvman]
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and limitations under the License.
+ */
 
 public class SettingsActivity extends ActionBarActivity {
     private static final String PREFS_NAME = "SETTINGS";
@@ -42,9 +54,7 @@ public class SettingsActivity extends ActionBarActivity {
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
-        /**
-         * DROPDOWN
-         */
+        // DROPDOWN
         // Populate dropdownlist with options for when we want pushnotices
         Spinner dropdown = (Spinner) findViewById(R.id.settings_push_when);
         if (getPlantsJSONArrayFromMyList() != null) {
@@ -91,9 +101,8 @@ public class SettingsActivity extends ActionBarActivity {
             dropdown.setEnabled(false);
         }
 
-        /**
-         * TOGGLE BUTTON
-         */
+
+         // TOGGLE BUTTON
         final ToggleButton togglePushNotices = (ToggleButton) findViewById(R.id.settings_push_toggle);
 
         // If there are plants in our list...
@@ -105,8 +114,6 @@ public class SettingsActivity extends ActionBarActivity {
 
             togglePushNotices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    //boolean x = pushNotices.isChecked();
-                    //editorCommitChanges();
                     ToggleButton togglePushNotices = (ToggleButton) findViewById(R.id.settings_push_toggle);
                     SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                     SharedPreferences.Editor editor = settings.edit();
@@ -128,7 +135,6 @@ public class SettingsActivity extends ActionBarActivity {
     }
 
     private int checkMillis(int alarmWhen) {
-        Log.i("motherfucker", "CHANGING MILLISECONDS TO");
         int millis = 0;
         int everyDay = 86400000;
         switch (alarmWhen) {
@@ -163,22 +169,17 @@ public class SettingsActivity extends ActionBarActivity {
         int alarmWhen = settings.getInt("settings_push_when", 1);
 
         if ((isItOn) && (alarmWhen != 0)) {
-            Log.i("motherfucker", "It's on like Donkey Kong!");
-
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             int interval = checkMillis(alarmWhen);
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-            // TODO: Uncomment these and the app will fire 17:00:00 every day it's supposed to.
-            //calendar.set(Calendar.HOUR_OF_DAY, 17);
-            //calendar.set(Calendar.MINUTE, 00);
+            calendar.set(Calendar.HOUR_OF_DAY, 17);
+            calendar.set(Calendar.MINUTE, 00);
             calendar.set(Calendar.SECOND, 00);
 
-            //manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
             manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
         } else {
-            Log.i("motherfucker", "It's off like Dino Zoff!!");
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             manager.cancel(pendingIntent);
         }

@@ -34,8 +34,18 @@ import androids.growup.R;
 import androids.growup.gson.Plant;
 
 /**
- * Handles every individual plant page.
- */
+ *Copyright [AppGrowUp] [Amelie Hellners, Lee Carlsson, Kim Jansson, Mia Gruvman]
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and limitations under the License.
+ *//
 public class PlantActivity extends ActionBarActivity {
 
     private static String THIS_PLANT;
@@ -122,7 +132,7 @@ public class PlantActivity extends ActionBarActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in valfritt namn på din nya planta.       ");
+        sp_name.setHint("Skriv in valfritt namn på din nya planta (max 20 tecken).");
 
         // Setup a dialog window
         alertDialogBuilder.setCancelable(false)

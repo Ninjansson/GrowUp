@@ -1,9 +1,9 @@
 package androids.growup.activities;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
@@ -15,7 +15,7 @@ import androids.growup.R;
 /**
  * Handles the "Inspiration" page.
  */
-public class InspoActivity extends Activity {
+public class InspoActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

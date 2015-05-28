@@ -54,19 +54,20 @@ xxxxxxxxxxxxxxxxxxxxxxXxxxxxxxxxxxxxxxxxxxxxxxxxXxxxxxxx++++++xx+xxx+xxx.
         */
 package androids.growup;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import androids.growup.activities.AboutUsActivity;
 import androids.growup.activities.CategoryActivity;
 import androids.growup.activities.InspoActivity;
@@ -77,7 +78,7 @@ import androids.growup.gson.Category;
 /**
  * Handles our start page.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
     private ArrayList<Category> listCategories;
     private ListView catList;
 
@@ -94,7 +95,7 @@ public class MainActivity extends Activity {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Log.e("GrowupError", "Error => " + ex);
+            ex.printStackTrace();
         }
 
         Adapters adapters = new Adapters();

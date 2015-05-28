@@ -6,9 +6,7 @@
         android:maxSdkVersion="22"
         android:minSdkVersion="16"
         android:targetSdkVersion="22" />
-
-    <!-- Permission to connect to the internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    
     <!-- Permission to startIt Alarm on device reboot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
