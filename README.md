@@ -1,4 +1,4 @@
-<h1># GrowUp</h1>
+<h1>GrowUp</h1>
 Our Android app, GrowUp, is for people who are living in the city, teenagers and newbiees in planting between the age 15-30 who want to start growing their own pentry. The app will provide information about plants and will make sure through notifications that the user remember to take care of their plants when you need to. 
 No more dead plants - download growUp today and become a pro in a minute! 
 
