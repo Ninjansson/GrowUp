@@ -21,7 +21,7 @@ The easiest way to build is to install Android Studio v1.2+. Once installed, the
 Then, Gradle will do everything for you.
 
 <h2>Downloading the APK directly to your phone</h2>
-(https://github.com/Ninjansson/GrowUp/wiki) [Download APK]
+[Download APK](https://github.com/Ninjansson/GrowUp/wiki)
 
 <h2>Code contributions are welcome!</h2>
 
