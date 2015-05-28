@@ -4,7 +4,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="300dp"
-    tools:context="androids.growup.MyPageActivity"
+    tools:context="androids.growup.activities.MyPageActivity"
     tools:ignore="MergeRootFrame">
 
     <TextView

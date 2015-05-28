@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CategoryActivity"
+            android:name=".activities.CategoryActivity"
             android:label="@string/title_activity_sub_category"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
@@ -44,7 +44,7 @@
 
         </activity>
         <activity
-            android:name=".PlantActivity"
+            android:name=".activities.PlantActivity"
             android:label="@string/title_activity_plant"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
@@ -54,7 +54,7 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:name=".AboutUsActivity"
+            android:name=".activities.AboutUsActivity"
             android:label="@string/title_activity_about_us"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
@@ -64,7 +64,7 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
@@ -74,7 +74,7 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
         <activity
-            android:name=".MyPageActivity"
+            android:name=".activities.MyPageActivity"
             android:label="@string/title_activity_my_page"
             android:screenOrientation="portrait">
             <meta-data
@@ -84,7 +84,7 @@
 
 
         <activity
-            android:name=".InspoActivity"
+            android:name=".activities.InspoActivity"
             android:label="@string/tilte_inspo_text"
             android:screenOrientation="portrait">
             <meta-data
@@ -92,7 +92,7 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>
 
-        <receiver android:name=".AlarmReceiver">
+        <receiver android:name=".notifications.AlarmReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -100,7 +100,7 @@
 
         <!-- Will not be called unless the application explicitly enables it -->
         <receiver
-            android:name=".DeviceBootReceiver"
+            android:name=".notifications.DeviceBootReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

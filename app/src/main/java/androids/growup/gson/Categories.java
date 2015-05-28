@@ -1,4 +1,4 @@
-package androids.growup;
+package androids.growup.gson;
 
 import java.util.List;
 

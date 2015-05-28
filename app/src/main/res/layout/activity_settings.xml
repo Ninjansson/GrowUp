@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="androids.growup.SettingsActivity">
+    tools:context="androids.growup.activities.SettingsActivity">
 
     <RelativeLayout
         android:id="@+id/layout_01"

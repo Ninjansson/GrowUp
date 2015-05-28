@@ -1,11 +1,10 @@
-package androids.growup;
+package androids.growup.activities;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -26,6 +25,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Calendar;
+
+import androids.growup.notifications.AlarmReceiver;
+import androids.growup.MainActivity;
+import androids.growup.R;
 
 
 public class SettingsActivity extends ActionBarActivity {
