@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
                 menuKeyField.setBoolean(config, false);
             }
         } catch (Exception ex) {
-            Log.e("GrowupError", "Error => " + ex);
+            ex.printStackTrace();
         }
 
         Adapters adapters = new Adapters();
