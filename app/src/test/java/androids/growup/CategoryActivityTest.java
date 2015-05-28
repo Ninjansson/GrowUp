@@ -4,6 +4,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.ListView;
 
+import androids.growup.activities.CategoryActivity;
+
 
 public class CategoryActivityTest extends ActivityInstrumentationTestCase2<CategoryActivity> {
 

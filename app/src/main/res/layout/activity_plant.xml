@@ -4,7 +4,7 @@
     android:id="@+id/container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="androids.growup.PlantActivity"
+    tools:context="androids.growup.activities.PlantActivity"
     tools:ignore="MergeRootFrame">
 
     <Button
@@ -23,15 +23,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout">
-
-        <ImageView
-            android:id="@+id/plant_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/button_open_popup"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -211,6 +202,16 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/plant_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="false"
+        android:layout_below="@+id/button_open_popup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!--  <TextView
         android:id="@+id/plant_difficulty"

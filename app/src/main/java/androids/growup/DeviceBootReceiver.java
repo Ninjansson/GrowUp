@@ -5,7 +5,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
+
+import androids.growup.activities.AlarmReceiver;
 
 public class DeviceBootReceiver extends BroadcastReceiver {
 

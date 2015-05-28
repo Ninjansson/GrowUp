@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_about"
-    tools:context="androids.growup.CategoryActivity"
+    tools:context="androids.growup.activities.CategoryActivity"
     tools:ignore="MergeRootFrame">
 
     <ListView
