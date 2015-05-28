@@ -1,4 +1,4 @@
-package androids.growup;
+package androids.growup.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import androids.growup.Adapters;
+import androids.growup.JSONHelpers;
+import androids.growup.MainActivity;
+import androids.growup.R;
+import androids.growup.gson.Category;
+import androids.growup.gson.Plant;
 
 
 public class CategoryActivity extends ActionBarActivity {
@@ -25,8 +31,8 @@ public class CategoryActivity extends ActionBarActivity {
 
         setTitle(this.getIntent().getExtras().getString("cat_name").toUpperCase());
 
-        Adapter adapter = new Adapter();
-        Adapter.JSONHelpers categories = adapter.new JSONHelpers(getAssets());
+        Adapters adapters = new Adapters();
+        JSONHelpers categories = new JSONHelpers(getAssets());
         List<Category> cats = categories.getAll();
 
         plantsList = (ListView) findViewById(R.id.category_plants);
@@ -40,7 +46,7 @@ public class CategoryActivity extends ActionBarActivity {
             }
         }
 
-        Adapter.PlantsAdapter plantsAdapter = adapter.new PlantsAdapter(this, listPlants);
+        Adapters.PlantsAdapter plantsAdapter = adapters.new PlantsAdapter(this, listPlants);
         plantsList.setAdapter(plantsAdapter);
 
         plantsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

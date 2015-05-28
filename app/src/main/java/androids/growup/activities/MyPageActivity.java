@@ -1,11 +1,10 @@
-package androids.growup;
+package androids.growup.activities;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +20,10 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import androids.growup.JSONMyPlantsAdapter;
+import androids.growup.MainActivity;
+import androids.growup.R;
 
 
 public class MyPageActivity extends ActionBarActivity {
@@ -38,7 +41,15 @@ public class MyPageActivity extends ActionBarActivity {
         myPlantsAdapter = new JSONMyPlantsAdapter(this, getLayoutInflater());
         my_plants_list.setAdapter(myPlantsAdapter);
 
-        if (getPlantsJSONArrayFromMyList() != null) {
+        // Check if we have any items in our list
+        JSONArray checkArray = null;
+        try {
+            checkArray = getJSONObjectFromMyList().getJSONArray("myPlants");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        if (checkArray.length() != 0) {
             my_page_information.setVisibility(View.GONE);
             populateMyPlantsList();
         } else {
@@ -55,6 +66,17 @@ public class MyPageActivity extends ActionBarActivity {
                 startActivity(plantIntent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (my_plants_list.getCount() != 0) {
+
+        } else {
+            //Log.d("motherfucker", "PICK => " + my_plants_list.getCount() + " NAY!");
+        }
+
     }
 
     @Override
@@ -85,9 +107,8 @@ public class MyPageActivity extends ActionBarActivity {
     }
 
     private void populateMyPlantsList() {
-        Log.d("motherfucker", "LENGTH => " + getPlantsJSONArrayFromMyList().optJSONArray("myPlants").length());
-        JSONObject myPlants = getPlantsJSONArrayFromMyList();
-        JSONArray plantArray = null;
+        JSONObject myPlants = getJSONObjectFromMyList();
+        JSONArray plantArray;
 
         try {
             plantArray = myPlants.getJSONArray("myPlants");
@@ -103,7 +124,7 @@ public class MyPageActivity extends ActionBarActivity {
         }
     }
 
-    public JSONObject getPlantsJSONArrayFromMyList() {
+    public JSONObject getJSONObjectFromMyList() {
         Context context = getApplicationContext();
         String filePath = context.getFilesDir().getPath().toString() + "/mylist";
         StringBuilder finalString = new StringBuilder();

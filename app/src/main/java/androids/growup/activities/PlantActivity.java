@@ -1,4 +1,4 @@
-package androids.growup;
+package androids.growup.activities;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -6,21 +6,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,9 +29,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
+import androids.growup.MainActivity;
+import androids.growup.R;
+import androids.growup.gson.Plant;
 
 public class PlantActivity extends ActionBarActivity {
 
@@ -45,7 +41,7 @@ public class PlantActivity extends ActionBarActivity {
     private static int PLANT_ID;
     public ImageView plant_icon, diff_icon;
     public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_good_to_know,
-            plant_harvest, plant_link, plant_difficulty;
+            plant_harvest, plant_link;
 
 
     @Override
@@ -66,7 +62,8 @@ public class PlantActivity extends ActionBarActivity {
         plant_good_to_know = (TextView) findViewById(R.id.plant_good_to_know);
         plant_harvest = (TextView) findViewById(R.id.plant_harvest);
         plant_link = (TextView) findViewById(R.id.plant_link);
-        //plant_difficulty = (TextView) findViewById(R.id.plant_name);
+        diff_icon = (ImageView) findViewById(R.id.diff_icon);
+        plant_icon = (ImageView) findViewById(R.id.plant_icon);
 
         plant_name.setText(plant.name);
         latin_name.setText(plant.latin_name);
@@ -76,7 +73,11 @@ public class PlantActivity extends ActionBarActivity {
         plant_good_to_know.setText(plant.good_to_know);
         plant_harvest.setText(plant.harvest);
         plant_link.setText(plant.link);
-       // plant_difficulty.setText(plant.difficulty);
+
+        diff_icon.setImageResource(difficultyIcon(plant.difficulty));
+
+        //int icon = getResources().getIdentifier("plant_page_oregano", "drawable", getPackageName());
+        //plant_icon.setImageResource(icon);
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
         open_popup.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +86,25 @@ public class PlantActivity extends ActionBarActivity {
                 showInputDialog();
             }
         });
+    }
+
+
+    public int difficultyIcon(int difficulty) {
+        int img = 0;
+        switch(difficulty) {
+            case 1:
+                img = getResources().getIdentifier("ic_easy", "drawable", getPackageName());
+                 break;
+            case 2:
+                img = getResources().getIdentifier("ic_medium", "drawable", getPackageName());
+                break;
+            case 3:
+                img = getResources().getIdentifier("ic_hard", "drawable", getPackageName());
+                break;
+            default:
+                break;
+        }
+        return img;
     }
 
     protected void showInputDialog() {
@@ -163,7 +183,7 @@ public class PlantActivity extends ActionBarActivity {
             je.printStackTrace();
         }
 
-        JSONObject boo = getPlantsJSONArrayFromMyList();
+        JSONObject boo = getMainObjectFromMyList();
         try {
             JSONArray plantArray = boo.getJSONArray("myPlants");
             plantArray.put(myObject);
@@ -183,7 +203,7 @@ public class PlantActivity extends ActionBarActivity {
         }
     }
 
-    private JSONObject getPlantsJSONArrayFromMyList() {
+    private JSONObject getMainObjectFromMyList() {
         Context context = getApplicationContext();
         String filePath = context.getFilesDir().getPath().toString() + "/mylist";
         StringBuilder finalString = new StringBuilder();
@@ -212,57 +232,16 @@ public class PlantActivity extends ActionBarActivity {
         return mainObject;
     }
 
-    private String getData() {
-        Context context = getApplicationContext();
-        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
-        StringBuilder finalString = new StringBuilder();
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-        try {
-            FileInputStream inStream = new FileInputStream(filePath);
-            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            String oneLine;
-
-            while ((oneLine = bufferedReader.readLine()) != null) {
-                finalString.append(oneLine);
-            }
-
-            bufferedReader.close();
-            inStream.close();
-            inputStreamReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return finalString.toString();
     }
-
-    /*
-    private void editorCommitChanges() {
-        //Log.i("TEST MOTHERFUCKER", "In PlantActivity.editorCommitChanges() - Probably fucking things up");
-
-        // We need an Editor object to make preference changes.
-        // All objects are from android.context.Context
-        Switch pushNotices = (Switch) findViewById(R.id.toggle_push);
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        String plantName = this.getIntent().getExtras().getString("name");
-        editor.putBoolean(plantName, pushNotices.isChecked());
-
-        // Commit the edits!
-        editor.commit();
-    }
-    */
 
     @Override
     protected void onStop() {
         super.onStop();
         //editorCommitChanges();
-    }
-
-    public String checkHabitat(int habitat) {
-        return habitat == 0 ? "Ute" : habitat == 1 ? "Inne" : "Ute och Inne";
     }
 
     @Override

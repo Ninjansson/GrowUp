@@ -1,10 +1,10 @@
-package androids.growup;
+package androids.growup.activities;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,15 +14,15 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class InspoActivity extends ActionBarActivity {
+import androids.growup.MainActivity;
+import androids.growup.R;
+
+public class InspoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

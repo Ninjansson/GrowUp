@@ -1,6 +1,8 @@
 package androids.growup;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 /**
@@ -19,10 +28,6 @@ import org.json.JSONObject;
  */
 
 public class JSONMyPlantsAdapter extends BaseAdapter {
-    private static final String IMAGE_URL_BASE = "http://kimjansson.se/GrowUp/imgs/plant_icons/";
-    private static final String TAG = "GrowUpMotherFucker";
-    private static final int PLANT_TO_REMOVE = 0;
-
     Context mContext;
     LayoutInflater mInflater;
     JSONArray mJsonArray;
@@ -45,13 +50,11 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        // your particular dataset uses String IDs
-        // but you have to put something in this method
         return position;
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         ViewHolder holder;
 
         if (convertView == null) {
@@ -68,39 +71,95 @@ public class JSONMyPlantsAdapter extends BaseAdapter {
         }
         final JSONObject jsonObject = (JSONObject) getItem(position);
 
-        // Grab the title and author from the JSON
         String name = "";
 
         if (jsonObject.has("my_name")) {
             name = jsonObject.optString("my_name");
         }
 
-        // Send these Strings to the TextViews for display
         holder.my_plant_name.setText(name);
         holder.plant_id_tw.setText(String.valueOf(jsonObject.optInt("plant_id")));
         holder.plant_id_tw.setVisibility(View.INVISIBLE);
+
         holder.button_delete.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Plantan på position " + position + " är nu borttagen.", Toast.LENGTH_SHORT).show();
-                //Log.i("motherfucker", "PLANT ID => " + jsonObject.optInt("plant_id"));
-                //Log.i("motherfucker", "POSITION => " + position);
-                //Log.i("motherfucker", "ARRAY.LENGTH => " + getCount());
+                JSONObject myList = getMainObjectFromMyList();
+                JSONArray plantArray = null;
+                try {
+                    plantArray = myList.getJSONArray("myPlants");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                plantArray.remove(position);
 
+                Context context = mContext;
+                String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+                File file = new File(filePath);
+
+                file.delete();
+                try {
+                    file.createNewFile();
+
+                    JSONObject mainObject = new JSONObject();
+                    mainObject.put("myPlants", plantArray);
+                    FileOutputStream fos = new FileOutputStream(file, false);
+                    fos.write(mainObject.toString().getBytes());
+                    fos.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                updateData(plantArray);
             }
         });
+
         return convertView;
     }
 
-    public void updateData(JSONArray jsonArray) {
-        // update the adapter's dataset
-        mJsonArray = jsonArray;
-        notifyDataSetChanged();
+    private JSONObject getMainObjectFromMyList() {
+        Context context = mContext;
+        String filePath = context.getFilesDir().getPath().toString() + "/mylist";
+        StringBuilder finalString = new StringBuilder();
+        JSONObject mainObject = null;
+
+        try {
+            FileInputStream inStream = new FileInputStream(filePath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            String oneLine;
+            while ((oneLine = bufferedReader.readLine()) != null) {
+                finalString.append(oneLine);
+            }
+
+            mainObject = new JSONObject(finalString.toString());
+            bufferedReader.close();
+            inStream.close();
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return mainObject;
     }
 
-    // this is used so you only ever have to do
-// inflation and finding by ID once ever per View
-    private static class ViewHolder {
+    // Updating the adapters dataset
+    public void updateData(JSONArray jsonArray) {
+        mJsonArray = jsonArray;
+        notifyDataSetChanged();
+        Toast.makeText(mContext, "Plantan raderad.", Toast.LENGTH_SHORT).show();
+    }
+
+
+    //
+    // Class for holding data about the items from myList
+    private class ViewHolder {
         public TextView my_plant_name, plant_id_tw;
         public Button button_delete;
     }
