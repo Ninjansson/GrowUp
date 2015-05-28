@@ -42,9 +42,7 @@ public class SettingsActivity extends ActionBarActivity {
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
-        /**
-         * DROPDOWN
-         */
+        // DROPDOWN
         // Populate dropdownlist with options for when we want pushnotices
         Spinner dropdown = (Spinner) findViewById(R.id.settings_push_when);
         if (getPlantsJSONArrayFromMyList() != null) {
@@ -91,9 +89,8 @@ public class SettingsActivity extends ActionBarActivity {
             dropdown.setEnabled(false);
         }
 
-        /**
-         * TOGGLE BUTTON
-         */
+
+         // TOGGLE BUTTON
         final ToggleButton togglePushNotices = (ToggleButton) findViewById(R.id.settings_push_toggle);
 
         // If there are plants in our list...
@@ -105,8 +102,6 @@ public class SettingsActivity extends ActionBarActivity {
 
             togglePushNotices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    //boolean x = pushNotices.isChecked();
-                    //editorCommitChanges();
                     ToggleButton togglePushNotices = (ToggleButton) findViewById(R.id.settings_push_toggle);
                     SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                     SharedPreferences.Editor editor = settings.edit();
@@ -128,7 +123,6 @@ public class SettingsActivity extends ActionBarActivity {
     }
 
     private int checkMillis(int alarmWhen) {
-        Log.i("motherfucker", "CHANGING MILLISECONDS TO");
         int millis = 0;
         int everyDay = 86400000;
         switch (alarmWhen) {
@@ -163,22 +157,17 @@ public class SettingsActivity extends ActionBarActivity {
         int alarmWhen = settings.getInt("settings_push_when", 1);
 
         if ((isItOn) && (alarmWhen != 0)) {
-            Log.i("motherfucker", "It's on like Donkey Kong!");
-
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             int interval = checkMillis(alarmWhen);
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-            // TODO: Uncomment these and the app will fire 17:00:00 every day it's supposed to.
-            //calendar.set(Calendar.HOUR_OF_DAY, 17);
-            //calendar.set(Calendar.MINUTE, 00);
+            calendar.set(Calendar.HOUR_OF_DAY, 17);
+            calendar.set(Calendar.MINUTE, 00);
             calendar.set(Calendar.SECOND, 00);
 
-            //manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
             manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
         } else {
-            Log.i("motherfucker", "It's off like Dino Zoff!!");
             AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             manager.cancel(pendingIntent);
         }
