@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -40,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PlantActivity extends AppCompatActivity {
+public class PlantActivity extends ActionBarActivity {
 
     private static String THIS_PLANT;
     private static int PLANT_ID;
@@ -95,7 +94,7 @@ public class PlantActivity extends AppCompatActivity {
         alertDialogBuilder.setView(promptView);
 
         final EditText sp_name = (EditText) promptView.findViewById(R.id.sp_name);
-        sp_name.setHint("Skriv in valfritt namn på din nya planta (max 20 tecken).       ");
+        sp_name.setHint("Skriv in valfritt namn på din nya planta.       ");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("SPARA", new DialogInterface.OnClickListener() {
@@ -106,7 +105,6 @@ public class PlantActivity extends AppCompatActivity {
 
                         if (input.equals("")) {
                             input = THIS_PLANT + " | " + dateFormat.format(date);
-
                         } else {
                             input = sp_name.getText().toString();
                         }
