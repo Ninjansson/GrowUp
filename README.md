@@ -26,6 +26,13 @@ Then, Gradle will do everything for you.
 <h2>API Reference</h2>
 1. ^^^^^^^^^^^^^^
 
+
+<h2>TODO:s</h2>
+Change the acitivites in the menu to Fragments
+Add Instrumental Tests
+Be able to share your plants with your friends
+Make A new Activity with juice recipes 
+
 <h2>Code contributions are welcome!</h2>
 
 Any contributions, large or small, major features, bug fixes, additional language translations, unit/integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
