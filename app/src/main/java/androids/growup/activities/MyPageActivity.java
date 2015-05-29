@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import androids.growup.Adapters;
+import androids.growup.JSONHelpers;
 import androids.growup.MainActivity;
 import androids.growup.R;
 
@@ -77,10 +78,16 @@ public class MyPageActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView plant_id = (TextView) view.findViewById(R.id.plant_id_tw);
-
+                JSONHelpers help = new JSONHelpers(getAssets());
+                help.getOnePlant(Integer.parseInt(plant_id.getText().toString()));
+                Intent plantIntent = new Intent(MyPageActivity.this, PlantActivity.class);
+                plantIntent.putExtra("plant", help.getOnePlant(Integer.parseInt(plant_id.getText().toString())));
+                startActivity(plantIntent);
+                /*
                 Intent plantIntent = new Intent(MyPageActivity.this, PlantActivity.class);
                 plantIntent.putExtra("plant_id", Integer.parseInt(plant_id.getText().toString()));
                 startActivity(plantIntent);
+                */
             }
         });
     }

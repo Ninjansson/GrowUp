@@ -50,7 +50,7 @@ public class PlantActivity extends ActionBarActivity {
 
     private static String THIS_PLANT;
     private static int PLANT_ID;
-    public ImageView plant_icon, diff_icon;
+    public ImageView plant_icon, diff_icon, illustration_img;
     public TextView plant_name, latin_name, plant_info, plant_how_to, plant_usage, plant_good_to_know,
             plant_harvest, plant_link;
 
@@ -76,6 +76,7 @@ public class PlantActivity extends ActionBarActivity {
         plant_link = (TextView) findViewById(R.id.plant_link);
         diff_icon = (ImageView) findViewById(R.id.diff_icon);
         plant_icon = (ImageView) findViewById(R.id.plant_icon);
+        illustration_img = (ImageView) findViewById(R.id.illustration_img);
 
         plant_name.setText(plant.name);
         latin_name.setText(plant.latin_name);
@@ -89,8 +90,8 @@ public class PlantActivity extends ActionBarActivity {
         // Sets the difficulty icon
         diff_icon.setImageResource(difficultyIcon(plant.difficulty));
 
-        //int icon = getResources().getIdentifier("plant_page_oregano", "drawable", getPackageName());
-        //plant_icon.setImageResource(icon);
+        int illustration = getResources().getIdentifier(plant.illustration_img, "drawable", getPackageName());
+        illustration_img.setImageResource(illustration);
 
         final Button open_popup = (Button) findViewById(R.id.button_open_popup);
         open_popup.setOnClickListener(new View.OnClickListener() {
