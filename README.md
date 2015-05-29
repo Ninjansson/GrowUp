@@ -23,10 +23,6 @@ Then, Gradle will do everything for you.
 <h2>Downloading the APK directly to your phone</h2>
 [Download APK](https://github.com/Ninjansson/GrowUp/wiki)
 
-<h2>API Reference</h2>
-1. ^^^^^^^^^^^^^^
-
-
 <h2>TODO:s</h2>
 Change the acitivites in the menu to Fragments
 Add Instrumental Tests

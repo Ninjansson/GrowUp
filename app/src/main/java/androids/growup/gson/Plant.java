@@ -13,6 +13,8 @@ public class Plant implements Serializable {
 
     public String name;
 
+    public String illustration_img;
+
     public String plant_img;
 
     public String latin_name;
