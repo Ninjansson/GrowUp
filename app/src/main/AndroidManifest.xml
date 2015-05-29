@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="androids.growup">
+    package="androids.growup"
+    android:versionCode="1"
+    android:versionName="v1.3">
 
     <uses-sdk
         android:maxSdkVersion="22"

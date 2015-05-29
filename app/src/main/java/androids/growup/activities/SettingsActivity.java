@@ -65,10 +65,7 @@ public class SettingsActivity extends ActionBarActivity {
                             "Aldrig",
                             "Varje dag",
                             "Varannan dag",
-                            "En gång i veckan",
-                            "Varje sekund",
-                            "Var 5e sekund",
-                            "Var 10e sekund"
+                            "En gång i veckan"
                     };
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
@@ -146,15 +143,6 @@ public class SettingsActivity extends ActionBarActivity {
                 break;
             case 3:
                 millis = everyDay * 7;
-                break;
-            case 4:
-                millis = 1000;
-                break;
-            case 5:
-                millis = 5000;
-                break;
-            case 6:
-                millis = 10000;
                 break;
             default:
                 break;
