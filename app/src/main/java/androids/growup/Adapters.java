@@ -289,22 +289,22 @@ public class Adapters {
         public InspirationAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-            items.add(new Item("Plantera p� h�jden med pall", R.drawable.inspo01));
+            items.add(new Item("Plantera p\u00E5 h\u00F6jden med pall", R.drawable.inspo01));
             items.add(new Item("Plantera vertikalt med krukor", R.drawable.inspo02));
             items.add(new Item("Plantera i skofickor", R.drawable.inspo03));
             items.add(new Item("Odla i zinkhinkar", R.drawable.inspo04));
-            items.add(new Item("F�st l�dor p� spalj�", R.drawable.inspo05));
+            items.add(new Item("F\u00F6st l\u00E5dor p\u00E5 spalje", R.drawable.inspo05));
             items.add(new Item("Upp och ned tomater", R.drawable.inspo06));
-            items.add(new Item("Gro ny ingef�ra", R.drawable.inspo07));
-            items.add(new Item("S� ditt eget avocadotr�d", R.drawable.inspo08));
-            items.add(new Item("Anv�nd din annanasskrutt", R.drawable.inspo09));
-            items.add(new Item("�rtmix i konservburkar", R.drawable.inspo10));
-            items.add(new Item("F�rkultivera i �ggskal", R.drawable.inspo11));
-            items.add(new Item("G�r drivhus av dina �ggkartonger", R.drawable.inspo12));
-            items.add(new Item("Gro om din l�k", R.drawable.inspo13));
-            items.add(new Item("F�rnya morotsblasten", R.drawable.inspo14))
-            ;items.add(new Item("S� tar du jordgubbsfr�n", R.drawable.inspo15));
-            items.add(new Item("�rthylla p� v�gg", R.drawable.inspo16));
+            items.add(new Item("Gro ny ingef\u00E4ra", R.drawable.inspo07));
+            items.add(new Item("S\u00E5 ditt eget avocadotr\u00E4d", R.drawable.inspo08));
+            items.add(new Item("Anv\u00E4nd din annanasskrutt", R.drawable.inspo09));
+            items.add(new Item("\u00F6rtmix i konservburkar", R.drawable.inspo10));
+            items.add(new Item("F\u00F6rkultivera i \u00E4ggskal", R.drawable.inspo11));
+            items.add(new Item("G\u00F6r drivhus av dina \u00E4ggkartonger", R.drawable.inspo12));
+            items.add(new Item("Gro om din l\u00F6k", R.drawable.inspo13));
+            items.add(new Item("F\u00F6rnya morotsblasten", R.drawable.inspo14))
+            ;items.add(new Item("S\u00E5 tar du jordgubbsfr\u00F6n", R.drawable.inspo15));
+            items.add(new Item("\u00F6rthylla p\u00E5 v\u00E4gg", R.drawable.inspo16));
         }
 
         @Override
