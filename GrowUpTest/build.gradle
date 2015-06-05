@@ -23,7 +23,7 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 'android-17'
+    compileSdkVersion 'android-8'
     buildToolsVersion '20'
 
     android {
@@ -53,10 +53,10 @@ android {
 task assembleDebug(overwrite: true) {}
 
 task copyTask(type: Copy) {
-    from '/Users/amelie/AndroidStudioProjects/GrowUp/app/app-release_debug.apk'
+    from 'C:/Users/Kim Jansson/AndroidStudioProjects/GrowUp/app/app-release_debug.apk'
     into 'build/outputs/apk/'
     rename {
-        'MainActivityTest-debug.apk'
+        'GrowUpTest-debug.apk'
     }
 }
 

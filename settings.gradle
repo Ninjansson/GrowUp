@@ -1,2 +1,7 @@
 include ':app'
 
+<<<<<<< HEAD
+=======
+include ':MainActivityTest'
+include ':GrowUpTest'
+>>>>>>> Kim

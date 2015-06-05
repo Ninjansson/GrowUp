@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GrowUp.iml" filepath="$PROJECT_DIR$/GrowUp.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/GrowUpTest/GrowUpTest.iml" filepath="$PROJECT_DIR$/GrowUpTest/GrowUpTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MainActivityTest/MainActivityTest.iml" filepath="$PROJECT_DIR$/MainActivityTest/MainActivityTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MainActivityTest/MainActivityTest.iml" filepath="$PROJECT_DIR$/MainActivityTest/MainActivityTest.iml" />
+>>>>>>> Kim
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

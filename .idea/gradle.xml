@@ -10,6 +10,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+=======
+            <option value="$PROJECT_DIR$/GrowUpTest" />
+            <option value="$PROJECT_DIR$/MainActivityTest" />
+>>>>>>> Kim
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
