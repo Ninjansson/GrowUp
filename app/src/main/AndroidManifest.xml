@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="androids.growup"
-    android:versionCode="1"
-    android:versionName="v1.3">
+    package="androids.growup">
 
     <uses-sdk
         android:maxSdkVersion="22"
-        android:minSdkVersion="16"
-        android:targetSdkVersion="22" />
+        android:versionCode="1"
+        android:versionName="v1.3"
+        />
     
     <!-- Permission to startIt Alarm on device reboot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />

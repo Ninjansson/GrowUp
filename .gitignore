@@ -37,10 +37,9 @@ Thumbs.db
 .idea
 #.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
-<<<<<<< HEAD
+
 build/
-=======
-build/
->>>>>>> origin/master
 app/src/main/res/layout/activity_inspo.xml
 app/src/main/java/androids/growup/MainActivity.java
+
+
